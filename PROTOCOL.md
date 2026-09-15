@@ -12,7 +12,7 @@
 
 1. 读取 `PROTOCOL.md`，检查当前请求是否违反硬规则。
 2. 读取 `TRAINING_PLAN.md` 中当前对应的 Step，确认前置 Step 的实际结果、本 Step 唯一允许改变的变量，以及本 Step 是否仍适合继续执行。
-3. 输出本次实验的任务类型、输入通道、分辨率、Fold 划分、Seed、模型、训练超参数和评价指标。
+3. 输出本次实验的任务类型、输入通道、分辨率、Fold 划分、Fold Seed、Training Seed、模型、训练超参数和评价指标。
 4. 执行 `PROTOCOL.md` 要求的完整数据完整性检查；任一检查失败立即停止。
 5. 先运行必要的 smoke test；通过后才可开始正式的五个 Fold 实验。
 6. 按当前 Step 完成训练、Fold 评估、Mean ± Std 汇总、柱状图和 HTML 报告。
@@ -44,25 +44,46 @@
 - 在 `Patient Isolation = True` 时，必须按 `patient_id` 分组后进行五折划分；同一患者的不同时期、不同严重程度、不同通道必须位于同一 Fold，且不得同时出现在当轮训练 Fold 和评估 Fold。
 - 在 `Patient Isolation = False` 时，按样本进行五折划分，不要求同一患者位于同一 Fold；同一患者可以出现在不同 Fold。
 - 每次实验必须明确选择并记录 `Patient Isolation = True` 或 `Patient Isolation = False`。
-- `seed = 42` 生成的五折名单固定后禁止重新划分。
+- `Fold Seed = 42` 生成的五折名单固定后禁止重新划分；Training Seed 不得触发重新划分。
 - 每个样本必须在五轮中恰好作为一次评估样本。
 
 ## 3. 随机种子
-固定使用 Seed = 42。
 
-规则：
-- 每个正式实验必须完整运行五个 Fold
-- 五个 Fold 使用同一份由 Seed = 42 生成的固定划分
-- Seed 仅控制：
-  - 模型初始化
-  - DataLoader Shuffle
-  - 数据增强随机性
-  - Python RNG
-  - NumPy RNG
-  - PyTorch RNG
-  - CUDA RNG
-- 本 Protocol 不得改用其他 Seed；如需研究 Seed 影响，必须另行明确指定实验。
-- 最终结果统一报告 Mean ± Standard Deviation
+### 3.1 五折划分种子
+
+- Fold Seed = 42。
+- Fold Seed 只用于生成五折划分结果。
+- 五折划分完成后必须固定，不得因训练种子改变。
+- Patient Isolation = True 和 Patient Isolation = False 分别生成各自的五折划分，但两者都使用 Fold Seed = 42。
+- Fold Seed 不控制模型初始化、DataLoader Shuffle、数据增强或训练过程中的其他随机性。
+
+### 3.2 训练种子
+
+正式训练使用三个 Training Seed：
+
+- Training Seeds = [42, 3407, 2026]
+
+每个 Training Seed 分别控制：
+
+- 模型初始化
+- DataLoader Shuffle
+- 数据增强随机性
+- Python RNG
+- NumPy RNG
+- PyTorch RNG
+- CUDA RNG
+
+每个 Training Seed 都必须使用完全相同的五折划分，并完整运行五个 Fold。每个 Fold 训练完成后必须对该 Fold 进行评估。
+
+因此，每个实验共运行：
+
+- 3 个 Training Seed
+- 5 个 Fold
+- 共 15 次独立训练与评估
+
+Fold Seed = 42 与 Training Seed = 42 数值相同，但两者职责独立，不能混用。
+
+最终结果必须保留每个 Fold 和每个 Training Seed 的真实记录，不得只选择表现最好的 Fold 或 Training Seed。
 
 ## 4. 分类任务与标签规则
 原始标签固定为：
@@ -144,7 +165,8 @@
 - Scheduler = None
 - Early Stopping = False
 - Baseline Loss = CrossEntropyLoss
-- Seeds = [42]
+- Fold Seed = 42
+- Training Seeds = [42, 3407, 2026]
 
 ### Epoch
 所有正式实验固定训练 50 Epoch：
@@ -240,31 +262,28 @@ Soft Label、Ordinal Loss、Loss1 + Loss2 等仅允许在对应 Label / Loss Ben
 但不得替代统一核心指标。
 
 ## 12. 五 Fold 结果汇总
-每个实验分别保存：
 
-- Fold 1 结果
-- Fold 2 结果
-- Fold 3 结果
-- Fold 4 结果
-- Fold 5 结果
+每个实验必须保存 3 个 Training Seed × 5 个 Fold 的独立结果，共 15 条 Fold-level 记录：
 
-最终每个指标计算：
+- Training Seed = 42：Fold 1–5
+- Training Seed = 3407：Fold 1–5
+- Training Seed = 2026：Fold 1–5
 
-- Mean
-- Standard Deviation
+汇总分为两层：
 
-最终 Benchmark 结果统一报告：
+1. 对每个 Training Seed，计算其五个 Fold 的 Mean ± Standard Deviation。
+2. 再对三个 Training Seed 的五折 Mean 计算最终 Mean ± Standard Deviation。
 
-Mean ± Standard Deviation
+最终 Benchmark 结果统一报告三个 Training Seed 的最终 Mean ± Standard Deviation，同时保留每个 Training Seed 的五 Fold 汇总和全部 Fold-level 原始结果。
 
-禁止只报告表现最好的 Fold。
+禁止只报告表现最好的 Fold 或只选择表现最好的 Training Seed。
 
 ## 13. Benchmark 可视化
 正式 Benchmark 结果必须进行柱状图可视化，图表应能直接比较不同实验方案、输入分辨率或输入通道的表现，并体现五个 Fold 的结果波动。
 
 ### 13.1 汇总统计与误差线
 
-- 每个实验方案使用五个 Fold 的结果进行汇总。
+- 每个 Training Seed 的实验方案使用五个 Fold 的结果进行汇总；如比较最终方案，必须保留三个 Training Seed 的汇总记录。
 - 柱高 / 柱长 = 五个 Fold 对应指标的 Mean。
 - Error Bar = 五个 Fold 对应指标的 Standard Deviation。
 - 禁止只使用表现最好的 Fold 绘图。
@@ -360,7 +379,7 @@ Mean ± Standard Deviation
 规则：
 - 与当前研究问题无关的配置必须保持固定
 - 不得修改五 Fold 划分
-- 不得修改固定 Seed = 42
+- 不得修改固定 Fold Seed = 42 或 Training Seeds = [42, 3407, 2026]
 - Epoch 始终保持 50，除非用户明确进行 Epoch Benchmark
 - 不得私自修改评价规则
 - 不得私自修改数据预处理方式
@@ -378,7 +397,8 @@ Mean ± Standard Deviation
 Resolution Benchmark 中固定：
 
 - 五 Fold 划分
-- Seed = 42
+- Fold Seed = 42
+- Training Seeds = [42, 3407, 2026]
 - ResNet50
 - ImageNet Pretrained
 - AdamW
@@ -396,9 +416,9 @@ Resolution Benchmark 中固定：
 
 - Input Resolution
 
-每种 Resolution 完整运行五个 Fold。
+每种 Resolution 使用三个 Training Seed 完整运行五个 Fold，共 15 次运行。
 
-最终根据五个 Fold 的 Mean ± Std 进行比较。
+先按每个 Training Seed 汇总五个 Fold，再根据三个 Training Seed 的汇总结果进行比较。
 
 分辨率确定后，后续正式 Benchmark 默认固定使用该分辨率。
 
@@ -446,6 +466,8 @@ D:\skin_comparison\
     └── step_10_N\
 ```
 
+每个 `step_XX_I` / `step_XX_N` 目录下必须固定包含五个 Fold 子目录：`fold_01`、`fold_02`、`fold_03`、`fold_04`、`fold_05`。每个 Fold 子目录只保存该 Fold 的训练、评估、指标、日志和经批准的权重；Step 根目录保存该 Step 的汇总指标、图表和 HTML 报告。所有 Training Seed 都必须在同一 Fold 子目录中按独立运行记录保存，不得跨 Fold 混存。
+
 其中：
 
 - `I` 表示 `Patient Isolation = True`；`N` 表示 `Patient Isolation = False`。
@@ -456,25 +478,45 @@ D:\skin_comparison\
 每个 Step 目录必须使用与目录一致的编号保存文件。例如 `isolated\step_05_I\` 至少包含：
 
 ```text
-step_05_I.py
-config_step_05_I.json
-report_step_05_I.html
-metrics_step_05_I.csv
-metrics_step_05_I.json
-figures\
-logs\
-checkpoints\
+step_05_I\
+├── step_05_I.py
+├── config_step_05_I.json
+├── report_step_05_I.html
+├── metrics_step_05_I.csv
+├── metrics_step_05_I.json
+├── figures\
+├── logs\
+├── fold_01\
+├── fold_02\
+├── fold_03\
+├── fold_04\
+└── fold_05\
 ```
+
+
+每个 Fold 子目录至少应包含：
+
+```text
+fold_01\
+├── config_fold_01.json
+├── metrics_fold_01.json
+├── train.log
+├── eval.log
+└── checkpoints\
+    └── last.pth
+```
+
+其中 `fold_02`–`fold_05` 使用相同结构并替换 Fold 编号。`last.pth` 必须是该 Fold、该 Training Seed、该 Step 的 Epoch 50 权重，不得使用其他 Fold 或其他 Training Seed 的权重。
 
 不隔离路线使用相同的文件类型和对应编号，例如 `non_isolated\step_05_N\step_05_N.py`。其中：
 
 - `step_XX_I.py` / `step_XX_N.py`：当前 Step 的训练和评估入口，只包含 Step 特有逻辑，并导入根目录的 `dataset.py` 和 `model.py`。
-- `config_step_XX_*.json`：实际配置，包括 `Patient Isolation`、Seed、Fold、输入分辨率和训练超参数。
+- `config_step_XX_*.json`：实际配置，包括 `Patient Isolation`、Fold Seed、Training Seed、Fold、输入分辨率和训练超参数。
 - `report_step_XX_*.html`：当前 Step 的自包含可视化报告。
 - `metrics_step_XX_*.csv` / `metrics_step_XX_*.json`：五个 Fold 的原始指标、汇总指标和数据检查结果。
 - `figures\`：当前 Step 实际生成的图表和混淆矩阵。
 - `logs\`：smoke test、训练、评估和状态日志。
-- `checkpoints\`：仅保存已获准保留的模型权重。
+- 每个 `fold_XX\` 目录下的 `checkpoints\`：仅保存该 Fold 中已获准保留的模型权重。
 
 规则：
 
@@ -512,7 +554,8 @@ checkpoints\
 - Benchmark 类型
 - 二分类 / 五分类
 - Label Strategy
-- Seed = 42
+- Fold Seed = 42
+- Training Seed = 42 / 3407 / 2026
 - Patient Isolation = True / False
 - Fold 编号
 - Fold Train Sample Count
@@ -541,7 +584,7 @@ checkpoints\
 ## 19. 团队协作规则
 - 所有协作者必须读取并遵守本 Protocol
 - 所有协作者使用完全相同的五 Fold 数据划分
-- 所有协作者使用 Seed = 42
+- 所有协作者使用 Fold Seed = 42 和 Training Seeds = [42, 3407, 2026]
 - 所有正式实验默认使用完全相同的固定超参数
 - 禁止自行重新划分五 Fold 数据
 - 禁止自行修改固定超参数
@@ -570,7 +613,7 @@ Git 可以保存：
 7. 检查五 Fold 是否符合当前患者隔离选项
 8. 不得重新划分五 Fold 数据
 9. 不得自行增加 Validation 集
-10. 使用 Seed = 42
+10. 使用 Fold Seed = 42，并依次使用 Training Seeds = [42, 3407, 2026]
 11. 使用 Batch Size = 32
 12. 使用 AdamW
 13. 使用 Learning Rate = 1e-4
