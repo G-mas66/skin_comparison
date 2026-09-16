@@ -1,0 +1,5 @@
+scheme=MUV (Soft) fold=5 training_seed=3407 checkpoint=last.pth (epoch 50)
+accuracy=0.4623 macro_f1=0.3579 mae=0.7035
+adjacent_error_rate=0.4171 far_error_rate=0.1206
+confusion_matrix (rows=true 0-4, cols=pred)=[[0, 1, 1, 5, 0], [4, 12, 3, 3, 2], [0, 14, 9, 18, 4], [1, 2, 7, 41, 14], [0, 1, 5, 22, 30]]
+train_n=797 eval_n=199

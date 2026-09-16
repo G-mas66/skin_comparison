@@ -1,0 +1,4396 @@
+{
+  "config": {
+    "experiment_name": "step_04_I",
+    "benchmark": "binary DeepLIFT + channel perturbation (interpretability)",
+    "task": "binary",
+    "num_classes": 2,
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "representative_schemes": [
+      {
+        "key": "M_MB_MR",
+        "channels": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "selection_basis": "best macro-F1 and lowest seed variance in Step 03_I"
+      },
+      {
+        "key": "M_MR",
+        "channels": [
+          "M",
+          "MR"
+        ],
+        "selection_basis": "runner-up macro-F1, highest AUC in Step 03_I"
+      },
+      {
+        "key": "ALL5",
+        "channels": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "selection_basis": "full five-channel input reference"
+      }
+    ],
+    "scheme_selection_rule": "explicit user confirmation 2026-09-15 before any Step 04 analysis; all 15 models per scheme analysed (no checkpoint selection)",
+    "perturbation_method": "one channel at a time replaced by black pixels (identical to the black center-padding fill, in-distribution); applied identically to every scheme",
+    "deeplift_settings": {
+      "implementation": "captum DeepLift",
+      "reference": "all-black image through identical preprocessing",
+      "target": "each sample's predicted class",
+      "channel_importance": "mean share of summed |attribution| per channel per sample"
+    },
+    "visual_example_rule": "seed 42 / fold 1 model; first 2 correctly classified eval samples per class in dataset order (pre-specified, no cherry-picking)",
+    "weights_source": "step_03_I fold checkpoints (read-only)",
+    "input_resolution": "384x384",
+    "model": "resnet50",
+    "no_training": true,
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "auc"
+    ]
+  },
+  "integrity": {
+    "passed": true,
+    "checks": {
+      "excluded_69_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_296_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_769_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_770_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "fold_overlap": {
+        "fold_1": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_2": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_3": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_4": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_5": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        }
+      },
+      "fold_overlap_passed": {
+        "passed": true
+      },
+      "channel_available": {
+        "M": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MB": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MP": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MR": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MUV": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        }
+      },
+      "task": {
+        "task": "binary",
+        "num_classes": 2,
+        "passed": true
+      }
+    }
+  },
+  "records": [
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.745,
+        "macro_f1": 0.7206933377146143,
+        "auc": 0.8111075915953965,
+        "sensitivity": 0.8455284552845529,
+        "specificity": 0.5844155844155844
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.675,
+          "macro_f1": 0.6621533823644066,
+          "auc": 0.7430049625171576,
+          "sensitivity": 0.7073170731707317,
+          "specificity": 0.6233766233766234
+        },
+        "MB": {
+          "accuracy": 0.665,
+          "macro_f1": 0.6639835502394744,
+          "auc": 0.7694013303769403,
+          "sensitivity": 0.5853658536585366,
+          "specificity": 0.7922077922077922
+        },
+        "MR": {
+          "accuracy": 0.42,
+          "macro_f1": 0.34911906632252276,
+          "auc": 0.637736247492345,
+          "sensitivity": 0.07317073170731707,
+          "specificity": 0.974025974025974
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.06999999999999995,
+          "macro_f1": -0.05853995535020773,
+          "auc": -0.06810262907823883,
+          "sensitivity": -0.13821138211382122,
+          "specificity": 0.038961038961038974
+        },
+        "MB": {
+          "accuracy": -0.07999999999999996,
+          "macro_f1": -0.05670978747513988,
+          "auc": -0.04170626121845622,
+          "sensitivity": -0.26016260162601634,
+          "specificity": 0.20779220779220786
+        },
+        "MR": {
+          "accuracy": -0.325,
+          "macro_f1": -0.37157427139209154,
+          "auc": -0.17337134410305144,
+          "sensitivity": -0.7723577235772359,
+          "specificity": 0.38961038961038963
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3036566376342576,
+        "MB": 0.3085356407035223,
+        "MR": 0.38780772166221816
+      },
+      "deeplift_center_share": {
+        "M": 0.5852130338850385,
+        "MB": 0.5049606937617651,
+        "MR": 0.4643582223742735
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.76,
+        "macro_f1": 0.7395833333333333,
+        "auc": 0.7834441980783443,
+        "sensitivity": 0.8455284552845529,
+        "specificity": 0.6233766233766234
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.695,
+          "macro_f1": 0.627765064836003,
+          "auc": 0.689684299440397,
+          "sensitivity": 0.9105691056910569,
+          "specificity": 0.35064935064935066
+        },
+        "MB": {
+          "accuracy": 0.505,
+          "macro_f1": 0.4676131322094055,
+          "auc": 0.7650723260479358,
+          "sensitivity": 0.1951219512195122,
+          "specificity": 1.0
+        },
+        "MR": {
+          "accuracy": 0.645,
+          "macro_f1": 0.6445645916247403,
+          "auc": 0.749023334389188,
+          "sensitivity": 0.5528455284552846,
+          "specificity": 0.7922077922077922
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.06500000000000006,
+          "macro_f1": -0.11181826849733023,
+          "auc": -0.09375989863794731,
+          "sensitivity": 0.06504065040650397,
+          "specificity": -0.2727272727272727
+        },
+        "MB": {
+          "accuracy": -0.255,
+          "macro_f1": -0.2719702011239278,
+          "auc": -0.018371872030408465,
+          "sensitivity": -0.6504065040650406,
+          "specificity": 0.37662337662337664
+        },
+        "MR": {
+          "accuracy": -0.11499999999999999,
+          "macro_f1": -0.09501874170859292,
+          "auc": -0.03442086368915631,
+          "sensitivity": -0.29268292682926833,
+          "specificity": 0.1688311688311689
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29830812168273657,
+        "MB": 0.3126931642960786,
+        "MR": 0.3889987140211824
+      },
+      "deeplift_center_share": {
+        "M": 0.593916353174766,
+        "MB": 0.5012231463241567,
+        "MR": 0.4738622878516506
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.735,
+        "macro_f1": 0.7245250656202085,
+        "auc": 0.8133248864956182,
+        "sensitivity": 0.7560975609756098,
+        "specificity": 0.7012987012987013
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.655,
+          "macro_f1": 0.642773938029044,
+          "auc": 0.6809207053109492,
+          "sensitivity": 0.6829268292682927,
+          "specificity": 0.6103896103896104
+        },
+        "MB": {
+          "accuracy": 0.51,
+          "macro_f1": 0.49359239355105416,
+          "auc": 0.7601098088902967,
+          "sensitivity": 0.2682926829268293,
+          "specificity": 0.8961038961038961
+        },
+        "MR": {
+          "accuracy": 0.395,
+          "macro_f1": 0.29600000000000004,
+          "auc": 0.636891563720832,
+          "sensitivity": 0.016260162601626018,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.07999999999999996,
+          "macro_f1": -0.08175112759116443,
+          "auc": -0.132404181184669,
+          "sensitivity": -0.07317073170731703,
+          "specificity": -0.09090909090909094
+        },
+        "MB": {
+          "accuracy": -0.22499999999999998,
+          "macro_f1": -0.2309326720691543,
+          "auc": -0.053215077605321515,
+          "sensitivity": -0.4878048780487805,
+          "specificity": 0.19480519480519476
+        },
+        "MR": {
+          "accuracy": -0.33999999999999997,
+          "macro_f1": -0.4285250656202084,
+          "auc": -0.17643332277478618,
+          "sensitivity": -0.7398373983739838,
+          "specificity": 0.2987012987012987
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3062107095791033,
+        "MB": 0.30844233200677645,
+        "MR": 0.38534695841411754
+      },
+      "deeplift_center_share": {
+        "M": 0.6531192295590805,
+        "MB": 0.5749195637786206,
+        "MR": 0.5448852387252223
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7738693467336684,
+        "macro_f1": 0.7512569095302908,
+        "auc": 0.8159995741962954,
+        "sensitivity": 0.8770491803278688,
+        "specificity": 0.6103896103896104
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.6844378827646544,
+          "auc": 0.7344049393229721,
+          "sensitivity": 0.8032786885245902,
+          "specificity": 0.5584415584415584
+        },
+        "MB": {
+          "accuracy": 0.49246231155778897,
+          "macro_f1": 0.46880038057985574,
+          "auc": 0.6777730466255056,
+          "sensitivity": 0.22950819672131148,
+          "specificity": 0.9090909090909091
+        },
+        "MR": {
+          "accuracy": 0.48743718592964824,
+          "macro_f1": 0.4483039791258969,
+          "auc": 0.7206727698530977,
+          "sensitivity": 0.18032786885245902,
+          "specificity": 0.974025974025974
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.0653266331658292,
+          "macro_f1": -0.06681902676563634,
+          "auc": -0.0815946348733233,
+          "sensitivity": -0.07377049180327866,
+          "specificity": -0.051948051948051965
+        },
+        "MB": {
+          "accuracy": -0.2814070351758794,
+          "macro_f1": -0.28245652895043505,
+          "auc": -0.1382265275707898,
+          "sensitivity": -0.6475409836065573,
+          "specificity": 0.2987012987012987
+        },
+        "MR": {
+          "accuracy": -0.2864321608040201,
+          "macro_f1": -0.30295293040439386,
+          "auc": -0.09532680434319774,
+          "sensitivity": -0.6967213114754098,
+          "specificity": 0.36363636363636365
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29928881646927574,
+        "MB": 0.3114507541224559,
+        "MR": 0.3892604294082664
+      },
+      "deeplift_center_share": {
+        "M": 0.6195303539229863,
+        "MB": 0.5316501412333328,
+        "MR": 0.5005226928691353
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7638190954773869,
+        "macro_f1": 0.7479043691544702,
+        "auc": 0.7785288482009793,
+        "sensitivity": 0.8278688524590164,
+        "specificity": 0.6623376623376623
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6934673366834171,
+          "macro_f1": 0.6442783882783882,
+          "auc": 0.7196082605918672,
+          "sensitivity": 0.8688524590163934,
+          "specificity": 0.4155844155844156
+        },
+        "MB": {
+          "accuracy": 0.7386934673366834,
+          "macro_f1": 0.7153389084507042,
+          "auc": 0.7511177347242921,
+          "sensitivity": 0.8360655737704918,
+          "specificity": 0.5844155844155844
+        },
+        "MR": {
+          "accuracy": 0.36683417085427134,
+          "macro_f1": 0.27447916666666666,
+          "auc": 0.628166915052161,
+          "sensitivity": 0.00819672131147541,
+          "specificity": 0.935064935064935
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.07035175879396982,
+          "macro_f1": -0.10362598087608199,
+          "auc": -0.05892058760911212,
+          "sensitivity": 0.040983606557376984,
+          "specificity": -0.24675324675324672
+        },
+        "MB": {
+          "accuracy": -0.025125628140703515,
+          "macro_f1": -0.03256546070376598,
+          "auc": -0.027411113476687232,
+          "sensitivity": 0.008196721311475419,
+          "specificity": -0.07792207792207795
+        },
+        "MR": {
+          "accuracy": -0.3969849246231156,
+          "macro_f1": -0.47342520248780356,
+          "auc": -0.1503619331488183,
+          "sensitivity": -0.819672131147541,
+          "specificity": 0.2727272727272727
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30345912519553647,
+        "MB": 0.3082554183869814,
+        "MR": 0.3882854564174796
+      },
+      "deeplift_center_share": {
+        "M": 0.6454543923066527,
+        "MB": 0.551627697719188,
+        "MR": 0.5173836743412684
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7487437185929648,
+        "macro_f1": 0.729560774081322,
+        "auc": 0.7808175431126251,
+        "sensitivity": 0.8278688524590164,
+        "specificity": 0.6233766233766234
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6080402010050251,
+          "macro_f1": 0.3898584905660378,
+          "auc": 0.6909729614647648,
+          "sensitivity": 0.9836065573770492,
+          "specificity": 0.012987012987012988
+        },
+        "MB": {
+          "accuracy": 0.7939698492462312,
+          "macro_f1": 0.7733674064609316,
+          "auc": 0.7948690653608687,
+          "sensitivity": 0.8934426229508197,
+          "specificity": 0.6363636363636364
+        },
+        "MR": {
+          "accuracy": 0.5326633165829145,
+          "macro_f1": 0.530338789493719,
+          "auc": 0.7152437726208217,
+          "sensitivity": 0.3770491803278688,
+          "specificity": 0.7792207792207793
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.14070351758793975,
+          "macro_f1": -0.33970228351528425,
+          "auc": -0.08984458164786024,
+          "sensitivity": 0.15573770491803274,
+          "specificity": -0.6103896103896104
+        },
+        "MB": {
+          "accuracy": 0.045226130653266305,
+          "macro_f1": 0.04380663237960958,
+          "auc": 0.014051522248243575,
+          "sensitivity": 0.06557377049180324,
+          "specificity": 0.012987012987012991
+        },
+        "MR": {
+          "accuracy": -0.2160804020100503,
+          "macro_f1": -0.19922198458760298,
+          "auc": -0.06557377049180335,
+          "sensitivity": -0.4508196721311476,
+          "specificity": 0.1558441558441559
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30613265833854875,
+        "MB": 0.3113319776479602,
+        "MR": 0.38253536401348875
+      },
+      "deeplift_center_share": {
+        "M": 0.6363558563622083,
+        "MB": 0.557850972509392,
+        "MR": 0.5206265609215803
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7537688442211056,
+        "macro_f1": 0.7444505595303614,
+        "auc": 0.8485735575899511,
+        "sensitivity": 0.7704918032786885,
+        "specificity": 0.7272727272727273
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7236180904522613,
+          "macro_f1": 0.6484889359925491,
+          "auc": 0.7361081541409411,
+          "sensitivity": 0.9672131147540983,
+          "specificity": 0.33766233766233766
+        },
+        "MB": {
+          "accuracy": 0.6030150753768844,
+          "macro_f1": 0.6010404770968152,
+          "auc": 0.7764530551415797,
+          "sensitivity": 0.4344262295081967,
+          "specificity": 0.8701298701298701
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.27898550724637683,
+          "auc": 0.6640408771556313,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": -0.09596162353781235,
+          "auc": -0.11246540344901002,
+          "sensitivity": 0.19672131147540983,
+          "specificity": -0.38961038961038963
+        },
+        "MB": {
+          "accuracy": -0.1507537688442212,
+          "macro_f1": -0.14341008243354625,
+          "auc": -0.07212050244837143,
+          "sensitivity": -0.3360655737704918,
+          "specificity": 0.1428571428571428
+        },
+        "MR": {
+          "accuracy": -0.3668341708542714,
+          "macro_f1": -0.4654650522839846,
+          "auc": -0.1845326804343198,
+          "sensitivity": -0.7704918032786885,
+          "specificity": 0.2727272727272727
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3032013507675103,
+        "MB": 0.3095739784776925,
+        "MR": 0.3872246707547953
+      },
+      "deeplift_center_share": {
+        "M": 0.6627508387911673,
+        "MB": 0.5653201306355247,
+        "MR": 0.5363727917443807
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7386934673366834,
+        "macro_f1": 0.7232563115104835,
+        "auc": 0.8113689589099425,
+        "sensitivity": 0.7950819672131147,
+        "specificity": 0.6493506493506493
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6180904522613065,
+          "macro_f1": 0.3940705128205128,
+          "auc": 0.7473387268469236,
+          "sensitivity": 1.0,
+          "specificity": 0.012987012987012988
+        },
+        "MB": {
+          "accuracy": 0.4472361809045226,
+          "macro_f1": 0.3978323063380282,
+          "auc": 0.6489248456461572,
+          "sensitivity": 0.13114754098360656,
+          "specificity": 0.948051948051948
+        },
+        "MR": {
+          "accuracy": 0.49748743718592964,
+          "macro_f1": 0.4752109704641351,
+          "auc": 0.672876304023845,
+          "sensitivity": 0.23770491803278687,
+          "specificity": 0.9090909090909091
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.3291857986899707,
+          "auc": -0.06403023206301894,
+          "sensitivity": 0.20491803278688525,
+          "specificity": -0.6363636363636364
+        },
+        "MB": {
+          "accuracy": -0.2914572864321608,
+          "macro_f1": -0.32542400517245534,
+          "auc": -0.16244411326378538,
+          "sensitivity": -0.6639344262295082,
+          "specificity": 0.2987012987012987
+        },
+        "MR": {
+          "accuracy": -0.24120603015075376,
+          "macro_f1": -0.24804534104634846,
+          "auc": -0.13849265488609752,
+          "sensitivity": -0.5573770491803278,
+          "specificity": 0.2597402597402597
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29429947409537127,
+        "MB": 0.3175566958641576,
+        "MR": 0.3881438300404697
+      },
+      "deeplift_center_share": {
+        "M": 0.6153178964712361,
+        "MB": 0.503279125146164,
+        "MR": 0.48069046470812204
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7738693467336684,
+        "macro_f1": 0.7611044417767108,
+        "auc": 0.841707472855014,
+        "sensitivity": 0.819672131147541,
+        "specificity": 0.7012987012987013
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6432160804020101,
+          "macro_f1": 0.4689344108250329,
+          "auc": 0.75452416436023,
+          "sensitivity": 0.9918032786885246,
+          "specificity": 0.09090909090909091
+        },
+        "MB": {
+          "accuracy": 0.6130653266331658,
+          "macro_f1": 0.6052502769405157,
+          "auc": 0.6571215669576326,
+          "sensitivity": 0.6147540983606558,
+          "specificity": 0.6103896103896104
+        },
+        "MR": {
+          "accuracy": 0.5577889447236181,
+          "macro_f1": 0.5564336372847012,
+          "auc": 0.6780923994038747,
+          "sensitivity": 0.4098360655737705,
+          "specificity": 0.7922077922077922
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1306532663316583,
+          "macro_f1": -0.2921700309516779,
+          "auc": -0.08718330849478406,
+          "sensitivity": 0.17213114754098358,
+          "specificity": -0.6103896103896104
+        },
+        "MB": {
+          "accuracy": -0.16080402010050254,
+          "macro_f1": -0.15585416483619507,
+          "auc": -0.18458590589738144,
+          "sensitivity": -0.20491803278688525,
+          "specificity": -0.09090909090909094
+        },
+        "MR": {
+          "accuracy": -0.2160804020100503,
+          "macro_f1": -0.20467080449200958,
+          "auc": -0.16361507345113935,
+          "sensitivity": -0.4098360655737705,
+          "specificity": 0.09090909090909094
+        }
+      },
+      "deeplift_share": {
+        "M": 0.32152264224408406,
+        "MB": 0.31212629010160964,
+        "MR": 0.3663510676543044
+      },
+      "deeplift_center_share": {
+        "M": 0.7016202580575446,
+        "MB": 0.632728666020135,
+        "MR": 0.5941967706634036
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7688442211055276,
+        "macro_f1": 0.7539247311827957,
+        "auc": 0.8140778776208815,
+        "sensitivity": 0.8211382113821138,
+        "specificity": 0.6842105263157895
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7135678391959799,
+          "macro_f1": 0.6514671992625596,
+          "auc": 0.8334403080872913,
+          "sensitivity": 0.9186991869918699,
+          "specificity": 0.3815789473684211
+        },
+        "MB": {
+          "accuracy": 0.4221105527638191,
+          "macro_f1": 0.3457128970466306,
+          "auc": 0.6714805305947796,
+          "sensitivity": 0.06504065040650407,
+          "specificity": 1.0
+        },
+        "MR": {
+          "accuracy": 0.46733668341708545,
+          "macro_f1": 0.4232830271216098,
+          "auc": 0.7529952931108259,
+          "sensitivity": 0.15447154471544716,
+          "specificity": 0.9736842105263158
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.055276381909547756,
+          "macro_f1": -0.1024575319202361,
+          "auc": 0.01936243046640984,
+          "sensitivity": 0.09756097560975607,
+          "specificity": -0.3026315789473684
+        },
+        "MB": {
+          "accuracy": -0.34673366834170855,
+          "macro_f1": -0.4082118341361651,
+          "auc": -0.14259734702610183,
+          "sensitivity": -0.7560975609756098,
+          "specificity": 0.3157894736842105
+        },
+        "MR": {
+          "accuracy": -0.3015075376884422,
+          "macro_f1": -0.33064170406118587,
+          "auc": -0.06108258451005555,
+          "sensitivity": -0.6666666666666667,
+          "specificity": 0.2894736842105263
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29340459633948285,
+        "MB": 0.3184169330892412,
+        "MR": 0.3881784705712741
+      },
+      "deeplift_center_share": {
+        "M": 0.621712116642027,
+        "MB": 0.5104662199675603,
+        "MR": 0.48551741202866533
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7738693467336684,
+        "macro_f1": 0.7544220485396955,
+        "auc": 0.8313008130081301,
+        "sensitivity": 0.8536585365853658,
+        "specificity": 0.6447368421052632
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.6225143903715332,
+          "auc": 0.7931108258451005,
+          "sensitivity": 0.959349593495935,
+          "specificity": 0.3026315789473684
+        },
+        "MB": {
+          "accuracy": 0.4120603015075377,
+          "macro_f1": 0.32903950894786893,
+          "auc": 0.69801026957638,
+          "sensitivity": 0.04878048780487805,
+          "specificity": 1.0
+        },
+        "MR": {
+          "accuracy": 0.457286432160804,
+          "macro_f1": 0.40100334448160535,
+          "auc": 0.7228284124946511,
+          "sensitivity": 0.12195121951219512,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.0653266331658292,
+          "macro_f1": -0.1319076581681623,
+          "auc": -0.03818998716302957,
+          "sensitivity": 0.10569105691056913,
+          "specificity": -0.34210526315789475
+        },
+        "MB": {
+          "accuracy": -0.36180904522613067,
+          "macro_f1": -0.4253825395918266,
+          "auc": -0.13329054343175006,
+          "sensitivity": -0.8048780487804877,
+          "specificity": 0.35526315789473684
+        },
+        "MR": {
+          "accuracy": -0.31658291457286436,
+          "macro_f1": -0.35341870405809017,
+          "auc": -0.10847240051347895,
+          "sensitivity": -0.7317073170731707,
+          "specificity": 0.35526315789473684
+        }
+      },
+      "deeplift_share": {
+        "M": 0.313998646644547,
+        "MB": 0.3125701487117255,
+        "MR": 0.3734312046437253
+      },
+      "deeplift_center_share": {
+        "M": 0.6530825044677043,
+        "MB": 0.5730783830441559,
+        "MR": 0.5322587949073282
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7738693467336684,
+        "macro_f1": 0.7611044417767108,
+        "auc": 0.8208172871202397,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.7105263157894737
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.678391959798995,
+          "macro_f1": 0.5405483405483406,
+          "auc": 0.8346705177578092,
+          "sensitivity": 0.991869918699187,
+          "specificity": 0.17105263157894737
+        },
+        "MB": {
+          "accuracy": 0.5125628140703518,
+          "macro_f1": 0.4898379892697624,
+          "auc": 0.748502353444587,
+          "sensitivity": 0.24390243902439024,
+          "specificity": 0.9473684210526315
+        },
+        "MR": {
+          "accuracy": 0.5175879396984925,
+          "macro_f1": 0.4962025316455696,
+          "auc": 0.7450791613179291,
+          "sensitivity": 0.25203252032520324,
+          "specificity": 0.9473684210526315
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.09547738693467334,
+          "macro_f1": -0.22055610122837022,
+          "auc": 0.013853230637569491,
+          "sensitivity": 0.17886178861788615,
+          "specificity": -0.5394736842105263
+        },
+        "MB": {
+          "accuracy": -0.2613065326633166,
+          "macro_f1": -0.27126645250694836,
+          "auc": -0.07231493367565267,
+          "sensitivity": -0.5691056910569106,
+          "specificity": 0.23684210526315785
+        },
+        "MR": {
+          "accuracy": -0.2562814070351759,
+          "macro_f1": -0.26490191013114117,
+          "auc": -0.07573812580231065,
+          "sensitivity": -0.5609756097560976,
+          "specificity": 0.23684210526315785
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30667579286542124,
+        "MB": 0.31337502421536984,
+        "MR": 0.3799491829192066
+      },
+      "deeplift_center_share": {
+        "M": 0.6750438953782799,
+        "MB": 0.5906530438179605,
+        "MR": 0.561055427282292
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7989949748743719,
+        "macro_f1": 0.7848648648648648,
+        "auc": 0.837665810868635,
+        "sensitivity": 0.8536585365853658,
+        "specificity": 0.7105263157894737
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6934673366834171,
+          "macro_f1": 0.6830962015402688,
+          "auc": 0.7509627727856225,
+          "sensitivity": 0.7073170731707317,
+          "specificity": 0.6710526315789473
+        },
+        "MB": {
+          "accuracy": 0.46733668341708545,
+          "macro_f1": 0.4197293133802817,
+          "auc": 0.7735344458707746,
+          "sensitivity": 0.14634146341463414,
+          "specificity": 0.9868421052631579
+        },
+        "MR": {
+          "accuracy": 0.5577889447236181,
+          "macro_f1": 0.5518018018018018,
+          "auc": 0.7048566538296961,
+          "sensitivity": 0.35772357723577236,
+          "specificity": 0.881578947368421
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095479,
+          "macro_f1": -0.101768663324596,
+          "auc": -0.0867030380830125,
+          "sensitivity": -0.14634146341463417,
+          "specificity": -0.03947368421052633
+        },
+        "MB": {
+          "accuracy": -0.3316582914572864,
+          "macro_f1": -0.36513555148458315,
+          "auc": -0.06413136499786043,
+          "sensitivity": -0.7073170731707317,
+          "specificity": 0.2763157894736842
+        },
+        "MR": {
+          "accuracy": -0.24120603015075381,
+          "macro_f1": -0.23306306306306301,
+          "auc": -0.13280915703893892,
+          "sensitivity": -0.4959349593495935,
+          "specificity": 0.17105263157894735
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29690676410989997,
+        "MB": 0.313078152273771,
+        "MR": 0.39001508361632703
+      },
+      "deeplift_center_share": {
+        "M": 0.5711962856928423,
+        "MB": 0.47221702401571153,
+        "MR": 0.4489153011268235
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.8090452261306532,
+        "macro_f1": 0.7967204301075269,
+        "auc": 0.8625374411638853,
+        "sensitivity": 0.8536585365853658,
+        "specificity": 0.7368421052631579
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7035175879396985,
+          "macro_f1": 0.6922976124957413,
+          "auc": 0.7559905862216517,
+          "sensitivity": 0.7235772357723578,
+          "specificity": 0.6710526315789473
+        },
+        "MB": {
+          "accuracy": 0.46733668341708545,
+          "macro_f1": 0.4266688410524027,
+          "auc": 0.7199400941377835,
+          "sensitivity": 0.16260162601626016,
+          "specificity": 0.9605263157894737
+        },
+        "MR": {
+          "accuracy": 0.6080402010050251,
+          "macro_f1": 0.6072368421052632,
+          "auc": 0.7398373983739838,
+          "sensitivity": 0.45528455284552843,
+          "specificity": 0.8552631578947368
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095468,
+          "macro_f1": -0.10442281761178562,
+          "auc": -0.1065468549422336,
+          "sensitivity": -0.13008130081300806,
+          "specificity": -0.06578947368421051
+        },
+        "MB": {
+          "accuracy": -0.34170854271356776,
+          "macro_f1": -0.3700515890551242,
+          "auc": -0.14259734702610183,
+          "sensitivity": -0.6910569105691057,
+          "specificity": 0.22368421052631582
+        },
+        "MR": {
+          "accuracy": -0.20100502512562812,
+          "macro_f1": -0.18948358800226373,
+          "auc": -0.12270004278990154,
+          "sensitivity": -0.3983739837398374,
+          "specificity": 0.11842105263157898
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30785946641228623,
+        "MB": 0.3092447005785703,
+        "MR": 0.38289583300914204
+      },
+      "deeplift_center_share": {
+        "M": 0.7105360089080086,
+        "MB": 0.6158757271539095,
+        "MR": 0.5862314433888091
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.8040201005025126,
+        "macro_f1": 0.7929571828731492,
+        "auc": 0.8744116388532306,
+        "sensitivity": 0.8373983739837398,
+        "specificity": 0.75
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.5226130653266332,
+          "macro_f1": 0.5115113304565774,
+          "auc": 0.6423833975181859,
+          "sensitivity": 0.3008130081300813,
+          "specificity": 0.881578947368421
+        },
+        "MB": {
+          "accuracy": 0.4623115577889447,
+          "macro_f1": 0.4085442071053582,
+          "auc": 0.8188917415489945,
+          "sensitivity": 0.13008130081300814,
+          "specificity": 1.0
+        },
+        "MR": {
+          "accuracy": 0.39195979899497485,
+          "macro_f1": 0.2943882783882784,
+          "auc": 0.6694480102695765,
+          "sensitivity": 0.016260162601626018,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.2814070351758794,
+          "macro_f1": -0.28144585241657183,
+          "auc": -0.23202824133504474,
+          "sensitivity": -0.5365853658536586,
+          "specificity": 0.13157894736842102
+        },
+        "MB": {
+          "accuracy": -0.3417085427135679,
+          "macro_f1": -0.384412975767791,
+          "auc": -0.05551989730423612,
+          "sensitivity": -0.7073170731707317,
+          "specificity": 0.25
+        },
+        "MR": {
+          "accuracy": -0.41206030150753775,
+          "macro_f1": -0.4985689044848708,
+          "auc": -0.20496362858365413,
+          "sensitivity": -0.8211382113821138,
+          "specificity": 0.25
+        }
+      },
+      "deeplift_share": {
+        "M": 0.31140275830629427,
+        "MB": 0.31136792383313594,
+        "MR": 0.37722931786056746
+      },
+      "deeplift_center_share": {
+        "M": 0.6732071629756521,
+        "MB": 0.5887629941156152,
+        "MR": 0.5617149644094035
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.76,
+        "macro_f1": 0.7425997425997426,
+        "auc": 0.8203463203463204,
+        "sensitivity": 0.8292682926829268,
+        "specificity": 0.6493506493506493
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.675,
+          "macro_f1": 0.6149175034805534,
+          "auc": 0.7122795903283708,
+          "sensitivity": 0.8699186991869918,
+          "specificity": 0.36363636363636365
+        },
+        "MR": {
+          "accuracy": 0.405,
+          "macro_f1": 0.31354734504340803,
+          "auc": 0.6967585260268188,
+          "sensitivity": 0.032520325203252036,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.08499999999999996,
+          "macro_f1": -0.1276822391191892,
+          "auc": -0.10806673001794953,
+          "sensitivity": 0.04065040650406504,
+          "specificity": -0.2857142857142857
+        },
+        "MR": {
+          "accuracy": -0.355,
+          "macro_f1": -0.42905239755633456,
+          "auc": -0.12358779431950162,
+          "sensitivity": -0.7967479674796748,
+          "specificity": 0.35064935064935066
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44562228248910946,
+        "MR": 0.5543777175108889
+      },
+      "deeplift_center_share": {
+        "M": 0.6537923167723259,
+        "MR": 0.5544692925651832
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.8,
+        "macro_f1": 0.7854997854997855,
+        "auc": 0.8088902966951748,
+        "sensitivity": 0.8617886178861789,
+        "specificity": 0.7012987012987013
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.67,
+          "macro_f1": 0.5341614906832298,
+          "auc": 0.6524126280223841,
+          "sensitivity": 0.983739837398374,
+          "specificity": 0.16883116883116883
+        },
+        "MR": {
+          "accuracy": 0.39,
+          "macro_f1": 0.2932452786467385,
+          "auc": 0.6516735297223102,
+          "sensitivity": 0.016260162601626018,
+          "specificity": 0.987012987012987
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.13,
+          "macro_f1": -0.2513382948165557,
+          "auc": -0.15647766867279067,
+          "sensitivity": 0.12195121951219512,
+          "specificity": -0.5324675324675325
+        },
+        "MR": {
+          "accuracy": -0.41000000000000003,
+          "macro_f1": -0.492254506853047,
+          "auc": -0.15721676697286457,
+          "sensitivity": -0.8455284552845529,
+          "specificity": 0.2857142857142857
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4184952692360027,
+        "MR": 0.5815047307639959
+      },
+      "deeplift_center_share": {
+        "M": 0.5549379394270171,
+        "MR": 0.4461119334865303
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.77,
+        "macro_f1": 0.7504340277777778,
+        "auc": 0.8331749551261747,
+        "sensitivity": 0.8536585365853658,
+        "specificity": 0.6363636363636364
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.665,
+          "macro_f1": 0.6306403153339397,
+          "auc": 0.6809207053109492,
+          "sensitivity": 0.7886178861788617,
+          "specificity": 0.4675324675324675
+        },
+        "MR": {
+          "accuracy": 0.515,
+          "macro_f1": 0.5045838759927475,
+          "auc": 0.6896842994403971,
+          "sensitivity": 0.3008130081300813,
+          "specificity": 0.8571428571428571
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10499999999999998,
+          "macro_f1": -0.11979371244383807,
+          "auc": -0.1522542498152255,
+          "sensitivity": -0.06504065040650409,
+          "specificity": -0.16883116883116883
+        },
+        "MR": {
+          "accuracy": -0.255,
+          "macro_f1": -0.24585015178503034,
+          "auc": -0.14349065568577757,
+          "sensitivity": -0.5528455284552845,
+          "specificity": 0.22077922077922074
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4249264764897892,
+        "MR": 0.5750735235102089
+      },
+      "deeplift_center_share": {
+        "M": 0.5437710122789127,
+        "MR": 0.42869272083118687
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7286432160804021,
+        "macro_f1": 0.7043904049295775,
+        "auc": 0.7850223546944859,
+        "sensitivity": 0.8278688524590164,
+        "specificity": 0.5714285714285714
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7336683417085427,
+          "macro_f1": 0.7224546722454672,
+          "auc": 0.7634660421545667,
+          "sensitivity": 0.7622950819672131,
+          "specificity": 0.6883116883116883
+        },
+        "MR": {
+          "accuracy": 0.3969849246231156,
+          "macro_f1": 0.29715093006828347,
+          "auc": 0.6294443261656377,
+          "sensitivity": 0.01639344262295082,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": 0.005025125628140614,
+          "macro_f1": 0.018064267315889726,
+          "auc": -0.021556312539919187,
+          "sensitivity": -0.06557377049180335,
+          "specificity": 0.11688311688311692
+        },
+        "MR": {
+          "accuracy": -0.3316582914572865,
+          "macro_f1": -0.407239474861294,
+          "auc": -0.15557802852884817,
+          "sensitivity": -0.8114754098360656,
+          "specificity": 0.4285714285714286
+        }
+      },
+      "deeplift_share": {
+        "M": 0.43840598076710247,
+        "MR": 0.5615940192328962
+      },
+      "deeplift_center_share": {
+        "M": 0.6697109680360179,
+        "MR": 0.5533189956696996
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7587939698492462,
+        "macro_f1": 0.7445442875481387,
+        "auc": 0.8274430487545241,
+        "sensitivity": 0.8114754098360656,
+        "specificity": 0.6753246753246753
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6984924623115578,
+          "macro_f1": 0.6572904707233065,
+          "auc": 0.73014690227805,
+          "sensitivity": 0.8524590163934426,
+          "specificity": 0.45454545454545453
+        },
+        "MR": {
+          "accuracy": 0.6733668341708543,
+          "macro_f1": 0.658138858789016,
+          "auc": 0.7291888439429424,
+          "sensitivity": 0.7213114754098361,
+          "specificity": 0.5974025974025974
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.06030150753768837,
+          "macro_f1": -0.08725381682483224,
+          "auc": -0.09729614647647411,
+          "sensitivity": 0.040983606557376984,
+          "specificity": -0.2207792207792208
+        },
+        "MR": {
+          "accuracy": -0.08542713567839189,
+          "macro_f1": -0.08640542875912272,
+          "auc": -0.09825420481158176,
+          "sensitivity": -0.0901639344262295,
+          "specificity": -0.07792207792207795
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4322091044349125,
+        "MR": 0.5677908955650861
+      },
+      "deeplift_center_share": {
+        "M": 0.6146332224854625,
+        "MR": 0.49563890783329306
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7336683417085427,
+        "macro_f1": 0.7029432474299395,
+        "auc": 0.8013625718543751,
+        "sensitivity": 0.860655737704918,
+        "specificity": 0.5324675324675324
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6130653266331658,
+          "macro_f1": 0.39196857267568747,
+          "auc": 0.663721524377262,
+          "sensitivity": 0.9918032786885246,
+          "specificity": 0.012987012987012988
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.2854367789027549,
+          "auc": 0.7075793059399617,
+          "sensitivity": 0.00819672131147541,
+          "specificity": 0.987012987012987
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.31097467475425206,
+          "auc": -0.13764104747711314,
+          "sensitivity": 0.1311475409836066,
+          "specificity": -0.5194805194805194
+        },
+        "MR": {
+          "accuracy": -0.3467336683417085,
+          "macro_f1": -0.41750646852718465,
+          "auc": -0.09378326591441344,
+          "sensitivity": -0.8524590163934426,
+          "specificity": 0.4545454545454546
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44904591861800264,
+        "MR": 0.5509540813819959
+      },
+      "deeplift_center_share": {
+        "M": 0.6603475789678783,
+        "MR": 0.5482388012284393
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7437185929648241,
+        "macro_f1": 0.7340199701234373,
+        "auc": 0.8181818181818182,
+        "sensitivity": 0.7622950819672131,
+        "specificity": 0.7142857142857143
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6633165829145728,
+          "macro_f1": 0.6574694926140012,
+          "auc": 0.711730892058761,
+          "sensitivity": 0.6475409836065574,
+          "specificity": 0.6883116883116883
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.27898550724637683,
+          "auc": 0.7093889716840536,
+          "sensitivity": 0.0,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.08040201005025127,
+          "macro_f1": -0.07655047750943611,
+          "auc": -0.10645092612305718,
+          "sensitivity": -0.11475409836065564,
+          "specificity": -0.025974025974025983
+        },
+        "MR": {
+          "accuracy": -0.35678391959798994,
+          "macro_f1": -0.4550344628770605,
+          "auc": -0.10879284649776466,
+          "sensitivity": -0.7622950819672131,
+          "specificity": 0.2857142857142857
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4497165871124564,
+        "MR": 0.5502834128875423
+      },
+      "deeplift_center_share": {
+        "M": 0.6858257844045402,
+        "MR": 0.5628881069311399
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7487437185929648,
+        "macro_f1": 0.7459141981613892,
+        "auc": 0.8237172663402171,
+        "sensitivity": 0.6967213114754098,
+        "specificity": 0.8311688311688312
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7135678391959799,
+          "macro_f1": 0.7128427128427128,
+          "auc": 0.7712369597615499,
+          "sensitivity": 0.6229508196721312,
+          "specificity": 0.8571428571428571
+        },
+        "MR": {
+          "accuracy": 0.41708542713567837,
+          "macro_f1": 0.3374282433983926,
+          "auc": 0.6274217585692997,
+          "sensitivity": 0.05737704918032787,
+          "specificity": 0.987012987012987
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.035175879396984966,
+          "macro_f1": -0.03307148531867632,
+          "auc": -0.0524803065786672,
+          "sensitivity": -0.07377049180327866,
+          "specificity": 0.02597402597402587
+        },
+        "MR": {
+          "accuracy": -0.3316582914572865,
+          "macro_f1": -0.40848595476299654,
+          "auc": -0.19629550777091742,
+          "sensitivity": -0.639344262295082,
+          "specificity": 0.15584415584415579
+        }
+      },
+      "deeplift_share": {
+        "M": 0.43979941014271756,
+        "MR": 0.5602005898572808
+      },
+      "deeplift_center_share": {
+        "M": 0.6599246144298779,
+        "MR": 0.5368240406639011
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7336683417085427,
+        "macro_f1": 0.7157219481954664,
+        "auc": 0.8061528635299128,
+        "sensitivity": 0.8032786885245902,
+        "specificity": 0.6233766233766234
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7035175879396985,
+          "macro_f1": 0.6183650251909638,
+          "auc": 0.7173727911432829,
+          "sensitivity": 0.9590163934426229,
+          "specificity": 0.2987012987012987
+        },
+        "MR": {
+          "accuracy": 0.3969849246231156,
+          "macro_f1": 0.29715093006828347,
+          "auc": 0.6888439429423034,
+          "sensitivity": 0.01639344262295082,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.03015075376884413,
+          "macro_f1": -0.0973569230045026,
+          "auc": -0.08878007238662988,
+          "sensitivity": 0.15573770491803274,
+          "specificity": -0.3246753246753247
+        },
+        "MR": {
+          "accuracy": -0.3366834170854271,
+          "macro_f1": -0.41857101812718295,
+          "auc": -0.11730892058760933,
+          "sensitivity": -0.7868852459016393,
+          "specificity": 0.37662337662337664
+        }
+      },
+      "deeplift_share": {
+        "M": 0.45787659945018266,
+        "MR": 0.5421234005498157
+      },
+      "deeplift_center_share": {
+        "M": 0.697508674904591,
+        "MR": 0.5735000962483616
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7889447236180904,
+        "macro_f1": 0.7786077558804831,
+        "auc": 0.8421052631578948,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.75
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6633165829145728,
+          "macro_f1": 0.6491408120838925,
+          "auc": 0.7025032092426187,
+          "sensitivity": 0.6991869918699187,
+          "specificity": 0.6052631578947368
+        },
+        "MR": {
+          "accuracy": 0.37185929648241206,
+          "macro_f1": 0.27106227106227104,
+          "auc": 0.6678433889602056,
+          "sensitivity": 0.0,
+          "specificity": 0.9736842105263158
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12562814070351758,
+          "macro_f1": -0.12946694379659063,
+          "auc": -0.13960205391527614,
+          "sensitivity": -0.11382113821138207,
+          "specificity": -0.14473684210526316
+        },
+        "MR": {
+          "accuracy": -0.41708542713567837,
+          "macro_f1": -0.5075454848182122,
+          "auc": -0.17426187419768924,
+          "sensitivity": -0.8130081300813008,
+          "specificity": 0.22368421052631582
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4544445171334825,
+        "MR": 0.545555482866516
+      },
+      "deeplift_center_share": {
+        "M": 0.6970593896048296,
+        "MR": 0.5806685776946648
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7788944723618091,
+        "macro_f1": 0.7375299760191847,
+        "auc": 0.8388425331621737,
+        "sensitivity": 0.9512195121951219,
+        "specificity": 0.5
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7437185929648241,
+          "macro_f1": 0.7098378934728535,
+          "auc": 0.8152545999144202,
+          "sensitivity": 0.8780487804878049,
+          "specificity": 0.5263157894736842
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.29160830999066295,
+          "auc": 0.5737056054771074,
+          "sensitivity": 0.016260162601626018,
+          "specificity": 0.9868421052631579
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.035175879396984966,
+          "macro_f1": -0.027692082546331154,
+          "auc": -0.023587933247753545,
+          "sensitivity": -0.07317073170731703,
+          "specificity": 0.02631578947368418
+        },
+        "MR": {
+          "accuracy": -0.3919597989949749,
+          "macro_f1": -0.44592166602852173,
+          "auc": -0.26513692768506636,
+          "sensitivity": -0.9349593495934959,
+          "specificity": 0.48684210526315785
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4317471625844186,
+        "MR": 0.5682528374155801
+      },
+      "deeplift_center_share": {
+        "M": 0.5898404060596983,
+        "MR": 0.45246892862582
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7738693467336684,
+        "macro_f1": 0.7375824175824176,
+        "auc": 0.7787227214377408,
+        "sensitivity": 0.926829268292683,
+        "specificity": 0.5263157894736842
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6532663316582915,
+          "macro_f1": 0.5689801299557398,
+          "auc": 0.6942661531878477,
+          "sensitivity": 0.8861788617886179,
+          "specificity": 0.27631578947368424
+        },
+        "MR": {
+          "accuracy": 0.4120603015075377,
+          "macro_f1": 0.344233206590621,
+          "auc": 0.6548994437312794,
+          "sensitivity": 0.07317073170731707,
+          "specificity": 0.9605263157894737
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.16860228762667784,
+          "auc": -0.08445656824989312,
+          "sensitivity": -0.04065040650406504,
+          "specificity": -0.24999999999999994
+        },
+        "MR": {
+          "accuracy": -0.36180904522613067,
+          "macro_f1": -0.3933492109917966,
+          "auc": -0.1238232777064614,
+          "sensitivity": -0.853658536585366,
+          "specificity": 0.4342105263157895
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4231650353555547,
+        "MR": 0.5768349646444436
+      },
+      "deeplift_center_share": {
+        "M": 0.601100644346367,
+        "MR": 0.4530774945853026
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.8140703517587939,
+        "macro_f1": 0.8025846582835081,
+        "auc": 0.8515725288831836,
+        "sensitivity": 0.8536585365853658,
+        "specificity": 0.75
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.6956223628691983,
+          "auc": 0.7740693196405649,
+          "sensitivity": 0.7398373983739838,
+          "specificity": 0.6578947368421053
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.29160830999066295,
+          "auc": 0.693089430894309,
+          "sensitivity": 0.016260162601626018,
+          "specificity": 0.9868421052631579
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095479,
+          "macro_f1": -0.1069622954143098,
+          "auc": -0.07750320924261866,
+          "sensitivity": -0.11382113821138207,
+          "specificity": -0.09210526315789469
+        },
+        "MR": {
+          "accuracy": -0.42713567839195976,
+          "macro_f1": -0.5109763482928451,
+          "auc": -0.1584830979888746,
+          "sensitivity": -0.8373983739837398,
+          "specificity": 0.23684210526315785
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4376537899746397,
+        "MR": 0.5623462100253587
+      },
+      "deeplift_center_share": {
+        "M": 0.5584423638478699,
+        "MR": 0.45063737619360705
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7939698492462312,
+        "macro_f1": 0.7843645109284563,
+        "auc": 0.8580445014976466,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.7631578947368421
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7135678391959799,
+          "macro_f1": 0.6583536640462637,
+          "auc": 0.793966623876765,
+          "sensitivity": 0.9024390243902439,
+          "specificity": 0.40789473684210525
+        },
+        "MR": {
+          "accuracy": 0.4321608040201005,
+          "macro_f1": 0.3794464221651903,
+          "auc": 0.6145699614890886,
+          "sensitivity": 0.11382113821138211,
+          "specificity": 0.9473684210526315
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.08040201005025127,
+          "macro_f1": -0.12601084688219255,
+          "auc": -0.06407787762088157,
+          "sensitivity": 0.08943089430894313,
+          "specificity": -0.3552631578947369
+        },
+        "MR": {
+          "accuracy": -0.36180904522613067,
+          "macro_f1": -0.40491808876326596,
+          "auc": -0.24347454000855795,
+          "sensitivity": -0.6991869918699187,
+          "specificity": 0.18421052631578938
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4456383096737585,
+        "MR": 0.5543616903262402
+      },
+      "deeplift_center_share": {
+        "M": 0.682963987254229,
+        "MR": 0.5635201209004325
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7889447236180904,
+        "macro_f1": 0.7786077558804831,
+        "auc": 0.8720047068891741,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.75
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6633165829145728,
+          "macro_f1": 0.49885359894756626,
+          "auc": 0.8486307231493367,
+          "sensitivity": 1.0,
+          "specificity": 0.11842105263157894
+        },
+        "MR": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.2854367789027549,
+          "auc": 0.7047496790757382,
+          "sensitivity": 0.008130081300813009,
+          "specificity": 1.0
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12562814070351758,
+          "macro_f1": -0.2797541569329169,
+          "auc": -0.023373983739837345,
+          "sensitivity": 0.1869918699186992,
+          "specificity": -0.631578947368421
+        },
+        "MR": {
+          "accuracy": -0.40201005025125625,
+          "macro_f1": -0.49317097697772827,
+          "auc": -0.16725502781343593,
+          "sensitivity": -0.8048780487804877,
+          "specificity": 0.25
+        }
+      },
+      "deeplift_share": {
+        "M": 0.43893086413175975,
+        "MR": 0.5610691358682384
+      },
+      "deeplift_center_share": {
+        "M": 0.6141597874487283,
+        "MR": 0.49894246466655484
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.725,
+        "macro_f1": 0.7141297850775747,
+        "auc": 0.8232499208108965,
+        "sensitivity": 0.7479674796747967,
+        "specificity": 0.6883116883116883
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.685,
+          "macro_f1": 0.6772458310919849,
+          "auc": 0.7460669411888924,
+          "sensitivity": 0.6829268292682927,
+          "specificity": 0.6883116883116883
+        },
+        "MB": {
+          "accuracy": 0.435,
+          "macro_f1": 0.37276234353750937,
+          "auc": 0.7052053637419492,
+          "sensitivity": 0.0975609756097561,
+          "specificity": 0.974025974025974
+        },
+        "MP": {
+          "accuracy": 0.765,
+          "macro_f1": 0.7575757575757576,
+          "auc": 0.8363425192693485,
+          "sensitivity": 0.7642276422764228,
+          "specificity": 0.7662337662337663
+        },
+        "MR": {
+          "accuracy": 0.52,
+          "macro_f1": 0.4978554242075531,
+          "auc": 0.7692957449055011,
+          "sensitivity": 0.25203252032520324,
+          "specificity": 0.948051948051948
+        },
+        "MUV": {
+          "accuracy": 0.685,
+          "macro_f1": 0.6799999999999999,
+          "auc": 0.7592651251187836,
+          "sensitivity": 0.6585365853658537,
+          "specificity": 0.7272727272727273
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.039999999999999925,
+          "macro_f1": -0.03688395398558986,
+          "auc": -0.07718297962200416,
+          "sensitivity": -0.06504065040650397,
+          "specificity": 0.0
+        },
+        "MB": {
+          "accuracy": -0.29,
+          "macro_f1": -0.3413674415400654,
+          "auc": -0.11804455706894734,
+          "sensitivity": -0.6504065040650406,
+          "specificity": 0.2857142857142857
+        },
+        "MP": {
+          "accuracy": 0.040000000000000036,
+          "macro_f1": 0.04344597249818283,
+          "auc": 0.01309259845845201,
+          "sensitivity": 0.016260162601626105,
+          "specificity": 0.07792207792207795
+        },
+        "MR": {
+          "accuracy": -0.20499999999999996,
+          "macro_f1": -0.21627436087002166,
+          "auc": -0.05395417590539542,
+          "sensitivity": -0.4959349593495935,
+          "specificity": 0.2597402597402597
+        },
+        "MUV": {
+          "accuracy": -0.039999999999999925,
+          "macro_f1": -0.034129785077574804,
+          "auc": -0.0639847956921129,
+          "sensitivity": -0.08943089430894302,
+          "specificity": 0.038961038961038974
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24007369695985847,
+        "MB": 0.23845971233539534,
+        "MP": 0.09112324282648442,
+        "MR": 0.29427339578262524,
+        "MUV": 0.13606995209563302
+      },
+      "deeplift_center_share": {
+        "M": 0.6550145425914333,
+        "MB": 0.5724675612513056,
+        "MP": 0.6276093432058377,
+        "MR": 0.5336888763601253,
+        "MUV": 0.6088114657476321
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.765,
+        "macro_f1": 0.7512635283533116,
+        "auc": 0.8153310104529616,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.6883116883116883
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.65,
+          "macro_f1": 0.4900932400932401,
+          "auc": 0.6763805300390666,
+          "sensitivity": 0.983739837398374,
+          "specificity": 0.11688311688311688
+        },
+        "MB": {
+          "accuracy": 0.69,
+          "macro_f1": 0.6343908479773559,
+          "auc": 0.696969696969697,
+          "sensitivity": 0.8780487804878049,
+          "specificity": 0.38961038961038963
+        },
+        "MP": {
+          "accuracy": 0.73,
+          "macro_f1": 0.721964782205746,
+          "auc": 0.8108964206525182,
+          "sensitivity": 0.7317073170731707,
+          "specificity": 0.7272727272727273
+        },
+        "MR": {
+          "accuracy": 0.675,
+          "macro_f1": 0.5803066989507668,
+          "auc": 0.6704677436384754,
+          "sensitivity": 0.9349593495934959,
+          "specificity": 0.2597402597402597
+        },
+        "MUV": {
+          "accuracy": 0.645,
+          "macro_f1": 0.6223303811271577,
+          "auc": 0.6535740682082146,
+          "sensitivity": 0.7235772357723578,
+          "specificity": 0.5194805194805194
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.11499999999999999,
+          "macro_f1": -0.26117028826007144,
+          "auc": -0.13895048041389502,
+          "sensitivity": 0.1707317073170732,
+          "specificity": -0.5714285714285714
+        },
+        "MB": {
+          "accuracy": -0.07500000000000007,
+          "macro_f1": -0.11687268037595566,
+          "auc": -0.11836131348326462,
+          "sensitivity": 0.06504065040650409,
+          "specificity": -0.2987012987012987
+        },
+        "MP": {
+          "accuracy": -0.03500000000000003,
+          "macro_f1": -0.029298746147565558,
+          "auc": -0.0044345898004434225,
+          "sensitivity": -0.08130081300813008,
+          "specificity": 0.038961038961038974
+        },
+        "MR": {
+          "accuracy": -0.08999999999999997,
+          "macro_f1": -0.17095682940254475,
+          "auc": -0.14486326681448625,
+          "sensitivity": 0.12195121951219512,
+          "specificity": -0.4285714285714286
+        },
+        "MUV": {
+          "accuracy": -0.12,
+          "macro_f1": -0.1289331472261539,
+          "auc": -0.16175694224474702,
+          "sensitivity": -0.08943089430894302,
+          "specificity": -0.1688311688311689
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24240946075135567,
+        "MB": 0.23957916544802776,
+        "MP": 0.08693407772621072,
+        "MR": 0.3010579176597408,
+        "MUV": 0.13001937841466218
+      },
+      "deeplift_center_share": {
+        "M": 0.6249355138357895,
+        "MB": 0.5435250070402967,
+        "MP": 0.6165593002612954,
+        "MR": 0.5243724027356818,
+        "MUV": 0.5955241975913881
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.785,
+        "macro_f1": 0.7712705125136307,
+        "auc": 0.8054059761376835,
+        "sensitivity": 0.8373983739837398,
+        "specificity": 0.7012987012987013
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.68,
+          "macro_f1": 0.5841995841995842,
+          "auc": 0.7591595396473445,
+          "sensitivity": 0.943089430894309,
+          "specificity": 0.2597402597402597
+        },
+        "MB": {
+          "accuracy": 0.73,
+          "macro_f1": 0.7229064039408868,
+          "auc": 0.8142751557385705,
+          "sensitivity": 0.7235772357723578,
+          "specificity": 0.7402597402597403
+        },
+        "MP": {
+          "accuracy": 0.73,
+          "macro_f1": 0.6970037032880709,
+          "auc": 0.778640059127864,
+          "sensitivity": 0.8617886178861789,
+          "specificity": 0.5194805194805194
+        },
+        "MR": {
+          "accuracy": 0.665,
+          "macro_f1": 0.6436075427537966,
+          "auc": 0.6758526026818711,
+          "sensitivity": 0.7398373983739838,
+          "specificity": 0.5454545454545454
+        },
+        "MUV": {
+          "accuracy": 0.66,
+          "macro_f1": 0.6578099838969405,
+          "auc": 0.7500791891035793,
+          "sensitivity": 0.6016260162601627,
+          "specificity": 0.7532467532467533
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10499999999999998,
+          "macro_f1": -0.18707092831404648,
+          "auc": -0.046246436490338994,
+          "sensitivity": 0.10569105691056913,
+          "specificity": -0.4415584415584416
+        },
+        "MB": {
+          "accuracy": -0.05500000000000005,
+          "macro_f1": -0.04836410857274387,
+          "auc": 0.008869179600886956,
+          "sensitivity": -0.11382113821138207,
+          "specificity": 0.038961038961038974
+        },
+        "MP": {
+          "accuracy": -0.05500000000000005,
+          "macro_f1": -0.07426680922555973,
+          "auc": -0.02676591700981945,
+          "sensitivity": 0.024390243902439046,
+          "specificity": -0.18181818181818188
+        },
+        "MR": {
+          "accuracy": -0.12,
+          "macro_f1": -0.12766296975983404,
+          "auc": -0.12955337345581242,
+          "sensitivity": -0.09756097560975607,
+          "specificity": -0.1558441558441559
+        },
+        "MUV": {
+          "accuracy": -0.125,
+          "macro_f1": -0.1134605286166902,
+          "auc": -0.05532678703410421,
+          "sensitivity": -0.2357723577235772,
+          "specificity": 0.051948051948051965
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23234902447823588,
+        "MB": 0.2452429623358503,
+        "MP": 0.08458204566943639,
+        "MR": 0.30780460077281774,
+        "MUV": 0.13002136674365727
+      },
+      "deeplift_center_share": {
+        "M": 0.5550270221114887,
+        "MB": 0.4558197038609448,
+        "MP": 0.5467093966726793,
+        "MR": 0.4343101610245299,
+        "MUV": 0.5203001059646518
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7537688442211056,
+        "macro_f1": 0.7233366434955313,
+        "auc": 0.7951351926761763,
+        "sensitivity": 0.8852459016393442,
+        "specificity": 0.5454545454545454
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6984924623115578,
+          "macro_f1": 0.685126582278481,
+          "auc": 0.751224185650415,
+          "sensitivity": 0.7377049180327869,
+          "specificity": 0.6363636363636364
+        },
+        "MB": {
+          "accuracy": 0.5025125628140703,
+          "macro_f1": 0.46899005417643735,
+          "auc": 0.8051948051948051,
+          "sensitivity": 0.20491803278688525,
+          "specificity": 0.974025974025974
+        },
+        "MP": {
+          "accuracy": 0.7386934673366834,
+          "macro_f1": 0.7052859421280474,
+          "auc": 0.7963593783265914,
+          "sensitivity": 0.8770491803278688,
+          "specificity": 0.5194805194805194
+        },
+        "MR": {
+          "accuracy": 0.6030150753768844,
+          "macro_f1": 0.6029749728514786,
+          "auc": 0.711837342984884,
+          "sensitivity": 0.48360655737704916,
+          "specificity": 0.7922077922077922
+        },
+        "MUV": {
+          "accuracy": 0.6231155778894473,
+          "macro_f1": 0.4815007816571131,
+          "auc": 0.7014583776878859,
+          "sensitivity": 0.9344262295081968,
+          "specificity": 0.12987012987012986
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.055276381909547756,
+          "macro_f1": -0.038210061217050284,
+          "auc": -0.04391100702576123,
+          "sensitivity": -0.14754098360655732,
+          "specificity": 0.09090909090909094
+        },
+        "MB": {
+          "accuracy": -0.25125628140703526,
+          "macro_f1": -0.25434658931909393,
+          "auc": 0.010059612518628858,
+          "sensitivity": -0.680327868852459,
+          "specificity": 0.4285714285714286
+        },
+        "MP": {
+          "accuracy": -0.015075376884422176,
+          "macro_f1": -0.01805070136748388,
+          "auc": 0.001224185650415155,
+          "sensitivity": -0.008196721311475419,
+          "specificity": -0.025974025974025983
+        },
+        "MR": {
+          "accuracy": -0.1507537688442212,
+          "macro_f1": -0.12036167064405268,
+          "auc": -0.08329784969129228,
+          "sensitivity": -0.4016393442622951,
+          "specificity": 0.24675324675324684
+        },
+        "MUV": {
+          "accuracy": -0.1306532663316583,
+          "macro_f1": -0.2418358618384182,
+          "auc": -0.09367681498829039,
+          "sensitivity": 0.049180327868852514,
+          "specificity": -0.41558441558441556
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24096760681159635,
+        "MB": 0.24283044928558215,
+        "MP": 0.09225640979293843,
+        "MR": 0.2861976106353862,
+        "MUV": 0.13774792347449433
+      },
+      "deeplift_center_share": {
+        "M": 0.6563600799572714,
+        "MB": 0.579816530123344,
+        "MP": 0.6301715872833253,
+        "MR": 0.5363100551581563,
+        "MUV": 0.6125313795696509
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7487437185929648,
+        "macro_f1": 0.7144087256027555,
+        "auc": 0.8175963380881415,
+        "sensitivity": 0.8934426229508197,
+        "specificity": 0.5194805194805194
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6482412060301508,
+          "macro_f1": 0.49747474747474746,
+          "auc": 0.7793804556099638,
+          "sensitivity": 0.9754098360655737,
+          "specificity": 0.12987012987012986
+        },
+        "MB": {
+          "accuracy": 0.7035175879396985,
+          "macro_f1": 0.6946026791520354,
+          "auc": 0.8061528635299127,
+          "sensitivity": 0.7131147540983607,
+          "specificity": 0.6883116883116883
+        },
+        "MP": {
+          "accuracy": 0.7688442211055276,
+          "macro_f1": 0.7412369968340118,
+          "auc": 0.8099318714072813,
+          "sensitivity": 0.8934426229508197,
+          "specificity": 0.5714285714285714
+        },
+        "MR": {
+          "accuracy": 0.628140703517588,
+          "macro_f1": 0.5058389261744967,
+          "auc": 0.6625505641899085,
+          "sensitivity": 0.9180327868852459,
+          "specificity": 0.16883116883116883
+        },
+        "MUV": {
+          "accuracy": 0.7537688442211056,
+          "macro_f1": 0.7341965380945891,
+          "auc": 0.7827336597828402,
+          "sensitivity": 0.8360655737704918,
+          "specificity": 0.6233766233766234
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10050251256281406,
+          "macro_f1": -0.21693397812800802,
+          "auc": -0.03821588247817764,
+          "sensitivity": 0.08196721311475408,
+          "specificity": -0.3896103896103896
+        },
+        "MB": {
+          "accuracy": -0.045226130653266305,
+          "macro_f1": -0.01980604645072004,
+          "auc": -0.011443474558228806,
+          "sensitivity": -0.180327868852459,
+          "specificity": 0.1688311688311689
+        },
+        "MP": {
+          "accuracy": 0.02010050251256279,
+          "macro_f1": 0.026828271231256307,
+          "auc": -0.0076644666808601825,
+          "sensitivity": 0.0,
+          "specificity": 0.051948051948051965
+        },
+        "MR": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.20856979942825882,
+          "auc": -0.15504577389823293,
+          "sensitivity": 0.024590163934426257,
+          "specificity": -0.3506493506493506
+        },
+        "MUV": {
+          "accuracy": 0.005025125628140725,
+          "macro_f1": 0.01978781249183359,
+          "auc": -0.03486267830530132,
+          "sensitivity": -0.05737704918032782,
+          "specificity": 0.10389610389610393
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23345866388273268,
+        "MB": 0.2449488935908645,
+        "MP": 0.08782898217885136,
+        "MR": 0.30267926409648394,
+        "MUV": 0.1310841962510651
+      },
+      "deeplift_center_share": {
+        "M": 0.6067960279644453,
+        "MB": 0.5138382552501412,
+        "MP": 0.5960430439829308,
+        "MR": 0.479178067890021,
+        "MUV": 0.5727166472741287
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7537688442211056,
+        "macro_f1": 0.7422892935486428,
+        "auc": 0.8035448158398978,
+        "sensitivity": 0.7868852459016393,
+        "specificity": 0.7012987012987013
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7587939698492462,
+          "macro_f1": 0.7319263583295914,
+          "auc": 0.8152011922503726,
+          "sensitivity": 0.8770491803278688,
+          "specificity": 0.5714285714285714
+        },
+        "MB": {
+          "accuracy": 0.6030150753768844,
+          "macro_f1": 0.6004320752319228,
+          "auc": 0.6425377900787737,
+          "sensitivity": 0.5573770491803278,
+          "specificity": 0.6753246753246753
+        },
+        "MP": {
+          "accuracy": 0.7336683417085427,
+          "macro_f1": 0.705036776015885,
+          "auc": 0.7858207366404089,
+          "sensitivity": 0.8524590163934426,
+          "specificity": 0.5454545454545454
+        },
+        "MR": {
+          "accuracy": 0.6733668341708543,
+          "macro_f1": 0.5369939506747324,
+          "auc": 0.7802852884820097,
+          "sensitivity": 0.9918032786885246,
+          "specificity": 0.16883116883116883
+        },
+        "MUV": {
+          "accuracy": 0.7437185929648241,
+          "macro_f1": 0.7340199701234373,
+          "auc": 0.7604854162231212,
+          "sensitivity": 0.7622950819672131,
+          "specificity": 0.7142857142857143
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": 0.005025125628140614,
+          "macro_f1": -0.010362935219051406,
+          "auc": 0.011656376410474789,
+          "sensitivity": 0.0901639344262295,
+          "specificity": -0.1298701298701299
+        },
+        "MB": {
+          "accuracy": -0.1507537688442212,
+          "macro_f1": -0.14185721831672005,
+          "auc": -0.16100702576112413,
+          "sensitivity": -0.2295081967213115,
+          "specificity": -0.025974025974025983
+        },
+        "MP": {
+          "accuracy": -0.0201005025125629,
+          "macro_f1": -0.03725251753275782,
+          "auc": -0.01772407919948893,
+          "sensitivity": 0.06557377049180324,
+          "specificity": -0.1558441558441559
+        },
+        "MR": {
+          "accuracy": -0.08040201005025127,
+          "macro_f1": -0.20529534287391038,
+          "auc": -0.023259527357888055,
+          "sensitivity": 0.20491803278688525,
+          "specificity": -0.5324675324675325
+        },
+        "MUV": {
+          "accuracy": -0.01005025125628145,
+          "macro_f1": -0.008269323425205477,
+          "auc": -0.04305939961677663,
+          "sensitivity": -0.024590163934426257,
+          "specificity": 0.012987012987012991
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24824257931492688,
+        "MB": 0.23931682744631957,
+        "MP": 0.08739128664445783,
+        "MR": 0.29587074358016857,
+        "MUV": 0.1291785630141246
+      },
+      "deeplift_center_share": {
+        "M": 0.6348356250624615,
+        "MB": 0.5736738677724612,
+        "MP": 0.6384960513922867,
+        "MR": 0.5479143696607073,
+        "MUV": 0.6265815542666231
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7386934673366834,
+        "macro_f1": 0.7095868881903906,
+        "auc": 0.8058335107515436,
+        "sensitivity": 0.860655737704918,
+        "specificity": 0.5454545454545454
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7135678391959799,
+          "macro_f1": 0.7077826725403817,
+          "auc": 0.7619757291888439,
+          "sensitivity": 0.6967213114754098,
+          "specificity": 0.7402597402597403
+        },
+        "MB": {
+          "accuracy": 0.4723618090452261,
+          "macro_f1": 0.4195994555706786,
+          "auc": 0.7801788375558868,
+          "sensitivity": 0.13934426229508196,
+          "specificity": 1.0
+        },
+        "MP": {
+          "accuracy": 0.6934673366834171,
+          "macro_f1": 0.6501829918446155,
+          "auc": 0.7803917394081328,
+          "sensitivity": 0.8524590163934426,
+          "specificity": 0.44155844155844154
+        },
+        "MR": {
+          "accuracy": 0.6432160804020101,
+          "macro_f1": 0.6426385411133875,
+          "auc": 0.7388758782201406,
+          "sensitivity": 0.5573770491803278,
+          "specificity": 0.7792207792207793
+        },
+        "MUV": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.6783166109253066,
+          "auc": 0.7935916542473919,
+          "sensitivity": 0.8278688524590164,
+          "specificity": 0.5194805194805194
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.025125628140703515,
+          "macro_f1": -0.001804215650008878,
+          "auc": -0.043857781562699705,
+          "sensitivity": -0.16393442622950816,
+          "specificity": 0.19480519480519487
+        },
+        "MB": {
+          "accuracy": -0.2663316582914573,
+          "macro_f1": -0.289987432619712,
+          "auc": -0.02565467319565684,
+          "sensitivity": -0.721311475409836,
+          "specificity": 0.4545454545454546
+        },
+        "MP": {
+          "accuracy": -0.045226130653266305,
+          "macro_f1": -0.05940389634577514,
+          "auc": -0.025441771343410857,
+          "sensitivity": -0.008196721311475419,
+          "specificity": -0.10389610389610388
+        },
+        "MR": {
+          "accuracy": -0.09547738693467334,
+          "macro_f1": -0.06694834707700315,
+          "auc": -0.06695763253140308,
+          "sensitivity": -0.30327868852459017,
+          "specificity": 0.23376623376623384
+        },
+        "MUV": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": -0.03127027726508402,
+          "auc": -0.012241856504151771,
+          "sensitivity": -0.032786885245901565,
+          "specificity": -0.025974025974025983
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24183161050011479,
+        "MB": 0.24227419529106745,
+        "MP": 0.08697380659830821,
+        "MR": 0.2982138110614323,
+        "MUV": 0.13070657654907414
+      },
+      "deeplift_center_share": {
+        "M": 0.6650287727638908,
+        "MB": 0.5738931491778506,
+        "MP": 0.6459964750964006,
+        "MR": 0.5416559340051893,
+        "MUV": 0.6243700951968262
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7587939698492462,
+        "macro_f1": 0.7418378378378379,
+        "auc": 0.8163721524377261,
+        "sensitivity": 0.8278688524590164,
+        "specificity": 0.6493506493506493
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6934673366834171,
+          "macro_f1": 0.6777114031594318,
+          "auc": 0.7632531403023207,
+          "sensitivity": 0.7459016393442623,
+          "specificity": 0.6103896103896104
+        },
+        "MB": {
+          "accuracy": 0.6030150753768844,
+          "macro_f1": 0.6030150753768844,
+          "auc": 0.7373855652544177,
+          "sensitivity": 0.4918032786885246,
+          "specificity": 0.7792207792207793
+        },
+        "MP": {
+          "accuracy": 0.7185929648241206,
+          "macro_f1": 0.6482323232323233,
+          "auc": 0.8046625505641898,
+          "sensitivity": 0.9508196721311475,
+          "specificity": 0.35064935064935066
+        },
+        "MR": {
+          "accuracy": 0.628140703517588,
+          "macro_f1": 0.46875901875901876,
+          "auc": 0.658292527144986,
+          "sensitivity": 0.9590163934426229,
+          "specificity": 0.1038961038961039
+        },
+        "MUV": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.682493397887324,
+          "auc": 0.7767724079199488,
+          "sensitivity": 0.8114754098360656,
+          "specificity": 0.5454545454545454
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.0653266331658291,
+          "macro_f1": -0.06412643467840606,
+          "auc": -0.053119012135405375,
+          "sensitivity": -0.08196721311475408,
+          "specificity": -0.038961038961038974
+        },
+        "MB": {
+          "accuracy": -0.15577889447236182,
+          "macro_f1": -0.13882276246095349,
+          "auc": -0.07898658718330842,
+          "sensitivity": -0.33606557377049184,
+          "specificity": 0.1298701298701299
+        },
+        "MP": {
+          "accuracy": -0.04020100502512558,
+          "macro_f1": -0.09360551460551458,
+          "auc": -0.011709601873536313,
+          "sensitivity": 0.12295081967213106,
+          "specificity": -0.2987012987012987
+        },
+        "MR": {
+          "accuracy": -0.1306532663316582,
+          "macro_f1": -0.2730788190788191,
+          "auc": -0.1580796252927401,
+          "sensitivity": 0.13114754098360648,
+          "specificity": -0.5454545454545454
+        },
+        "MUV": {
+          "accuracy": -0.05025125628140703,
+          "macro_f1": -0.05934443995051386,
+          "auc": -0.03959974451777726,
+          "sensitivity": -0.016393442622950838,
+          "specificity": -0.10389610389610393
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23446937777732335,
+        "MB": 0.25053367147374295,
+        "MP": 0.08053604492374193,
+        "MR": 0.3097217961289961,
+        "MUV": 0.12473910969619316
+      },
+      "deeplift_center_share": {
+        "M": 0.573696232070159,
+        "MB": 0.47295141176928107,
+        "MP": 0.5804572828568375,
+        "MR": 0.45746802989631985,
+        "MUV": 0.5560832107091167
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7135678391959799,
+        "macro_f1": 0.6615747232747561,
+        "auc": 0.7868852459016393,
+        "sensitivity": 0.9016393442622951,
+        "specificity": 0.4155844155844156
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6432160804020101,
+          "macro_f1": 0.58596336996337,
+          "auc": 0.7072599531615925,
+          "sensitivity": 0.8278688524590164,
+          "specificity": 0.35064935064935066
+        },
+        "MB": {
+          "accuracy": 0.5829145728643216,
+          "macro_f1": 0.5732151623989045,
+          "auc": 0.7486693634234617,
+          "sensitivity": 0.3524590163934426,
+          "specificity": 0.948051948051948
+        },
+        "MP": {
+          "accuracy": 0.6532663316582915,
+          "macro_f1": 0.522980719124544,
+          "auc": 0.7658611879923356,
+          "sensitivity": 0.9590163934426229,
+          "specificity": 0.16883116883116883
+        },
+        "MR": {
+          "accuracy": 0.6130653266331658,
+          "macro_f1": 0.38006230529595014,
+          "auc": 0.525974025974026,
+          "sensitivity": 1.0,
+          "specificity": 0.0
+        },
+        "MUV": {
+          "accuracy": 0.7236180904522613,
+          "macro_f1": 0.6939060883183712,
+          "auc": 0.7723014690227805,
+          "sensitivity": 0.8442622950819673,
+          "specificity": 0.5324675324675324
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.07035175879396982,
+          "macro_f1": -0.07561135331138613,
+          "auc": -0.07962529274004682,
+          "sensitivity": -0.07377049180327866,
+          "specificity": -0.06493506493506496
+        },
+        "MB": {
+          "accuracy": -0.1306532663316583,
+          "macro_f1": -0.08835956087585162,
+          "auc": -0.03821588247817764,
+          "sensitivity": -0.5491803278688525,
+          "specificity": 0.5324675324675324
+        },
+        "MP": {
+          "accuracy": -0.06030150753768837,
+          "macro_f1": -0.13859400415021206,
+          "auc": -0.02102405790930373,
+          "sensitivity": 0.05737704918032782,
+          "specificity": -0.24675324675324678
+        },
+        "MR": {
+          "accuracy": -0.10050251256281406,
+          "macro_f1": -0.28151241797880594,
+          "auc": -0.26091121992761335,
+          "sensitivity": 0.09836065573770492,
+          "specificity": -0.4155844155844156
+        },
+        "MUV": {
+          "accuracy": 0.01005025125628145,
+          "macro_f1": 0.03233136504361511,
+          "auc": -0.014583776878858812,
+          "sensitivity": -0.05737704918032782,
+          "specificity": 0.11688311688311681
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23385093083765807,
+        "MB": 0.2525757599042832,
+        "MP": 0.08614377495965976,
+        "MR": 0.2962482139898312,
+        "MUV": 0.13118132030856483
+      },
+      "deeplift_center_share": {
+        "M": 0.6012276863138235,
+        "MB": 0.49023989516080047,
+        "MP": 0.5806384042538447,
+        "MR": 0.4686296381551725,
+        "MUV": 0.5560577913418273
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7638190954773869,
+        "macro_f1": 0.7435074729192377,
+        "auc": 0.8063756953359007,
+        "sensitivity": 0.8455284552845529,
+        "specificity": 0.631578947368421
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7236180904522613,
+          "macro_f1": 0.6351301796846351,
+          "auc": 0.7851946940522038,
+          "sensitivity": 0.983739837398374,
+          "specificity": 0.3026315789473684
+        },
+        "MB": {
+          "accuracy": 0.40703517587939697,
+          "macro_f1": 0.3205439814814815,
+          "auc": 0.6561831407787762,
+          "sensitivity": 0.04065040650406504,
+          "specificity": 1.0
+        },
+        "MP": {
+          "accuracy": 0.7286432160804021,
+          "macro_f1": 0.6747578692493947,
+          "auc": 0.7520325203252033,
+          "sensitivity": 0.9186991869918699,
+          "specificity": 0.42105263157894735
+        },
+        "MR": {
+          "accuracy": 0.6482412060301508,
+          "macro_f1": 0.6467336173666058,
+          "auc": 0.745186136071887,
+          "sensitivity": 0.5772357723577236,
+          "specificity": 0.7631578947368421
+        },
+        "MUV": {
+          "accuracy": 0.7236180904522613,
+          "macro_f1": 0.7142670669625375,
+          "auc": 0.7690415062045357,
+          "sensitivity": 0.7317073170731707,
+          "specificity": 0.7105263157894737
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.04020100502512558,
+          "macro_f1": -0.10837729323460255,
+          "auc": -0.021181001283696932,
+          "sensitivity": 0.1382113821138211,
+          "specificity": -0.3289473684210526
+        },
+        "MB": {
+          "accuracy": -0.35678391959798994,
+          "macro_f1": -0.4229634914377562,
+          "auc": -0.15019255455712455,
+          "sensitivity": -0.8048780487804879,
+          "specificity": 0.368421052631579
+        },
+        "MP": {
+          "accuracy": -0.035175879396984855,
+          "macro_f1": -0.06874960366984295,
+          "auc": -0.05434317501069741,
+          "sensitivity": 0.07317073170731703,
+          "specificity": -0.21052631578947367
+        },
+        "MR": {
+          "accuracy": -0.11557788944723613,
+          "macro_f1": -0.09677385555263185,
+          "auc": -0.061189559264013704,
+          "sensitivity": -0.2682926829268293,
+          "specificity": 0.13157894736842113
+        },
+        "MUV": {
+          "accuracy": -0.04020100502512558,
+          "macro_f1": -0.02924040595670019,
+          "auc": -0.03733418913136499,
+          "sensitivity": -0.11382113821138218,
+          "specificity": 0.07894736842105265
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23486155016201316,
+        "MB": 0.24936474736255998,
+        "MP": 0.0867171125432543,
+        "MR": 0.29812840956869613,
+        "MUV": 0.1309281803634734
+      },
+      "deeplift_center_share": {
+        "M": 0.6201011067487853,
+        "MB": 0.5158467671425151,
+        "MP": 0.6158931368564743,
+        "MR": 0.4827824405521528,
+        "MUV": 0.5910002783398006
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7839195979899497,
+        "macro_f1": 0.7705713596267796,
+        "auc": 0.8292148053059478,
+        "sensitivity": 0.8292682926829268,
+        "specificity": 0.7105263157894737
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7236180904522613,
+          "macro_f1": 0.6792673992673993,
+          "auc": 0.7597347026101839,
+          "sensitivity": 0.8861788617886179,
+          "specificity": 0.4605263157894737
+        },
+        "MB": {
+          "accuracy": 0.5477386934673367,
+          "macro_f1": 0.534950145409223,
+          "auc": 0.7054985023534446,
+          "sensitivity": 0.3089430894308943,
+          "specificity": 0.9342105263157895
+        },
+        "MP": {
+          "accuracy": 0.7487437185929648,
+          "macro_f1": 0.73252688172043,
+          "auc": 0.8112965340179717,
+          "sensitivity": 0.8048780487804879,
+          "specificity": 0.6578947368421053
+        },
+        "MR": {
+          "accuracy": 0.7085427135678392,
+          "macro_f1": 0.6862904979343336,
+          "auc": 0.7166238767650834,
+          "sensitivity": 0.7886178861788617,
+          "specificity": 0.5789473684210527
+        },
+        "MUV": {
+          "accuracy": 0.7587939698492462,
+          "macro_f1": 0.7108958837772397,
+          "auc": 0.7948224219084297,
+          "sensitivity": 0.943089430894309,
+          "specificity": 0.4605263157894737
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.06030150753768837,
+          "macro_f1": -0.09130396035938027,
+          "auc": -0.06948010269576388,
+          "sensitivity": 0.056910569105691144,
+          "specificity": -0.25
+        },
+        "MB": {
+          "accuracy": -0.23618090452261298,
+          "macro_f1": -0.23562121421755655,
+          "auc": -0.12371630295250324,
+          "sensitivity": -0.5203252032520325,
+          "specificity": 0.22368421052631582
+        },
+        "MP": {
+          "accuracy": -0.035175879396984855,
+          "macro_f1": -0.03804447790634957,
+          "auc": -0.017918271287976073,
+          "sensitivity": -0.024390243902438935,
+          "specificity": -0.05263157894736836
+        },
+        "MR": {
+          "accuracy": -0.07537688442211055,
+          "macro_f1": -0.08428086169244597,
+          "auc": -0.11259092854086439,
+          "sensitivity": -0.04065040650406504,
+          "specificity": -0.13157894736842102
+        },
+        "MUV": {
+          "accuracy": -0.025125628140703515,
+          "macro_f1": -0.059675475849539916,
+          "auc": -0.034392383397518156,
+          "sensitivity": 0.11382113821138218,
+          "specificity": -0.25
+        }
+      },
+      "deeplift_share": {
+        "M": 0.22997086932372013,
+        "MB": 0.2512541898467034,
+        "MP": 0.08153779530852816,
+        "MR": 0.31044259868362345,
+        "MUV": 0.12679454683742203
+      },
+      "deeplift_center_share": {
+        "M": 0.5542740548727831,
+        "MB": 0.4479245547314235,
+        "MP": 0.55675607478845,
+        "MR": 0.4357803817976738,
+        "MUV": 0.531639484814596
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7437185929648241,
+        "macro_f1": 0.72493698674689,
+        "auc": 0.7793645699614892,
+        "sensitivity": 0.8130081300813008,
+        "specificity": 0.631578947368421
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6381909547738693,
+          "macro_f1": 0.6186927826272088,
+          "auc": 0.6705177578091571,
+          "sensitivity": 0.6991869918699187,
+          "specificity": 0.5394736842105263
+        },
+        "MB": {
+          "accuracy": 0.457286432160804,
+          "macro_f1": 0.40100334448160535,
+          "auc": 0.7041078305519897,
+          "sensitivity": 0.12195121951219512,
+          "specificity": 1.0
+        },
+        "MP": {
+          "accuracy": 0.7135678391959799,
+          "macro_f1": 0.6827754006208575,
+          "auc": 0.7725716730851518,
+          "sensitivity": 0.8292682926829268,
+          "specificity": 0.5263157894736842
+        },
+        "MR": {
+          "accuracy": 0.6884422110552764,
+          "macro_f1": 0.6716521183734299,
+          "auc": 0.7298887462558835,
+          "sensitivity": 0.7398373983739838,
+          "specificity": 0.6052631578947368
+        },
+        "MUV": {
+          "accuracy": 0.7286432160804021,
+          "macro_f1": 0.7249692874692875,
+          "auc": 0.8136499786050492,
+          "sensitivity": 0.6829268292682927,
+          "specificity": 0.8026315789473685
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095479,
+          "macro_f1": -0.10624420411968116,
+          "auc": -0.10884681215233205,
+          "sensitivity": -0.11382113821138207,
+          "specificity": -0.09210526315789469
+        },
+        "MB": {
+          "accuracy": -0.2864321608040201,
+          "macro_f1": -0.32393364226528465,
+          "auc": -0.0752567394094995,
+          "sensitivity": -0.6910569105691057,
+          "specificity": 0.368421052631579
+        },
+        "MP": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": -0.04216158612603249,
+          "auc": -0.006792896876337329,
+          "sensitivity": 0.016260162601625994,
+          "specificity": -0.10526315789473684
+        },
+        "MR": {
+          "accuracy": -0.055276381909547756,
+          "macro_f1": -0.05328486837346014,
+          "auc": -0.04947582370560566,
+          "sensitivity": -0.07317073170731703,
+          "specificity": -0.02631578947368418
+        },
+        "MUV": {
+          "accuracy": -0.015075376884422065,
+          "macro_f1": 3.230072239746029e-05,
+          "auc": 0.03428540864356,
+          "sensitivity": -0.13008130081300806,
+          "specificity": 0.17105263157894746
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23765651662801227,
+        "MB": 0.2510031286798631,
+        "MP": 0.08339087281795483,
+        "MR": 0.3011916034279273,
+        "MUV": 0.12675787844624023
+      },
+      "deeplift_center_share": {
+        "M": 0.6217450632274787,
+        "MB": 0.5077172023049352,
+        "MP": 0.6374772043419837,
+        "MR": 0.4918120268503046,
+        "MUV": 0.6075789826120295
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.8241206030150754,
+        "macro_f1": 0.8122692110724778,
+        "auc": 0.8624304664099273,
+        "sensitivity": 0.8699186991869918,
+        "specificity": 0.75
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.7537688442211056,
+          "macro_f1": 0.7233366434955313,
+          "auc": 0.7801668806161746,
+          "sensitivity": 0.8780487804878049,
+          "specificity": 0.5526315789473685
+        },
+        "MB": {
+          "accuracy": 0.39195979899497485,
+          "macro_f1": 0.30610068874095847,
+          "auc": 0.6903080872913993,
+          "sensitivity": 0.032520325203252036,
+          "specificity": 0.9736842105263158
+        },
+        "MP": {
+          "accuracy": 0.7738693467336684,
+          "macro_f1": 0.7477820025348543,
+          "auc": 0.8449935815147626,
+          "sensitivity": 0.8861788617886179,
+          "specificity": 0.5921052631578947
+        },
+        "MR": {
+          "accuracy": 0.7035175879396985,
+          "macro_f1": 0.689695271823876,
+          "auc": 0.7426187419768935,
+          "sensitivity": 0.7398373983739838,
+          "specificity": 0.6447368421052632
+        },
+        "MUV": {
+          "accuracy": 0.6532663316582915,
+          "macro_f1": 0.6523885471253892,
+          "auc": 0.7421908429610612,
+          "sensitivity": 0.5691056910569106,
+          "specificity": 0.7894736842105263
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.07035175879396982,
+          "macro_f1": -0.08893256757694656,
+          "auc": -0.0822635857937527,
+          "sensitivity": 0.008130081300813052,
+          "specificity": -0.19736842105263153
+        },
+        "MB": {
+          "accuracy": -0.43216080402010054,
+          "macro_f1": -0.5061685223315193,
+          "auc": -0.172122379118528,
+          "sensitivity": -0.8373983739837398,
+          "specificity": 0.22368421052631582
+        },
+        "MP": {
+          "accuracy": -0.05025125628140703,
+          "macro_f1": -0.06448720853762357,
+          "auc": -0.017436884895164706,
+          "sensitivity": 0.016260162601626105,
+          "specificity": -0.1578947368421053
+        },
+        "MR": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.12257393924860183,
+          "auc": -0.11981172443303378,
+          "sensitivity": -0.13008130081300806,
+          "specificity": -0.10526315789473684
+        },
+        "MUV": {
+          "accuracy": -0.17085427135678388,
+          "macro_f1": -0.15988066394708866,
+          "auc": -0.12023962344886607,
+          "sensitivity": -0.30081300813008127,
+          "specificity": 0.03947368421052633
+        }
+      },
+      "deeplift_share": {
+        "M": 0.2361115573901437,
+        "MB": 0.2501345156048859,
+        "MP": 0.08727143891390945,
+        "MR": 0.2956762327603124,
+        "MUV": 0.13080625533074636
+      },
+      "deeplift_center_share": {
+        "M": 0.577561429509322,
+        "MB": 0.48724490227658074,
+        "MP": 0.5845757026730363,
+        "MR": 0.46019224925334734,
+        "MUV": 0.5571155452900418
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.7135678391959799,
+        "macro_f1": 0.7117041555470836,
+        "auc": 0.8396448438168592,
+        "sensitivity": 0.6422764227642277,
+        "specificity": 0.8289473684210527
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6030150753768844,
+          "macro_f1": 0.6020100756942862,
+          "auc": 0.7641206675224647,
+          "sensitivity": 0.44715447154471544,
+          "specificity": 0.8552631578947368
+        },
+        "MB": {
+          "accuracy": 0.4271356783919598,
+          "macro_f1": 0.3538961038961039,
+          "auc": 0.6890243902439025,
+          "sensitivity": 0.07317073170731707,
+          "specificity": 1.0
+        },
+        "MP": {
+          "accuracy": 0.7437185929648241,
+          "macro_f1": 0.7317704892036895,
+          "auc": 0.8141313649978607,
+          "sensitivity": 0.7723577235772358,
+          "specificity": 0.6973684210526315
+        },
+        "MR": {
+          "accuracy": 0.5276381909547738,
+          "macro_f1": 0.5125599332916406,
+          "auc": 0.6770432178005992,
+          "sensitivity": 0.2845528455284553,
+          "specificity": 0.9210526315789473
+        },
+        "MUV": {
+          "accuracy": 0.6884422110552764,
+          "macro_f1": 0.6878036437246964,
+          "auc": 0.7826272999572101,
+          "sensitivity": 0.5934959349593496,
+          "specificity": 0.8421052631578947
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.11055276381909551,
+          "macro_f1": -0.10969407985279733,
+          "auc": -0.07552417629439456,
+          "sensitivity": -0.19512195121951226,
+          "specificity": 0.02631578947368418
+        },
+        "MB": {
+          "accuracy": -0.28643216080402006,
+          "macro_f1": -0.3578080516509797,
+          "auc": -0.15062045357295673,
+          "sensitivity": -0.5691056910569107,
+          "specificity": 0.17105263157894735
+        },
+        "MP": {
+          "accuracy": 0.03015075376884424,
+          "macro_f1": 0.020066333656605928,
+          "auc": -0.02551347881899857,
+          "sensitivity": 0.13008130081300806,
+          "specificity": -0.13157894736842113
+        },
+        "MR": {
+          "accuracy": -0.18592964824120606,
+          "macro_f1": -0.19914422225544293,
+          "auc": -0.16260162601626005,
+          "sensitivity": -0.3577235772357724,
+          "specificity": 0.09210526315789469
+        },
+        "MUV": {
+          "accuracy": -0.025125628140703515,
+          "macro_f1": -0.02390051182238717,
+          "auc": -0.05701754385964908,
+          "sensitivity": -0.04878048780487809,
+          "specificity": 0.013157894736842035
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24396980541473623,
+        "MB": 0.23848019255378267,
+        "MP": 0.08883478011526505,
+        "MR": 0.2975170224118193,
+        "MUV": 0.13119819950439382
+      },
+      "deeplift_center_share": {
+        "M": 0.6373471395812315,
+        "MB": 0.5700922152875935,
+        "MP": 0.6418484372289303,
+        "MR": 0.5521764021047768,
+        "MUV": 0.6240143069508074
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.8391959798994975,
+        "macro_f1": 0.8288172043010753,
+        "auc": 0.8868741976893453,
+        "sensitivity": 0.8780487804878049,
+        "specificity": 0.7763157894736842
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.6884422110552764,
+          "macro_f1": 0.6874873353596758,
+          "auc": 0.7880830124090715,
+          "sensitivity": 0.6016260162601627,
+          "specificity": 0.8289473684210527
+        },
+        "MB": {
+          "accuracy": 0.5829145728643216,
+          "macro_f1": 0.5822394213015656,
+          "auc": 0.72732135216089,
+          "sensitivity": 0.43902439024390244,
+          "specificity": 0.8157894736842105
+        },
+        "MP": {
+          "accuracy": 0.8291457286432161,
+          "macro_f1": 0.8114269788182832,
+          "auc": 0.8801347881899871,
+          "sensitivity": 0.9186991869918699,
+          "specificity": 0.6842105263157895
+        },
+        "MR": {
+          "accuracy": 0.6432160804020101,
+          "macro_f1": 0.6423128528391686,
+          "auc": 0.7617672229353872,
+          "sensitivity": 0.5609756097560976,
+          "specificity": 0.7763157894736842
+        },
+        "MUV": {
+          "accuracy": 0.7839195979899497,
+          "macro_f1": 0.7766087978070748,
+          "auc": 0.8337612323491657,
+          "sensitivity": 0.7804878048780488,
+          "specificity": 0.7894736842105263
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1507537688442211,
+          "macro_f1": -0.14132986894139954,
+          "auc": -0.09879118528027375,
+          "sensitivity": -0.2764227642276422,
+          "specificity": 0.052631578947368474
+        },
+        "MB": {
+          "accuracy": -0.2562814070351759,
+          "macro_f1": -0.24657778299950972,
+          "auc": -0.15955284552845528,
+          "sensitivity": -0.43902439024390244,
+          "specificity": 0.03947368421052633
+        },
+        "MP": {
+          "accuracy": -0.01005025125628134,
+          "macro_f1": -0.01739022548279212,
+          "auc": -0.00673940949935814,
+          "sensitivity": 0.04065040650406504,
+          "specificity": -0.09210526315789469
+        },
+        "MR": {
+          "accuracy": -0.1959798994974874,
+          "macro_f1": -0.1865043514619067,
+          "auc": -0.12510697475395804,
+          "sensitivity": -0.31707317073170727,
+          "specificity": 0.0
+        },
+        "MUV": {
+          "accuracy": -0.055276381909547756,
+          "macro_f1": -0.05220840649400049,
+          "auc": -0.05311296534017962,
+          "sensitivity": -0.09756097560975607,
+          "specificity": 0.013157894736842146
+        }
+      },
+      "deeplift_share": {
+        "M": 0.22195187953379253,
+        "MB": 0.25529829727803216,
+        "MP": 0.08278389768390038,
+        "MR": 0.3112545616284524,
+        "MUV": 0.12871136387581925
+      },
+      "deeplift_center_share": {
+        "M": 0.5323401925804122,
+        "MB": 0.4203214682817288,
+        "MP": 0.5107998177800521,
+        "MR": 0.39587302515601464,
+        "MUV": 0.48468756412473235
+      }
+    }
+  ],
+  "summary": {
+    "M_MB_MR": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.7680938023450585,
+          "std": 0.022698186419041567
+        },
+        "macro_f1": {
+          "mean": 0.7524219201064358,
+          "std": 0.024236013742328526
+        },
+        "auc": {
+          "mean": 0.821712233311278,
+          "std": 0.02840378982349756
+        },
+        "sensitivity": {
+          "mean": 0.8265138389088807,
+          "std": 0.03268089744243535
+        },
+        "specificity": {
+          "mean": 0.6746639325586693,
+          "std": 0.05043848644787423
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.6693383584589615,
+            "std": 0.05337318842916461
+          },
+          "macro_f1": {
+            "mean": 0.59094640541011,
+            "std": 0.10363551710920253
+          },
+          "auc": {
+            "mean": 0.7404750388141242,
+            "std": 0.05316930564186891
+          },
+          "sensitivity": {
+            "mean": 0.8344795415167267,
+            "std": 0.18894722850042148
+          },
+          "specificity": {
+            "mean": 0.40612895876053773,
+            "std": 0.26205983386130666
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": 0.5408107202680067,
+            "std": 0.11634585618290845
+          },
+          "macro_f1": {
+            "mean": 0.5070901059112727,
+            "std": 0.13478708993950056
+          },
+          "auc": {
+            "mean": 0.7354134809963004,
+            "std": 0.05302417809383279
+          },
+          "sensitivity": {
+            "mean": 0.33232484783864236,
+            "std": 0.27525986924757534
+          },
+          "specificity": {
+            "mean": 0.876099339257234,
+            "std": 0.1494681432253729
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.48594304857621434,
+            "std": 0.08470922469996522
+          },
+          "macro_f1": {
+            "mean": 0.44182343558485915,
+            "std": 0.1235692725117217
+          },
+          "auc": {
+            "mean": 0.6958526075405639,
+            "std": 0.043292152206025294
+          },
+          "sensitivity": {
+            "mean": 0.21420765027322405,
+            "std": 0.18125986264900204
+          },
+          "specificity": {
+            "mean": 0.9209159261790841,
+            "std": 0.08174417198546391
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.09875544388609715,
+            "std": 0.05896448548333715
+          },
+          "macro_f1": {
+            "mean": -0.16147551469632587,
+            "std": 0.10072923822106064
+          },
+          "auc": {
+            "mean": -0.08123719449715366,
+            "std": 0.05931165138223073
+          },
+          "sensitivity": {
+            "mean": 0.007965702607845734,
+            "std": 0.19791263029924083
+          },
+          "specificity": {
+            "mean": -0.2685349737981317,
+            "std": 0.25225298315752
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": -0.2272830820770519,
+            "std": 0.12692022654004342
+          },
+          "macro_f1": {
+            "mean": -0.24533181419516328,
+            "std": 0.1464887514729199
+          },
+          "auc": {
+            "mean": -0.0862987523149774,
+            "std": 0.059625365984760016
+          },
+          "sensitivity": {
+            "mean": -0.49418899107023856,
+            "std": 0.28110626603152594
+          },
+          "specificity": {
+            "mean": 0.2014354066985646,
+            "std": 0.1460432140568949
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.28215075376884424,
+            "std": 0.08074324003049213
+          },
+          "macro_f1": {
+            "mean": -0.3105984845215767,
+            "std": 0.12027623271703818
+          },
+          "auc": {
+            "mean": -0.125859625770714,
+            "std": 0.05119777636102263
+          },
+          "sensitivity": {
+            "mean": -0.6123061886356568,
+            "std": 0.17155690622739503
+          },
+          "specificity": {
+            "mean": 0.2462519936204147,
+            "std": 0.08976726971698509
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.30442183737895706,
+          "std": 0.007573243132398855
+        },
+        "MB": {
+          "mean": 0.31186794228726983,
+          "std": 0.0030351781408851086
+        },
+        "MR": {
+          "mean": 0.38371022033377095,
+          "std": 0.006845688824978948
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.6412037457730129,
+          "std": 0.04071438979656064
+        },
+        "MB": {
+          "mean": 0.5516409019495462,
+          "std": 0.04651533851633772
+        },
+        "MR": {
+          "mean": 0.5205728031561571,
+          "std": 0.04452027879446208
+        }
+      }
+    },
+    "M_MR": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.7677286432160805,
+          "std": 0.026551475036285705
+        },
+        "macro_f1": {
+          "mean": 0.7496896457893192,
+          "std": 0.03044631246364027
+        },
+        "auc": {
+          "mean": 0.8243722500367211,
+          "std": 0.02610641328177792
+        },
+        "sensitivity": {
+          "mean": 0.8318494824292505,
+          "std": 0.060571158582256736
+        },
+        "specificity": {
+          "mean": 0.6649692412850308,
+          "std": 0.0994095214083546
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.6854237855946399,
+            "std": 0.034684672650709826
+          },
+          "macro_f1": {
+            "mean": 0.6213932478110249,
+            "std": 0.09054585022802254
+          },
+          "auc": {
+            "mean": 0.7354652442964487,
+            "std": 0.05695204429475591
+          },
+          "sensitivity": {
+            "mean": 0.8389355368963527,
+            "std": 0.12382946566924131
+          },
+          "specificity": {
+            "mean": 0.4394736842105263,
+            "std": 0.23806318032734122
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.42301172529313236,
+            "std": 0.07712309635152619
+          },
+          "macro_f1": {
+            "mean": 0.3419375364572109,
+            "std": 0.10538881819662106
+          },
+          "auc": {
+            "mean": 0.6692560676040968,
+            "std": 0.043118827338352934
+          },
+          "sensitivity": {
+            "mean": 0.09312719356701765,
+            "std": 0.1898893391175899
+          },
+          "specificity": {
+            "mean": 0.9513898382319435,
+            "std": 0.10451303335223204
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.08230485762144053,
+            "std": 0.04251387642316304
+          },
+          "macro_f1": {
+            "mean": -0.1282963979782941,
+            "std": 0.09240397752018698
+          },
+          "auc": {
+            "mean": -0.08890700574027247,
+            "std": 0.04587207179243423
+          },
+          "sensitivity": {
+            "mean": 0.007086054467102058,
+            "std": 0.10754616688304298
+          },
+          "specificity": {
+            "mean": -0.22549555707450442,
+            "std": 0.22163219719626126
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.34471691792294806,
+            "std": 0.08380757687218472
+          },
+          "macro_f1": {
+            "mean": -0.40775210933210815,
+            "std": 0.10990308831298476
+          },
+          "auc": {
+            "mean": -0.15511618243262426,
+            "std": 0.0498684420650832
+          },
+          "sensitivity": {
+            "mean": -0.7387222888622329,
+            "std": 0.20245764107376021
+          },
+          "specificity": {
+            "mean": 0.28642059694691274,
+            "std": 0.14516447920337322
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.43917848717292596,
+          "std": 0.011553761894787901
+        },
+        "MR": {
+          "mean": 0.5608215128270724,
+          "std": 0.01155376189478788
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.6322679126845564,
+          "std": 0.05344134939378851
+        },
+        "MR": {
+          "mean": 0.5132665238749411,
+          "std": 0.054549182728839
+        }
+      }
+    },
+    "ALL5": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.7607118927973198,
+          "std": 0.03593082878329354
+        },
+        "macro_f1": {
+          "mean": 0.7414336218738651,
+          "std": 0.0421270407581075
+        },
+        "auc": {
+          "mean": 0.8182172494410758,
+          "std": 0.02800907520753109
+        },
+        "sensitivity": {
+          "mean": 0.828810697943045,
+          "std": 0.0664060928847711
+        },
+        "specificity": {
+          "mean": 0.6522328548644339,
+          "std": 0.10832812958077764
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.6867621440536014,
+            "std": 0.04428178640539
+          },
+          "macro_f1": {
+            "mean": 0.6388965470173031,
+            "std": 0.07528732539049846
+          },
+          "auc": {
+            "mean": 0.7538479588038712,
+            "std": 0.04032845405024726
+          },
+          "sensitivity": {
+            "mean": 0.7977564529743659,
+            "std": 0.15677905246933024
+          },
+          "specificity": {
+            "mean": 0.5095579858737753,
+            "std": 0.23463690573619872
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": 0.542427135678392,
+            "std": 0.1111997278041725
+          },
+          "macro_f1": {
+            "mean": 0.5059098521782368,
+            "std": 0.13724374880676482
+          },
+          "auc": {
+            "mean": 0.7272675163245251,
+            "std": 0.05391893581294264
+          },
+          "sensitivity": {
+            "mean": 0.34496423652761116,
+            "std": 0.2773444427245544
+          },
+          "specificity": {
+            "mean": 0.8595010252904989,
+            "std": 0.176928229757118
+          }
+        },
+        "MP": {
+          "accuracy": {
+            "mean": 0.7379480737018425,
+            "std": 0.03945514535031818
+          },
+          "macro_f1": {
+            "mean": 0.7020359742931007,
+            "std": 0.06529918917122679
+          },
+          "auc": {
+            "mean": 0.8029377950346406,
+            "std": 0.03324952594473661
+          },
+          "sensitivity": {
+            "mean": 0.8582033853125416,
+            "std": 0.0678243382980676
+          },
+          "specificity": {
+            "mean": 0.5459557985873775,
+            "std": 0.15752605023838476
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.6379028475711892,
+            "std": 0.05571934604445695
+          },
+          "macro_f1": {
+            "mean": 0.5805521114940155,
+            "std": 0.09241014741872135
+          },
+          "auc": {
+            "mean": 0.7044373106685022,
+            "std": 0.06372711960212628
+          },
+          "sensitivity": {
+            "mean": 0.7018481496290374,
+            "std": 0.24383590109115744
+          },
+          "specificity": {
+            "mean": 0.5370471633629529,
+            "std": 0.3151753627284312
+          }
+        },
+        "MUV": {
+          "accuracy": {
+            "mean": 0.7058659966499162,
+            "std": 0.04624958361416149
+          },
+          "macro_f1": {
+            "mean": 0.6821004652597641,
+            "std": 0.06735798154448318
+          },
+          "auc": {
+            "mean": 0.7657569766199999,
+            "std": 0.04381459767672431
+          },
+          "sensitivity": {
+            "mean": 0.7533964192100939,
+            "std": 0.1169456265134936
+          },
+          "specificity": {
+            "mean": 0.6306447938026885,
+            "std": 0.18590950334365153
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.07394974874371858,
+            "std": 0.04065332423192559
+          },
+          "macro_f1": {
+            "mean": -0.10253707485656174,
+            "std": 0.07397112851340998
+          },
+          "auc": {
+            "mean": -0.06436929063720453,
+            "std": 0.037048776387528716
+          },
+          "sensitivity": {
+            "mean": -0.031054244968679166,
+            "std": 0.13511399561371912
+          },
+          "specificity": {
+            "mean": -0.14267486899065845,
+            "std": 0.21685740911059448
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": -0.21828475711892797,
+            "std": 0.11269562532144071
+          },
+          "macro_f1": {
+            "mean": -0.2355237696956282,
+            "std": 0.1417292245206878
+          },
+          "auc": {
+            "mean": -0.09094973311655062,
+            "std": 0.06533131386321639
+          },
+          "sensitivity": {
+            "mean": -0.4838464614154339,
+            "std": 0.27064170797992554
+          },
+          "specificity": {
+            "mean": 0.20726817042606516,
+            "std": 0.2155023718827074
+          }
+        },
+        "MP": {
+          "accuracy": {
+            "mean": -0.022763819095477377,
+            "std": 0.03085596515644211
+          },
+          "macro_f1": {
+            "mean": -0.03939764758076429,
+            "std": 0.047604413927393216
+          },
+          "auc": {
+            "mean": -0.015279454406435196,
+            "std": 0.015416030780914525
+          },
+          "sensitivity": {
+            "mean": 0.029392687369496642,
+            "std": 0.05503550531180227
+          },
+          "specificity": {
+            "mean": -0.1062770562770563,
+            "std": 0.10976892863077459
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.12280904522613065,
+            "std": 0.044670021806698317
+          },
+          "macro_f1": {
+            "mean": -0.16088151037984932,
+            "std": 0.07134823283709202
+          },
+          "auc": {
+            "mean": -0.11377993877257332,
+            "std": 0.06028082791570982
+          },
+          "sensitivity": {
+            "mean": -0.12696254831400772,
+            "std": 0.2196949458518977
+          },
+          "specificity": {
+            "mean": -0.11518569150148096,
+            "std": 0.2832885349030909
+          }
+        },
+        "MUV": {
+          "accuracy": {
+            "mean": -0.05484589614740367,
+            "std": 0.05515456039225844
+          },
+          "macro_f1": {
+            "mean": -0.05933315661410072,
+            "std": 0.07349437056827031
+          },
+          "auc": {
+            "mean": -0.05246027282107588,
+            "std": 0.04636538664895337
+          },
+          "sensitivity": {
+            "mean": -0.07541427873295123,
+            "std": 0.10086901819104829
+          },
+          "specificity": {
+            "mean": -0.021588061061745274,
+            "std": 0.1545570087227984
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.236811675317748,
+          "std": 0.006460756627273757
+        },
+        "MB": {
+          "mean": 0.2460864472291307,
+          "std": 0.005707736224954146
+        },
+        "MP": {
+          "mean": 0.08628703791352675,
+          "std": 0.003277314447248829
+        },
+        "MR": {
+          "mean": 0.3004185188125542,
+          "std": 0.0069908532075010485
+        },
+        "MUV": {
+          "mean": 0.13039632072703758,
+          "std": 0.003287807625020527
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.6077526992793849,
+          "std": 0.04103273739297188
+        },
+        "MB": {
+          "mean": 0.5150248327620802,
+          "std": 0.052396559942585866
+        },
+        "MP": {
+          "mean": 0.600668750578291,
+          "std": 0.04019870482497141
+        },
+        "MR": {
+          "mean": 0.48947627070667815,
+          "std": 0.048252334026373814
+        },
+        "MUV": {
+          "mean": 0.5779341739862568,
+          "std": 0.042871947543006085
+        }
+      }
+    }
+  },
+  "notes": [
+    "Representative schemes were fixed by explicit user confirmation (2026-09-15) before any Step 04 analysis ran: M+MB+MR, M+MR, and all five channels. The selection basis (Step 03_I ranking) and the confirmation are recorded in config_step_04_I.json.",
+    "No checkpoint selection: all 15 models per scheme (3 training seeds x 5 folds) were analysed, each strictly on its own evaluation fold, and aggregated as Mean +/- Std across the 15 runs.",
+    "Perturbation method (identical for every scheme): one channel at a time replaced by black pixels - the same fill used for black center padding, keeping the perturbation in-distribution. No retraining, no split changes.",
+    "DeepLIFT: captum implementation, reference = all-black image through the identical preprocessing, attribution target = each sample's predicted class; channel importance = per-sample share of summed absolute attribution, averaged per fold-model and aggregated over 15 runs.",
+    "Visual examples follow a pre-specified rule (seed 42 / fold 1 model, first two correctly classified eval samples per class in dataset order); they are illustrative, while quantitative conclusions use the full 15-run aggregation.",
+    "SUPPLEMENT (user-requested, 2026-09-15, after comparing with the previous rosacea_step4 report format): added (a) quantitative center-vs-periphery spatial attribution split (center box = middle 50% of each side, 192x192 of 384), (b) post-ablation absolute performance tables including sensitivity/specificity, and (c) the data-integrity section in this report. Analysis-only changes; no retraining, no split changes, same 15 models per scheme."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "fold": 2,
+  "train_n": 797,
+  "eval_n": 199,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "shared": {
+    "experiment_name": "step_01_I",
+    "benchmark": "fixed-resolution white-light baseline (resolution already fixed by PROTOCOL 15.1)",
+    "task": "binary",
+    "num_classes": 2,
+    "label_strategy": "hard label; binary mapping 0-2->0, 3-4->1 generated dynamically",
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "training_seeds": [
+      42,
+      3407,
+      2026
+    ],
+    "input_resolution": "384x384",
+    "input_channels": [
+      "M"
+    ],
+    "model": "resnet50",
+    "pretrained": "ImageNet",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": null,
+    "early_stopping": false,
+    "loss": "CrossEntropyLoss",
+    "augmentation": {
+      "horizontal_flip_p": 0.5,
+      "rotation_degrees": 7.0,
+      "brightness": 0.1,
+      "contrast": 0.1
+    },
+    "num_workers": 8,
+    "precision": "fp32",
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae",
+      "auc",
+      "sensitivity",
+      "specificity"
+    ],
+    "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+    "data_root": "/root/autodl-tmp/data_all_384",
+    "cache_dir": null,
+    "cache_note": "lossless PNG cache of the deterministic ResizePad(384) output; identical preprocessing semantics",
+    "total_samples": 996
+  }
+}

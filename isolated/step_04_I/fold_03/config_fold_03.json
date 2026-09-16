@@ -1,0 +1,61 @@
+{
+  "fold": 3,
+  "scheme": "M+MB+MP+MR+MUV",
+  "eval_n": 199,
+  "shared": {
+    "experiment_name": "step_04_I",
+    "benchmark": "binary DeepLIFT + channel perturbation (interpretability)",
+    "task": "binary",
+    "num_classes": 2,
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "representative_schemes": [
+      {
+        "key": "M_MB_MR",
+        "channels": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "selection_basis": "best macro-F1 and lowest seed variance in Step 03_I"
+      },
+      {
+        "key": "M_MR",
+        "channels": [
+          "M",
+          "MR"
+        ],
+        "selection_basis": "runner-up macro-F1, highest AUC in Step 03_I"
+      },
+      {
+        "key": "ALL5",
+        "channels": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "selection_basis": "full five-channel input reference"
+      }
+    ],
+    "scheme_selection_rule": "explicit user confirmation 2026-09-15 before any Step 04 analysis; all 15 models per scheme analysed (no checkpoint selection)",
+    "perturbation_method": "one channel at a time replaced by black pixels (identical to the black center-padding fill, in-distribution); applied identically to every scheme",
+    "deeplift_settings": {
+      "implementation": "captum DeepLift",
+      "reference": "all-black image through identical preprocessing",
+      "target": "each sample's predicted class",
+      "channel_importance": "mean share of summed |attribution| per channel per sample"
+    },
+    "visual_example_rule": "seed 42 / fold 1 model; first 2 correctly classified eval samples per class in dataset order (pre-specified, no cherry-picking)",
+    "weights_source": "step_03_I fold checkpoints (read-only)",
+    "input_resolution": "384x384",
+    "model": "resnet50",
+    "no_training": true,
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "auc"
+    ]
+  }
+}

@@ -1,0 +1,326 @@
+[2026-09-16 05:56:55] step_07_I start | schemes=['M+MB+MR', 'M+MR', 'M+MB+MP+MR+MUV']
+[2026-09-16 05:56:56] integrity checks passed: True
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:57:11] rendered DeepLIFT examples -> deeplift_examples_M_MB_MR.png
+[2026-09-16 05:57:11] M+MB+MR fold 1 seed 42 | base f1=0.4004 | d(M)F1=-0.188 d(MB)F1=-0.177 d(MR)F1=-0.242
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:57:21] M+MB+MR fold 1 seed 3407 | base f1=0.3714 | d(M)F1=-0.066 d(MB)F1=-0.238 d(MR)F1=-0.095
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:57:32] M+MB+MR fold 1 seed 2026 | base f1=0.4364 | d(M)F1=-0.102 d(MB)F1=-0.230 d(MR)F1=-0.280
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:57:42] M+MB+MR fold 2 seed 42 | base f1=0.3885 | d(M)F1=-0.128 d(MB)F1=-0.174 d(MR)F1=-0.152
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:57:53] M+MB+MR fold 2 seed 3407 | base f1=0.4045 | d(M)F1=-0.304 d(MB)F1=-0.342 d(MR)F1=-0.336
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:04] M+MB+MR fold 2 seed 2026 | base f1=0.4038 | d(M)F1=-0.108 d(MB)F1=-0.235 d(MR)F1=-0.260
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:15] M+MB+MR fold 3 seed 42 | base f1=0.3800 | d(M)F1=-0.141 d(MB)F1=-0.124 d(MR)F1=-0.323
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:25] M+MB+MR fold 3 seed 3407 | base f1=0.3842 | d(M)F1=-0.145 d(MB)F1=-0.224 d(MR)F1=-0.241
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:35] M+MB+MR fold 3 seed 2026 | base f1=0.4642 | d(M)F1=-0.137 d(MB)F1=-0.280 d(MR)F1=-0.278
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:45] M+MB+MR fold 4 seed 42 | base f1=0.4530 | d(M)F1=-0.180 d(MB)F1=-0.371 d(MR)F1=-0.369
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:58:55] M+MB+MR fold 4 seed 3407 | base f1=0.3937 | d(M)F1=-0.172 d(MB)F1=-0.101 d(MR)F1=-0.328
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:06] M+MB+MR fold 4 seed 2026 | base f1=0.4946 | d(M)F1=-0.223 d(MB)F1=-0.250 d(MR)F1=-0.422
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:16] M+MB+MR fold 5 seed 42 | base f1=0.4566 | d(M)F1=-0.243 d(MB)F1=-0.217 d(MR)F1=-0.381
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:26] M+MB+MR fold 5 seed 3407 | base f1=0.3938 | d(M)F1=-0.344 d(MB)F1=-0.219 d(MR)F1=-0.343
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:37] M+MB+MR fold 5 seed 2026 | base f1=0.4315 | d(M)F1=-0.271 d(MB)F1=-0.241 d(MR)F1=-0.282
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:48] rendered DeepLIFT examples -> deeplift_examples_M_MR.png
+[2026-09-16 05:59:48] M+MR fold 1 seed 42 | base f1=0.4002 | d(M)F1=-0.187 d(MR)F1=-0.348
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 05:59:55] M+MR fold 1 seed 3407 | base f1=0.3809 | d(M)F1=-0.171 d(MR)F1=-0.322
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:02] M+MR fold 1 seed 2026 | base f1=0.3627 | d(M)F1=-0.251 d(MR)F1=-0.272
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:08] M+MR fold 2 seed 42 | base f1=0.3970 | d(M)F1=-0.283 d(MR)F1=-0.190
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:15] M+MR fold 2 seed 3407 | base f1=0.4275 | d(M)F1=-0.290 d(MR)F1=-0.242
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:21] M+MR fold 2 seed 2026 | base f1=0.3775 | d(M)F1=-0.074 d(MR)F1=-0.324
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:28] M+MR fold 3 seed 42 | base f1=0.3964 | d(M)F1=-0.110 d(MR)F1=-0.330
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:35] M+MR fold 3 seed 3407 | base f1=0.4756 | d(M)F1=-0.370 d(MR)F1=-0.431
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:41] M+MR fold 3 seed 2026 | base f1=0.3641 | d(M)F1=-0.151 d(MR)F1=-0.312
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:48] M+MR fold 4 seed 42 | base f1=0.3698 | d(M)F1=-0.059 d(MR)F1=-0.317
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:00:55] M+MR fold 4 seed 3407 | base f1=0.4279 | d(M)F1=-0.228 d(MR)F1=-0.303
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:01:02] M+MR fold 4 seed 2026 | base f1=0.4271 | d(M)F1=-0.129 d(MR)F1=-0.331
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:01:09] M+MR fold 5 seed 42 | base f1=0.3786 | d(M)F1=-0.121 d(MR)F1=-0.322
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:01:16] M+MR fold 5 seed 3407 | base f1=0.4072 | d(M)F1=-0.245 d(MR)F1=-0.366
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:01:22] M+MR fold 5 seed 2026 | base f1=0.3794 | d(M)F1=-0.218 d(MR)F1=-0.286
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:01:52] rendered DeepLIFT examples -> deeplift_examples_ALL5.png
+[2026-09-16 06:01:52] M+MB+MP+MR+MUV fold 1 seed 42 | base f1=0.3595 | d(M)F1=-0.104 d(MB)F1=-0.105 d(MP)F1=+0.016 d(MR)F1=-0.108 d(MUV)F1=-0.103
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:02:13] M+MB+MP+MR+MUV fold 1 seed 3407 | base f1=0.4370 | d(M)F1=-0.027 d(MB)F1=-0.115 d(MP)F1=-0.007 d(MR)F1=-0.162 d(MUV)F1=-0.312
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:02:35] M+MB+MP+MR+MUV fold 1 seed 2026 | base f1=0.4163 | d(M)F1=-0.182 d(MB)F1=-0.204 d(MP)F1=-0.038 d(MR)F1=-0.215 d(MUV)F1=-0.086
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:02:57] M+MB+MP+MR+MUV fold 2 seed 42 | base f1=0.4011 | d(M)F1=-0.290 d(MB)F1=+0.003 d(MP)F1=-0.045 d(MR)F1=-0.159 d(MUV)F1=-0.067
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:03:18] M+MB+MP+MR+MUV fold 2 seed 3407 | base f1=0.4472 | d(M)F1=-0.108 d(MB)F1=-0.185 d(MP)F1=-0.041 d(MR)F1=-0.249 d(MUV)F1=-0.057
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:03:39] M+MB+MP+MR+MUV fold 2 seed 2026 | base f1=0.3959 | d(M)F1=-0.086 d(MB)F1=-0.227 d(MP)F1=+0.001 d(MR)F1=-0.099 d(MUV)F1=-0.105
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:04:00] M+MB+MP+MR+MUV fold 3 seed 42 | base f1=0.4407 | d(M)F1=-0.152 d(MB)F1=-0.343 d(MP)F1=-0.038 d(MR)F1=-0.124 d(MUV)F1=-0.081
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:04:22] M+MB+MP+MR+MUV fold 3 seed 3407 | base f1=0.4572 | d(M)F1=-0.172 d(MB)F1=-0.360 d(MP)F1=-0.078 d(MR)F1=-0.294 d(MUV)F1=-0.072
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:04:43] M+MB+MP+MR+MUV fold 3 seed 2026 | base f1=0.4095 | d(M)F1=-0.141 d(MB)F1=-0.236 d(MP)F1=-0.130 d(MR)F1=-0.192 d(MUV)F1=-0.172
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:05:04] M+MB+MP+MR+MUV fold 4 seed 42 | base f1=0.4753 | d(M)F1=-0.198 d(MB)F1=-0.232 d(MP)F1=-0.042 d(MR)F1=-0.270 d(MUV)F1=-0.141
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:05:26] M+MB+MP+MR+MUV fold 4 seed 3407 | base f1=0.3611 | d(M)F1=-0.075 d(MB)F1=-0.169 d(MP)F1=-0.021 d(MR)F1=-0.096 d(MUV)F1=-0.108
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:05:48] M+MB+MP+MR+MUV fold 4 seed 2026 | base f1=0.3858 | d(M)F1=-0.185 d(MB)F1=-0.154 d(MP)F1=-0.026 d(MR)F1=-0.164 d(MUV)F1=-0.079
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:06:09] M+MB+MP+MR+MUV fold 5 seed 42 | base f1=0.4298 | d(M)F1=-0.129 d(MB)F1=-0.138 d(MP)F1=-0.063 d(MR)F1=-0.103 d(MUV)F1=-0.200
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:06:30] M+MB+MP+MR+MUV fold 5 seed 3407 | base f1=0.3872 | d(M)F1=-0.094 d(MB)F1=-0.192 d(MP)F1=-0.020 d(MR)F1=-0.256 d(MUV)F1=-0.056
+/root/miniconda3/lib/python3.12/site-packages/captum/attr/_core/deep_lift.py:296: UserWarning: Input Tensor 0 did not already require gradients, required_grads has been set automatically.
+  gradient_mask = apply_gradient_requirements(inputs_tuple)
+/root/miniconda3/lib/python3.12/site-packages/captum/log/dummy_log.py:54: UserWarning: Setting forward, backward hooks and attributes on non-linear
+               activations. The hooks and attributes will be removed
+            after the attribution is finished
+  return func(*args, **kwargs)
+[2026-09-16 06:06:51] M+MB+MP+MR+MUV fold 5 seed 2026 | base f1=0.4190 | d(M)F1=-0.116 d(MB)F1=-0.208 d(MP)F1=-0.032 d(MR)F1=-0.198 d(MUV)F1=-0.158
+[2026-09-16 06:06:52] analysis complete: 45 runs in 9.9 min
+[2026-09-16 06:06:52] M+MB+MR | M: dF1=-0.1835 share=31.5% | MB: dF1=-0.2280 share=30.7% | MR: dF1=-0.2888 share=37.8%
+[2026-09-16 06:06:52] M+MR | M: dF1=-0.1923 share=45.3% | MR: dF1=-0.3129 share=54.7%
+[2026-09-16 06:06:52] M+MB+MP+MR+MUV | M: dF1=-0.1373 share=24.4% | MB: dF1=-0.1911 share=24.1% | MP: dF1=-0.0375 share=8.8% | MR: dF1=-0.1793 share=29.4% | MUV: dF1=-0.1199 share=13.2%
+[2026-09-16 06:06:52] report: /root/autodl-tmp/skin_comparison/isolated/step_07_I/report_step_07_I.html
+[2026-09-16 06:06:53] report written: /root/autodl-tmp/skin_comparison/isolated/step_07_I/report_step_07_I.html

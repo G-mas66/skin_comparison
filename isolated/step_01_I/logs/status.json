@@ -1,0 +1,19 @@
+{
+  "runs": {
+    "fold_01/seed_42": "done",
+    "fold_01/seed_3407": "done",
+    "fold_01/seed_2026": "done",
+    "fold_02/seed_42": "done",
+    "fold_02/seed_3407": "done",
+    "fold_02/seed_2026": "done",
+    "fold_03/seed_42": "done",
+    "fold_03/seed_3407": "done",
+    "fold_03/seed_2026": "done",
+    "fold_04/seed_42": "done",
+    "fold_04/seed_3407": "done",
+    "fold_04/seed_2026": "done",
+    "fold_05/seed_42": "done",
+    "fold_05/seed_3407": "done",
+    "fold_05/seed_2026": "done"
+  }
+}

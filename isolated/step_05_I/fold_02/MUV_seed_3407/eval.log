@@ -1,0 +1,5 @@
+channel=MUV fold=2 training_seed=3407 checkpoint=last.pth (epoch 50) task=5class
+accuracy=0.4322 macro_f1=0.3495 mae=0.7990
+adjacent_error_rate=0.3970 far_error_rate=0.1709
+confusion_matrix (rows=true 0-4, cols=pred)=[[0, 4, 1, 1, 1], [0, 11, 8, 2, 4], [2, 2, 16, 11, 14], [0, 2, 12, 18, 33], [2, 1, 4, 9, 41]]
+train_n=797 eval_n=199

@@ -1,0 +1,137 @@
+{
+  "fold": 4,
+  "schemes": {
+    "M_MR": [
+      "M",
+      "MR"
+    ],
+    "M_MB_MR": [
+      "M",
+      "MB",
+      "MR"
+    ],
+    "ALL5": [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ],
+    "M_MB": [
+      "M",
+      "MB"
+    ],
+    "MB_MR": [
+      "MB",
+      "MR"
+    ]
+  },
+  "train_n": 797,
+  "eval_n": 199,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "shared": {
+    "experiment_name": "step_06_I",
+    "benchmark": "five-class multi-channel combinations vs White baseline",
+    "task": "5class",
+    "task_display": "五分类（0-4 严重程度，Hard Label）",
+    "num_classes": 5,
+    "label_strategy": "hard label: original 0-4 severity used directly",
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "training_seeds": [
+      42,
+      3407,
+      2026
+    ],
+    "input_resolution": "384x384",
+    "schemes_preregistered": [
+      {
+        "key": "M_MR",
+        "channels": [
+          "M",
+          "MR"
+        ],
+        "rationale": "mirrors the user-approved Step 03 combination list (pre-registered before any 5-class multi-channel training)"
+      },
+      {
+        "key": "M_MB_MR",
+        "channels": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "rationale": "mirrors the user-approved Step 03 combination list (pre-registered before any 5-class multi-channel training)"
+      },
+      {
+        "key": "ALL5",
+        "channels": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "rationale": "mirrors the user-approved Step 03 combination list (pre-registered before any 5-class multi-channel training)"
+      },
+      {
+        "key": "M_MB",
+        "channels": [
+          "M",
+          "MB"
+        ],
+        "rationale": "mirrors the user-approved Step 03 combination list (pre-registered before any 5-class multi-channel training)"
+      },
+      {
+        "key": "MB_MR",
+        "channels": [
+          "MB",
+          "MR"
+        ],
+        "rationale": "mirrors the user-approved Step 03 combination list (pre-registered before any 5-class multi-channel training)"
+      }
+    ],
+    "white_baseline_source": "Step 05_I metrics imported verbatim (identical five-class configuration; not retrained)",
+    "single_channel_context_source": "Step 05_I metrics imported verbatim",
+    "model": "resnet50",
+    "pretrained": "ImageNet",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": null,
+    "early_stopping": false,
+    "loss": "CrossEntropyLoss",
+    "augmentation": {
+      "horizontal_flip_p": 0.5,
+      "rotation_degrees": 7.0,
+      "brightness": 0.1,
+      "contrast": 0.1
+    },
+    "augmentation_policy": "identical policy for every channel: flip 0.5, rotation U(-7,7) deg, brightness U(0.90,1.10), contrast U(0.90,1.10); no random augmentation on evaluation folds",
+    "infrastructure": {
+      "persistent_workers": true,
+      "dataset_reuse_per_fold": true,
+      "cudnn_benchmark": true,
+      "channels_last": true,
+      "rlimit_nofile_raise": 65535,
+      "note": "user-approved 2026-09-15, effective from Step 06; infrastructure only, no protocol hyperparameter changed. Incident 2026-09-16 ~04:5x: after 58/75 runs the process died with 'Too many open files' (errno 24) - persistent workers accumulate shared-memory FDs up to the default ulimit. Fix: raise RLIMIT_NOFILE to 65535 in-process (resource.setrlimit) and relaunch; training resumed from status.json with no lost runs."
+    },
+    "num_workers": 8,
+    "precision": "fp32",
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae",
+      "adjacent_error_rate",
+      "far_error_rate"
+    ],
+    "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+    "data_root": "/root/autodl-tmp/data_all_384",
+    "total_samples": 996
+  }
+}

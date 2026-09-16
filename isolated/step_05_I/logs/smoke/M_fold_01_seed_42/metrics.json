@@ -1,0 +1,84 @@
+{
+  "channel": "M",
+  "fold": 1,
+  "training_seed": 42,
+  "accuracy": 0.40625,
+  "macro_f1": 0.14444444444444443,
+  "mae": 0.703125,
+  "per_class": {
+    "precision": [
+      0.0,
+      0.0,
+      0.0,
+      0.40625,
+      0.0
+    ],
+    "recall": [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "f1": [
+      0.0,
+      0.0,
+      0.0,
+      0.5777777777777777,
+      0.0
+    ],
+    "support": [
+      0,
+      7,
+      19,
+      26,
+      12
+    ]
+  },
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      7,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      19,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      26,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      12,
+      0
+    ]
+  ],
+  "adjacent_error_rate": 0.484375,
+  "far_error_rate": 0.109375,
+  "train_n": 96,
+  "eval_n": 64,
+  "majority_acc": 0.40625,
+  "epochs": 2,
+  "param_count": 23518277,
+  "checkpoint": "logs/smoke/M_fold_01_seed_42/checkpoints/last.pth",
+  "train_minutes": 0.05
+}

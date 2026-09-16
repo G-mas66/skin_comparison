@@ -1,0 +1,4 @@
+scheme=M+MB+MP+MR+MUV fold=1 training_seed=3407 checkpoint=last.pth (epoch 50)
+accuracy=0.7650 macro_f1=0.7513 mae=0.2350 auc=0.8153 sensitivity=0.8130 specificity=0.6883
+confusion_matrix (rows=true mild/severe, cols=pred)=[[53, 24], [23, 100]]
+train_n=796 eval_n=200

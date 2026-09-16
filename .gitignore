@@ -1,0 +1,22 @@
+# Sensitive or generated machine-learning artifacts
+data/
+images/
+cache/
+caches/
+weight/
+weights/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*_predictions.csv
+patient_data/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+
+# Local helper scripts containing embedded server credentials
+.ssh_run.py
+.local_audit/
+

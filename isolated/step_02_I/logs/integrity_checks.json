@@ -1,0 +1,240 @@
+{
+  "passed": true,
+  "checks": {
+    "excluded_69_absent": {
+      "in_manifest": true,
+      "channels_still_indexing_it": [],
+      "passed": true
+    },
+    "excluded_296_absent": {
+      "in_manifest": true,
+      "channels_still_indexing_it": [],
+      "passed": true
+    },
+    "excluded_769_absent": {
+      "in_manifest": true,
+      "channels_still_indexing_it": [],
+      "passed": true
+    },
+    "excluded_770_absent": {
+      "in_manifest": true,
+      "channels_still_indexing_it": [],
+      "passed": true
+    },
+    "mr_double_69_both_excluded": {
+      "files_present_on_disk": [
+        "MR0690.png",
+        "MR0691.png",
+        "MR0692.png",
+        "MR0693.png",
+        "MR0694.png",
+        "MR0695.png",
+        "MR0696.png",
+        "MR0697.png",
+        "MR0698.png",
+        "MR0699.png"
+      ],
+      "indexed_mr_69": false,
+      "passed": true
+    },
+    "fold_overlap": {
+      "fold_1": {
+        "sample_overlap": [],
+        "patient_overlap": []
+      },
+      "fold_2": {
+        "sample_overlap": [],
+        "patient_overlap": []
+      },
+      "fold_3": {
+        "sample_overlap": [],
+        "patient_overlap": []
+      },
+      "fold_4": {
+        "sample_overlap": [],
+        "patient_overlap": []
+      },
+      "fold_5": {
+        "sample_overlap": [],
+        "patient_overlap": []
+      }
+    },
+    "fold_overlap_passed": {
+      "fold_1": true,
+      "fold_2": true,
+      "fold_3": true,
+      "fold_4": true,
+      "fold_5": true
+    },
+    "channel_available": {
+      "M": {
+        "manifest_samples": 996,
+        "images_available": 996,
+        "manifest_ids_without_image": [],
+        "passed": true
+      },
+      "MB": {
+        "manifest_samples": 996,
+        "images_available": 996,
+        "manifest_ids_without_image": [],
+        "passed": true
+      },
+      "MP": {
+        "manifest_samples": 996,
+        "images_available": 996,
+        "manifest_ids_without_image": [],
+        "passed": true
+      },
+      "MR": {
+        "manifest_samples": 996,
+        "images_available": 996,
+        "manifest_ids_without_image": [],
+        "passed": true
+      },
+      "MUV": {
+        "manifest_samples": 996,
+        "images_available": 996,
+        "manifest_ids_without_image": [],
+        "passed": true
+      }
+    },
+    "task": {
+      "task": "binary",
+      "num_classes": 2,
+      "mapping": "0,1,2->0 (mild); 3,4->1 (severe); generated dynamically",
+      "passed": true
+    },
+    "fold_composition": {
+      "fold_1": {
+        "train_n": 796,
+        "eval_n": 200,
+        "train_label_hist_binary": {
+          "0": 306,
+          "1": 490
+        },
+        "eval_label_hist_binary": {
+          "0": 77,
+          "1": 123
+        },
+        "train_label_hist_5c": {
+          "0": 28,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "eval_label_hist_5c": {
+          "0": 8,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      "fold_2": {
+        "train_n": 797,
+        "eval_n": 199,
+        "train_label_hist_binary": {
+          "0": 306,
+          "1": 491
+        },
+        "eval_label_hist_binary": {
+          "0": 77,
+          "1": 122
+        },
+        "train_label_hist_5c": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "eval_label_hist_5c": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      "fold_3": {
+        "train_n": 797,
+        "eval_n": 199,
+        "train_label_hist_binary": {
+          "0": 306,
+          "1": 491
+        },
+        "eval_label_hist_binary": {
+          "0": 77,
+          "1": 122
+        },
+        "train_label_hist_5c": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "eval_label_hist_5c": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      "fold_4": {
+        "train_n": 797,
+        "eval_n": 199,
+        "train_label_hist_binary": {
+          "0": 307,
+          "1": 490
+        },
+        "eval_label_hist_binary": {
+          "0": 76,
+          "1": 123
+        },
+        "train_label_hist_5c": {
+          "0": 29,
+          "1": 98,
+          "2": 180,
+          "3": 260,
+          "4": 230
+        },
+        "eval_label_hist_5c": {
+          "0": 7,
+          "1": 25,
+          "2": 44,
+          "3": 66,
+          "4": 57
+        }
+      },
+      "fold_5": {
+        "train_n": 797,
+        "eval_n": 199,
+        "train_label_hist_binary": {
+          "0": 307,
+          "1": 490
+        },
+        "eval_label_hist_binary": {
+          "0": 76,
+          "1": 123
+        },
+        "train_label_hist_5c": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "eval_label_hist_5c": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      }
+    }
+  }
+}

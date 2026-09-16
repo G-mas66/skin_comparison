@@ -1,0 +1,155 @@
+{
+  "fold": 5,
+  "schemes": {
+    "M_MR": [
+      "M",
+      "MR"
+    ],
+    "M_MB_MR": [
+      "M",
+      "MB",
+      "MR"
+    ],
+    "ALL5": [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ],
+    "M_MB": [
+      "M",
+      "MB"
+    ],
+    "MB_MR": [
+      "MB",
+      "MR"
+    ]
+  },
+  "train_n": 797,
+  "eval_n": 199,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "shared": {
+    "experiment_name": "step_09_I",
+    "benchmark": "five-class soft-label multi-channel combinations (label strategy benchmark vs hard-label Step 06)",
+    "task": "5class",
+    "task_display": "五分类（0-4 严重程度，Soft Label 固定查找表）",
+    "num_classes": 5,
+    "label_strategy": "soft label: user-specified fixed lookup table applied at runtime from the original 0-4 label; manifest unchanged",
+    "soft_label_table": [
+      [
+        0.9,
+        0.1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.1,
+        0.8,
+        0.1,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.1,
+        0.8,
+        0.1,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.1,
+        0.8,
+        0.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.1,
+        0.9
+      ]
+    ],
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "training_seeds": [
+      42,
+      3407,
+      2026
+    ],
+    "input_resolution": "384x384",
+    "channels_trained": [
+      [
+        "M",
+        "MR"
+      ],
+      [
+        "M",
+        "MB",
+        "MR"
+      ],
+      [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      [
+        "M",
+        "MB"
+      ],
+      [
+        "MB",
+        "MR"
+      ]
+    ],
+    "hard_label_comparison_source": "Step 06_I combination metrics imported verbatim (identical configuration except hard labels)",
+    "soft_single_context_source": "Step 08_I metrics imported verbatim (identical soft-label configuration, single channels)",
+    "schemes_preregistered_note": "same combination list as Step 06 (user-approved Step 03 list), fixed before any soft-label multi-channel training",
+    "model": "resnet50",
+    "pretrained": "ImageNet",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": null,
+    "early_stopping": false,
+    "loss": "soft-target cross entropy: -(soft * log_softmax(logits)).sum(1).mean()",
+    "augmentation": {
+      "horizontal_flip_p": 0.5,
+      "rotation_degrees": 7.0,
+      "brightness": 0.1,
+      "contrast": 0.1
+    },
+    "augmentation_policy": "identical policy for every channel: flip 0.5, rotation U(-7,7) deg, brightness U(0.90,1.10), contrast U(0.90,1.10); no random augmentation on evaluation folds",
+    "infrastructure": {
+      "persistent_workers": true,
+      "dataset_reuse_per_fold": true,
+      "cudnn_benchmark": true,
+      "channels_last": true,
+      "rlimit_nofile_raise": 65535,
+      "note": "user-approved 2026-09-15, effective from Step 06 (see the Step 06 FD-limit incident note); infrastructure only, no protocol hyperparameter changed"
+    },
+    "num_workers": 8,
+    "precision": "fp32",
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae",
+      "adjacent_error_rate",
+      "far_error_rate"
+    ],
+    "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+    "data_root": "/root/autodl-tmp/data_all_384",
+    "total_samples": 996
+  }
+}

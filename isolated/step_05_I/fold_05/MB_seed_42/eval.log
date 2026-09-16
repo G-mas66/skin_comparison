@@ -1,0 +1,5 @@
+channel=MB fold=5 training_seed=42 checkpoint=last.pth (epoch 50) task=5class
+accuracy=0.4673 macro_f1=0.4399 mae=0.7437
+adjacent_error_rate=0.3618 far_error_rate=0.1709
+confusion_matrix (rows=true 0-4, cols=pred)=[[3, 0, 3, 0, 1], [5, 13, 2, 2, 2], [8, 7, 17, 7, 6], [2, 0, 17, 24, 22], [1, 0, 9, 12, 36]]
+train_n=797 eval_n=199

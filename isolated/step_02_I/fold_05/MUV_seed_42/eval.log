@@ -1,0 +1,4 @@
+channel=MUV fold=5 training_seed=42 checkpoint=last.pth (epoch 50)
+accuracy=0.6382 macro_f1=0.6382 mae=0.3618 auc=0.8020 sensitivity=0.5122 specificity=0.8421
+confusion_matrix (rows=true mild/severe, cols=pred)=[[64, 12], [60, 63]]
+train_n=797 eval_n=199

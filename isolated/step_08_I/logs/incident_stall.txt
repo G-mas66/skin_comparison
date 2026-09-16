@@ -1,0 +1,2 @@
+incident 2026-09-16 07:02-08:06: run soft_MB/fold_03/soft_MB_seed_2026 stalled at epoch ~14 for >60 min; process alive, GPU 98%, workers idle (suspected channels_last/cudnn.benchmark autotune spin). Fix: kill + resume from status.json (23/75 preserved).
+correction 2026-09-16 07:08: the suspected 60-min stall was a MONITORING CLOCK MISREAD (inspection ran at 07:00-07:05, last log line was ~1 min old and healthy). The kill was precautionary and unnecessary; ~3 min of one run lost, resumed from status.json. No training anomaly occurred.

@@ -1,0 +1,46 @@
+{
+  "channel": "MUV",
+  "fold": 1,
+  "training_seed": 42,
+  "accuracy": 0.59375,
+  "macro_f1": 0.37254901960784315,
+  "mae": 0.40625,
+  "auc": 0.7115384615384616,
+  "sensitivity": 1.0,
+  "specificity": 0.0,
+  "per_class": {
+    "precision": [
+      0.0,
+      0.59375
+    ],
+    "recall": [
+      0.0,
+      1.0
+    ],
+    "f1": [
+      0.0,
+      0.7450980392156863
+    ],
+    "support": [
+      26,
+      38
+    ]
+  },
+  "confusion_matrix": [
+    [
+      0,
+      26
+    ],
+    [
+      0,
+      38
+    ]
+  ],
+  "train_n": 96,
+  "eval_n": 64,
+  "majority_acc": 0.59375,
+  "epochs": 2,
+  "param_count": 23512130,
+  "checkpoint": "logs/smoke/MUV_fold_01_seed_42/checkpoints/last.pth",
+  "train_minutes": 0.05
+}

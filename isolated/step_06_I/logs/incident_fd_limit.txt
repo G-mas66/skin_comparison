@@ -1,0 +1,1 @@
+incident 2026-09-16 ~04:55: crash at 58/75 runs, Too many open files (errno 24) from persistent-worker shm FDs; fix: in-process RLIMIT_NOFILE raise to 65535 + relaunch, resume from status.json

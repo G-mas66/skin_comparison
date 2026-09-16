@@ -1,0 +1,3 @@
+channel=MUV fold=1 training_seed=42 epochs=2 batch_size=32 optimizer=AdamW lr=0.0001 weight_decay=0.0001 loss=CrossEntropyLoss scheduler=None early_stopping=False
+epoch=001 loss=0.6894 acc=0.5729 sec=1.6
+epoch=002 loss=0.6250 acc=0.7500 sec=1.0

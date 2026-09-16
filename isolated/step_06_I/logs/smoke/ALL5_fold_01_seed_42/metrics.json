@@ -1,0 +1,92 @@
+{
+  "scheme": "M+MB+MP+MR+MUV",
+  "scheme_key": "ALL5",
+  "channels": [
+    "M",
+    "MB",
+    "MP",
+    "MR",
+    "MUV"
+  ],
+  "fold": 1,
+  "training_seed": 42,
+  "accuracy": 0.421875,
+  "macro_f1": 0.172901921132457,
+  "mae": 0.671875,
+  "per_class": {
+    "precision": [
+      0.0,
+      0.0,
+      0.25,
+      0.43333333333333335,
+      0.0
+    ],
+    "recall": [
+      0.0,
+      0.0,
+      0.05263157894736842,
+      1.0,
+      0.0
+    ],
+    "f1": [
+      0.0,
+      0.0,
+      0.08695652173913043,
+      0.6046511627906976,
+      0.0
+    ],
+    "support": [
+      0,
+      7,
+      19,
+      26,
+      12
+    ]
+  },
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      18,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      26,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      11,
+      0
+    ]
+  ],
+  "adjacent_error_rate": 0.484375,
+  "far_error_rate": 0.09375,
+  "train_n": 96,
+  "eval_n": 64,
+  "majority_acc": 0.40625,
+  "epochs": 2,
+  "param_count": 23555909,
+  "checkpoint": "logs/smoke/ALL5_fold_01_seed_42/checkpoints/last.pth",
+  "train_minutes": 0.37
+}

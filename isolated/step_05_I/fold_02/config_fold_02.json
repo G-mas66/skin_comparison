@@ -1,0 +1,70 @@
+{
+  "fold": 2,
+  "channels": [
+    "M",
+    "MB",
+    "MP",
+    "MR",
+    "MUV"
+  ],
+  "train_n": 797,
+  "eval_n": 199,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "shared": {
+    "experiment_name": "step_05_I",
+    "benchmark": "five-class hard-label single-channel benchmark",
+    "task": "5class",
+    "task_display": "五分类（0-4 严重程度，Hard Label）",
+    "num_classes": 5,
+    "label_strategy": "hard label: original 0-4 severity used directly",
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "training_seeds": [
+      42,
+      3407,
+      2026
+    ],
+    "input_resolution": "384x384",
+    "channels": [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ],
+    "model": "resnet50",
+    "pretrained": "ImageNet",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": null,
+    "early_stopping": false,
+    "loss": "CrossEntropyLoss",
+    "augmentation": {
+      "horizontal_flip_p": 0.5,
+      "rotation_degrees": 7.0,
+      "brightness": 0.1,
+      "contrast": 0.1
+    },
+    "augmentation_policy": "identical policy for every channel: flip 0.5, rotation U(-7,7) deg, brightness U(0.90,1.10), contrast U(0.90,1.10); no random augmentation on evaluation folds",
+    "num_workers": 8,
+    "precision": "fp32",
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae",
+      "adjacent_error_rate",
+      "far_error_rate"
+    ],
+    "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+    "data_root": "/root/autodl-tmp/data_all_384",
+    "cache_dir": null,
+    "total_samples": 996
+  }
+}

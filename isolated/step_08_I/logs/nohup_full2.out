@@ -1,0 +1,391 @@
+[2026-09-16 07:02:23] step_08_I start | schemes=['M (Soft)', 'MB (Soft)', 'MP (Soft)', 'MR (Soft)', 'MUV (Soft)'] resolution=384 isolation=True fold_seed=42 training_seeds=(42, 3407, 2026)
+[2026-09-16 07:02:24] integrity checks passed: True
+[2026-09-16 07:02:24] skip completed soft_M/fold_01/soft_M_seed_42
+[2026-09-16 07:02:24] skip completed soft_M/fold_01/soft_M_seed_3407
+[2026-09-16 07:02:24] skip completed soft_M/fold_01/soft_M_seed_2026
+[2026-09-16 07:02:24] skip completed soft_M/fold_02/soft_M_seed_42
+[2026-09-16 07:02:24] skip completed soft_M/fold_02/soft_M_seed_3407
+[2026-09-16 07:02:24] skip completed soft_M/fold_02/soft_M_seed_2026
+[2026-09-16 07:02:25] skip completed soft_M/fold_03/soft_M_seed_42
+[2026-09-16 07:02:25] skip completed soft_M/fold_03/soft_M_seed_3407
+[2026-09-16 07:02:25] skip completed soft_M/fold_03/soft_M_seed_2026
+[2026-09-16 07:02:25] skip completed soft_M/fold_04/soft_M_seed_42
+[2026-09-16 07:02:25] skip completed soft_M/fold_04/soft_M_seed_3407
+[2026-09-16 07:02:25] skip completed soft_M/fold_04/soft_M_seed_2026
+[2026-09-16 07:02:25] skip completed soft_M/fold_05/soft_M_seed_42
+[2026-09-16 07:02:25] skip completed soft_M/fold_05/soft_M_seed_3407
+[2026-09-16 07:02:25] skip completed soft_M/fold_05/soft_M_seed_2026
+[2026-09-16 07:02:25] skip completed soft_MB/fold_01/soft_MB_seed_42
+[2026-09-16 07:02:25] skip completed soft_MB/fold_01/soft_MB_seed_3407
+[2026-09-16 07:02:25] skip completed soft_MB/fold_01/soft_MB_seed_2026
+[2026-09-16 07:02:25] skip completed soft_MB/fold_02/soft_MB_seed_42
+[2026-09-16 07:02:25] skip completed soft_MB/fold_02/soft_MB_seed_3407
+[2026-09-16 07:02:25] skip completed soft_MB/fold_02/soft_MB_seed_2026
+[2026-09-16 07:02:25] skip completed soft_MB/fold_03/soft_MB_seed_42
+[2026-09-16 07:02:25] skip completed soft_MB/fold_03/soft_MB_seed_3407
+[2026-09-16 07:02:25] training soft_MB/fold_03/soft_MB_seed_2026 ...
+[2026-09-16 07:03:17] MB (Soft) fold 3 seed 2026 epoch 10/50 loss=0.7838 acc=0.8419
+[2026-09-16 07:03:41] MB (Soft) fold 3 seed 2026 epoch 20/50 loss=0.6277 acc=0.9711
+[2026-09-16 07:04:04] MB (Soft) fold 3 seed 2026 epoch 30/50 loss=0.5781 acc=0.9937
+[2026-09-16 07:04:29] MB (Soft) fold 3 seed 2026 epoch 40/50 loss=0.5708 acc=0.9962
+[2026-09-16 07:04:52] MB (Soft) fold 3 seed 2026 epoch 50/50 loss=0.5566 acc=1.0000
+[2026-09-16 07:05:07] soft_MB/fold_03/soft_MB_seed_2026 done | acc=0.4623 macro_f1=0.4097 mae=0.6432 (2.69 min)
+[2026-09-16 07:05:07] training soft_MB/fold_04/soft_MB_seed_42 ...
+[2026-09-16 07:05:31] MB (Soft) fold 4 seed 42 epoch 10/50 loss=0.8308 acc=0.7942
+[2026-09-16 07:05:56] MB (Soft) fold 4 seed 42 epoch 20/50 loss=0.6271 acc=0.9774
+[2026-09-16 07:06:19] MB (Soft) fold 4 seed 42 epoch 30/50 loss=0.5823 acc=0.9975
+[2026-09-16 07:06:43] MB (Soft) fold 4 seed 42 epoch 40/50 loss=0.5687 acc=1.0000
+[2026-09-16 07:07:07] MB (Soft) fold 4 seed 42 epoch 50/50 loss=0.5608 acc=1.0000
+[2026-09-16 07:07:08] soft_MB/fold_04/soft_MB_seed_42 done | acc=0.4271 macro_f1=0.3929 mae=0.7136 (2.01 min)
+[2026-09-16 07:07:08] training soft_MB/fold_04/soft_MB_seed_3407 ...
+[2026-09-16 07:07:32] MB (Soft) fold 4 seed 3407 epoch 10/50 loss=0.7963 acc=0.8369
+[2026-09-16 07:07:56] MB (Soft) fold 4 seed 3407 epoch 20/50 loss=0.6223 acc=0.9774
+[2026-09-16 07:08:20] MB (Soft) fold 4 seed 3407 epoch 30/50 loss=0.5836 acc=0.9975
+[2026-09-16 07:08:44] MB (Soft) fold 4 seed 3407 epoch 40/50 loss=0.5705 acc=0.9987
+[2026-09-16 07:09:08] MB (Soft) fold 4 seed 3407 epoch 50/50 loss=0.5621 acc=0.9987
+[2026-09-16 07:09:10] soft_MB/fold_04/soft_MB_seed_3407 done | acc=0.4322 macro_f1=0.3465 mae=0.6884 (2.02 min)
+[2026-09-16 07:09:10] training soft_MB/fold_04/soft_MB_seed_2026 ...
+[2026-09-16 07:09:34] MB (Soft) fold 4 seed 2026 epoch 10/50 loss=0.8063 acc=0.8319
+[2026-09-16 07:09:58] MB (Soft) fold 4 seed 2026 epoch 20/50 loss=0.6214 acc=0.9749
+[2026-09-16 07:10:22] MB (Soft) fold 4 seed 2026 epoch 30/50 loss=0.5759 acc=0.9987
+[2026-09-16 07:10:46] MB (Soft) fold 4 seed 2026 epoch 40/50 loss=0.5678 acc=0.9987
+[2026-09-16 07:11:11] MB (Soft) fold 4 seed 2026 epoch 50/50 loss=0.5590 acc=0.9987
+[2026-09-16 07:11:12] soft_MB/fold_04/soft_MB_seed_2026 done | acc=0.4472 macro_f1=0.4044 mae=0.6935 (2.03 min)
+[2026-09-16 07:11:12] training soft_MB/fold_05/soft_MB_seed_42 ...
+[2026-09-16 07:11:36] MB (Soft) fold 5 seed 42 epoch 10/50 loss=0.8648 acc=0.7792
+[2026-09-16 07:12:00] MB (Soft) fold 5 seed 42 epoch 20/50 loss=0.6327 acc=0.9737
+[2026-09-16 07:12:24] MB (Soft) fold 5 seed 42 epoch 30/50 loss=0.5821 acc=0.9962
+[2026-09-16 07:12:48] MB (Soft) fold 5 seed 42 epoch 40/50 loss=0.5729 acc=0.9987
+[2026-09-16 07:13:11] MB (Soft) fold 5 seed 42 epoch 50/50 loss=0.5768 acc=0.9950
+[2026-09-16 07:13:12] soft_MB/fold_05/soft_MB_seed_42 done | acc=0.5176 macro_f1=0.4803 mae=0.5829 (2.0 min)
+[2026-09-16 07:13:12] training soft_MB/fold_05/soft_MB_seed_3407 ...
+[2026-09-16 07:13:37] MB (Soft) fold 5 seed 3407 epoch 10/50 loss=0.8225 acc=0.8156
+[2026-09-16 07:14:00] MB (Soft) fold 5 seed 3407 epoch 20/50 loss=0.6251 acc=0.9762
+[2026-09-16 07:14:24] MB (Soft) fold 5 seed 3407 epoch 30/50 loss=0.5851 acc=0.9950
+[2026-09-16 07:14:48] MB (Soft) fold 5 seed 3407 epoch 40/50 loss=0.5707 acc=0.9987
+[2026-09-16 07:15:11] MB (Soft) fold 5 seed 3407 epoch 50/50 loss=0.5614 acc=0.9987
+[2026-09-16 07:15:13] soft_MB/fold_05/soft_MB_seed_3407 done | acc=0.4874 macro_f1=0.4218 mae=0.6181 (2.0 min)
+[2026-09-16 07:15:13] training soft_MB/fold_05/soft_MB_seed_2026 ...
+[2026-09-16 07:15:38] MB (Soft) fold 5 seed 2026 epoch 10/50 loss=0.7899 acc=0.8256
+[2026-09-16 07:16:02] MB (Soft) fold 5 seed 2026 epoch 20/50 loss=0.6301 acc=0.9774
+[2026-09-16 07:16:27] MB (Soft) fold 5 seed 2026 epoch 30/50 loss=0.5803 acc=0.9987
+[2026-09-16 07:16:51] MB (Soft) fold 5 seed 2026 epoch 40/50 loss=0.5674 acc=0.9987
+[2026-09-16 07:17:15] MB (Soft) fold 5 seed 2026 epoch 50/50 loss=0.5577 acc=1.0000
+[2026-09-16 07:17:17] soft_MB/fold_05/soft_MB_seed_2026 done | acc=0.5075 macro_f1=0.4023 mae=0.5980 (2.06 min)
+[2026-09-16 07:17:17] training soft_MP/fold_01/soft_MP_seed_42 ...
+[2026-09-16 07:17:54] MP (Soft) fold 1 seed 42 epoch 10/50 loss=0.7936 acc=0.8518
+[2026-09-16 07:18:18] MP (Soft) fold 1 seed 42 epoch 20/50 loss=0.6250 acc=0.9711
+[2026-09-16 07:18:43] MP (Soft) fold 1 seed 42 epoch 30/50 loss=0.5841 acc=0.9950
+[2026-09-16 07:19:07] MP (Soft) fold 1 seed 42 epoch 40/50 loss=0.5774 acc=0.9975
+[2026-09-16 07:19:30] MP (Soft) fold 1 seed 42 epoch 50/50 loss=0.5634 acc=1.0000
+[2026-09-16 07:19:44] soft_MP/fold_01/soft_MP_seed_42 done | acc=0.4850 macro_f1=0.3715 mae=0.6600 (2.45 min)
+[2026-09-16 07:19:44] training soft_MP/fold_01/soft_MP_seed_3407 ...
+[2026-09-16 07:20:08] MP (Soft) fold 1 seed 3407 epoch 10/50 loss=0.8097 acc=0.8241
+[2026-09-16 07:20:32] MP (Soft) fold 1 seed 3407 epoch 20/50 loss=0.6317 acc=0.9686
+[2026-09-16 07:20:56] MP (Soft) fold 1 seed 3407 epoch 30/50 loss=0.5799 acc=0.9987
+[2026-09-16 07:21:19] MP (Soft) fold 1 seed 3407 epoch 40/50 loss=0.5697 acc=1.0000
+[2026-09-16 07:21:43] MP (Soft) fold 1 seed 3407 epoch 50/50 loss=0.5670 acc=0.9987
+[2026-09-16 07:21:44] soft_MP/fold_01/soft_MP_seed_3407 done | acc=0.4750 macro_f1=0.3693 mae=0.6650 (2.0 min)
+[2026-09-16 07:21:44] training soft_MP/fold_01/soft_MP_seed_2026 ...
+[2026-09-16 07:22:09] MP (Soft) fold 1 seed 2026 epoch 10/50 loss=0.8045 acc=0.8530
+[2026-09-16 07:22:32] MP (Soft) fold 1 seed 2026 epoch 20/50 loss=0.6101 acc=0.9899
+[2026-09-16 07:22:56] MP (Soft) fold 1 seed 2026 epoch 30/50 loss=0.5836 acc=1.0000
+[2026-09-16 07:23:20] MP (Soft) fold 1 seed 2026 epoch 40/50 loss=0.5712 acc=1.0000
+[2026-09-16 07:23:44] MP (Soft) fold 1 seed 2026 epoch 50/50 loss=0.5626 acc=1.0000
+[2026-09-16 07:23:45] soft_MP/fold_01/soft_MP_seed_2026 done | acc=0.4650 macro_f1=0.3772 mae=0.6750 (2.0 min)
+[2026-09-16 07:23:45] training soft_MP/fold_02/soft_MP_seed_42 ...
+[2026-09-16 07:24:09] MP (Soft) fold 2 seed 42 epoch 10/50 loss=0.8261 acc=0.8080
+[2026-09-16 07:24:34] MP (Soft) fold 2 seed 42 epoch 20/50 loss=0.6130 acc=0.9799
+[2026-09-16 07:24:58] MP (Soft) fold 2 seed 42 epoch 30/50 loss=0.5872 acc=0.9962
+[2026-09-16 07:25:22] MP (Soft) fold 2 seed 42 epoch 40/50 loss=0.5706 acc=0.9975
+[2026-09-16 07:25:46] MP (Soft) fold 2 seed 42 epoch 50/50 loss=0.5650 acc=0.9975
+[2026-09-16 07:25:48] soft_MP/fold_02/soft_MP_seed_42 done | acc=0.4975 macro_f1=0.4047 mae=0.6181 (2.03 min)
+[2026-09-16 07:25:48] training soft_MP/fold_02/soft_MP_seed_3407 ...
+[2026-09-16 07:26:12] MP (Soft) fold 2 seed 3407 epoch 10/50 loss=0.7987 acc=0.8218
+[2026-09-16 07:26:37] MP (Soft) fold 2 seed 3407 epoch 20/50 loss=0.6089 acc=0.9950
+[2026-09-16 07:27:01] MP (Soft) fold 2 seed 3407 epoch 30/50 loss=0.5854 acc=0.9950
+[2026-09-16 07:27:24] MP (Soft) fold 2 seed 3407 epoch 40/50 loss=0.5687 acc=1.0000
+[2026-09-16 07:27:49] MP (Soft) fold 2 seed 3407 epoch 50/50 loss=0.5623 acc=1.0000
+[2026-09-16 07:27:50] soft_MP/fold_02/soft_MP_seed_3407 done | acc=0.5126 macro_f1=0.4708 mae=0.5829 (2.03 min)
+[2026-09-16 07:27:50] training soft_MP/fold_02/soft_MP_seed_2026 ...
+[2026-09-16 07:28:15] MP (Soft) fold 2 seed 2026 epoch 10/50 loss=0.8327 acc=0.8168
+[2026-09-16 07:28:38] MP (Soft) fold 2 seed 2026 epoch 20/50 loss=0.6130 acc=0.9912
+[2026-09-16 07:29:02] MP (Soft) fold 2 seed 2026 epoch 30/50 loss=0.5867 acc=0.9937
+[2026-09-16 07:29:26] MP (Soft) fold 2 seed 2026 epoch 40/50 loss=0.5724 acc=0.9987
+[2026-09-16 07:29:49] MP (Soft) fold 2 seed 2026 epoch 50/50 loss=0.5581 acc=1.0000
+[2026-09-16 07:29:50] soft_MP/fold_02/soft_MP_seed_2026 done | acc=0.4925 macro_f1=0.4534 mae=0.6231 (2.0 min)
+[2026-09-16 07:29:50] training soft_MP/fold_03/soft_MP_seed_42 ...
+[2026-09-16 07:30:15] MP (Soft) fold 3 seed 42 epoch 10/50 loss=0.8268 acc=0.8269
+[2026-09-16 07:30:38] MP (Soft) fold 3 seed 42 epoch 20/50 loss=0.6189 acc=0.9787
+[2026-09-16 07:31:02] MP (Soft) fold 3 seed 42 epoch 30/50 loss=0.5810 acc=1.0000
+[2026-09-16 07:31:25] MP (Soft) fold 3 seed 42 epoch 40/50 loss=0.5705 acc=1.0000
+[2026-09-16 07:31:49] MP (Soft) fold 3 seed 42 epoch 50/50 loss=0.5624 acc=0.9987
+[2026-09-16 07:31:50] soft_MP/fold_03/soft_MP_seed_42 done | acc=0.4724 macro_f1=0.3847 mae=0.6332 (1.99 min)
+[2026-09-16 07:31:50] training soft_MP/fold_03/soft_MP_seed_3407 ...
+[2026-09-16 07:32:15] MP (Soft) fold 3 seed 3407 epoch 10/50 loss=0.7740 acc=0.8482
+[2026-09-16 07:32:39] MP (Soft) fold 3 seed 3407 epoch 20/50 loss=0.6220 acc=0.9737
+[2026-09-16 07:33:03] MP (Soft) fold 3 seed 3407 epoch 30/50 loss=0.5832 acc=0.9962
+[2026-09-16 07:33:26] MP (Soft) fold 3 seed 3407 epoch 40/50 loss=0.5683 acc=1.0000
+[2026-09-16 07:33:51] MP (Soft) fold 3 seed 3407 epoch 50/50 loss=0.5646 acc=1.0000
+[2026-09-16 07:33:52] soft_MP/fold_03/soft_MP_seed_3407 done | acc=0.4724 macro_f1=0.3624 mae=0.6583 (2.02 min)
+[2026-09-16 07:33:52] training soft_MP/fold_03/soft_MP_seed_2026 ...
+[2026-09-16 07:34:17] MP (Soft) fold 3 seed 2026 epoch 10/50 loss=0.8075 acc=0.8407
+[2026-09-16 07:34:41] MP (Soft) fold 3 seed 2026 epoch 20/50 loss=0.6243 acc=0.9799
+[2026-09-16 07:35:05] MP (Soft) fold 3 seed 2026 epoch 30/50 loss=0.5760 acc=0.9987
+[2026-09-16 07:35:29] MP (Soft) fold 3 seed 2026 epoch 40/50 loss=0.5723 acc=1.0000
+[2026-09-16 07:35:52] MP (Soft) fold 3 seed 2026 epoch 50/50 loss=0.5641 acc=1.0000
+[2026-09-16 07:35:54] soft_MP/fold_03/soft_MP_seed_2026 done | acc=0.5377 macro_f1=0.4521 mae=0.5829 (2.02 min)
+[2026-09-16 07:35:54] training soft_MP/fold_04/soft_MP_seed_42 ...
+[2026-09-16 07:36:18] MP (Soft) fold 4 seed 42 epoch 10/50 loss=0.8294 acc=0.8168
+[2026-09-16 07:36:42] MP (Soft) fold 4 seed 42 epoch 20/50 loss=0.6177 acc=0.9824
+[2026-09-16 07:37:05] MP (Soft) fold 4 seed 42 epoch 30/50 loss=0.5845 acc=0.9987
+[2026-09-16 07:37:29] MP (Soft) fold 4 seed 42 epoch 40/50 loss=0.5694 acc=1.0000
+[2026-09-16 07:37:52] MP (Soft) fold 4 seed 42 epoch 50/50 loss=0.5658 acc=0.9962
+[2026-09-16 07:37:53] soft_MP/fold_04/soft_MP_seed_42 done | acc=0.4824 macro_f1=0.4309 mae=0.6533 (1.99 min)
+[2026-09-16 07:37:53] training soft_MP/fold_04/soft_MP_seed_3407 ...
+[2026-09-16 07:38:18] MP (Soft) fold 4 seed 3407 epoch 10/50 loss=0.7747 acc=0.8657
+[2026-09-16 07:38:42] MP (Soft) fold 4 seed 3407 epoch 20/50 loss=0.6111 acc=0.9887
+[2026-09-16 07:39:06] MP (Soft) fold 4 seed 3407 epoch 30/50 loss=0.5813 acc=0.9975
+[2026-09-16 07:39:30] MP (Soft) fold 4 seed 3407 epoch 40/50 loss=0.5709 acc=0.9987
+[2026-09-16 07:39:54] MP (Soft) fold 4 seed 3407 epoch 50/50 loss=0.5640 acc=0.9975
+[2026-09-16 07:39:56] soft_MP/fold_04/soft_MP_seed_3407 done | acc=0.5075 macro_f1=0.4225 mae=0.6231 (2.03 min)
+[2026-09-16 07:39:56] training soft_MP/fold_04/soft_MP_seed_2026 ...
+[2026-09-16 07:40:20] MP (Soft) fold 4 seed 2026 epoch 10/50 loss=0.7895 acc=0.8582
+[2026-09-16 07:40:44] MP (Soft) fold 4 seed 2026 epoch 20/50 loss=0.6097 acc=0.9862
+[2026-09-16 07:41:08] MP (Soft) fold 4 seed 2026 epoch 30/50 loss=0.5796 acc=0.9975
+[2026-09-16 07:41:31] MP (Soft) fold 4 seed 2026 epoch 40/50 loss=0.5663 acc=1.0000
+[2026-09-16 07:41:56] MP (Soft) fold 4 seed 2026 epoch 50/50 loss=0.5604 acc=1.0000
+[2026-09-16 07:41:57] soft_MP/fold_04/soft_MP_seed_2026 done | acc=0.4925 macro_f1=0.4059 mae=0.6482 (2.01 min)
+[2026-09-16 07:41:57] training soft_MP/fold_05/soft_MP_seed_42 ...
+[2026-09-16 07:42:21] MP (Soft) fold 5 seed 42 epoch 10/50 loss=0.8473 acc=0.8143
+[2026-09-16 07:42:45] MP (Soft) fold 5 seed 42 epoch 20/50 loss=0.6367 acc=0.9661
+[2026-09-16 07:43:09] MP (Soft) fold 5 seed 42 epoch 30/50 loss=0.5867 acc=0.9937
+[2026-09-16 07:43:33] MP (Soft) fold 5 seed 42 epoch 40/50 loss=0.5741 acc=1.0000
+[2026-09-16 07:43:56] MP (Soft) fold 5 seed 42 epoch 50/50 loss=0.5669 acc=0.9987
+[2026-09-16 07:43:58] soft_MP/fold_05/soft_MP_seed_42 done | acc=0.5176 macro_f1=0.4512 mae=0.5930 (2.0 min)
+[2026-09-16 07:43:58] training soft_MP/fold_05/soft_MP_seed_3407 ...
+[2026-09-16 07:44:22] MP (Soft) fold 5 seed 3407 epoch 10/50 loss=0.7965 acc=0.8607
+[2026-09-16 07:44:47] MP (Soft) fold 5 seed 3407 epoch 20/50 loss=0.6070 acc=0.9849
+[2026-09-16 07:45:11] MP (Soft) fold 5 seed 3407 epoch 30/50 loss=0.5804 acc=0.9975
+[2026-09-16 07:45:35] MP (Soft) fold 5 seed 3407 epoch 40/50 loss=0.5747 acc=0.9975
+[2026-09-16 07:45:59] MP (Soft) fold 5 seed 3407 epoch 50/50 loss=0.5652 acc=0.9975
+[2026-09-16 07:46:00] soft_MP/fold_05/soft_MP_seed_3407 done | acc=0.5025 macro_f1=0.3911 mae=0.6432 (2.04 min)
+[2026-09-16 07:46:00] training soft_MP/fold_05/soft_MP_seed_2026 ...
+[2026-09-16 07:46:25] MP (Soft) fold 5 seed 2026 epoch 10/50 loss=0.8213 acc=0.8231
+[2026-09-16 07:46:49] MP (Soft) fold 5 seed 2026 epoch 20/50 loss=0.6274 acc=0.9749
+[2026-09-16 07:47:13] MP (Soft) fold 5 seed 2026 epoch 30/50 loss=0.5801 acc=0.9975
+[2026-09-16 07:47:37] MP (Soft) fold 5 seed 2026 epoch 40/50 loss=0.5692 acc=0.9987
+[2026-09-16 07:48:01] MP (Soft) fold 5 seed 2026 epoch 50/50 loss=0.5584 acc=1.0000
+[2026-09-16 07:48:02] soft_MP/fold_05/soft_MP_seed_2026 done | acc=0.5126 macro_f1=0.4162 mae=0.6382 (2.02 min)
+[2026-09-16 07:48:02] training soft_MR/fold_01/soft_MR_seed_42 ...
+[2026-09-16 07:48:26] MR (Soft) fold 1 seed 42 epoch 10/50 loss=0.8240 acc=0.8053
+[2026-09-16 07:48:50] MR (Soft) fold 1 seed 42 epoch 20/50 loss=0.6226 acc=0.9736
+[2026-09-16 07:49:13] MR (Soft) fold 1 seed 42 epoch 30/50 loss=0.5734 acc=0.9975
+[2026-09-16 07:49:37] MR (Soft) fold 1 seed 42 epoch 40/50 loss=0.5699 acc=0.9899
+[2026-09-16 07:50:00] MR (Soft) fold 1 seed 42 epoch 50/50 loss=0.5618 acc=0.9937
+[2026-09-16 07:50:01] soft_MR/fold_01/soft_MR_seed_42 done | acc=0.4200 macro_f1=0.3458 mae=0.7700 (1.98 min)
+[2026-09-16 07:50:01] training soft_MR/fold_01/soft_MR_seed_3407 ...
+[2026-09-16 07:50:26] MR (Soft) fold 1 seed 3407 epoch 10/50 loss=0.7945 acc=0.8304
+[2026-09-16 07:50:50] MR (Soft) fold 1 seed 3407 epoch 20/50 loss=0.6145 acc=0.9799
+[2026-09-16 07:51:13] MR (Soft) fold 1 seed 3407 epoch 30/50 loss=0.5730 acc=0.9975
+[2026-09-16 07:51:37] MR (Soft) fold 1 seed 3407 epoch 40/50 loss=0.5621 acc=1.0000
+[2026-09-16 07:52:00] MR (Soft) fold 1 seed 3407 epoch 50/50 loss=0.5593 acc=0.9975
+[2026-09-16 07:52:01] soft_MR/fold_01/soft_MR_seed_3407 done | acc=0.4800 macro_f1=0.4202 mae=0.6400 (1.99 min)
+[2026-09-16 07:52:01] training soft_MR/fold_01/soft_MR_seed_2026 ...
+[2026-09-16 07:52:26] MR (Soft) fold 1 seed 2026 epoch 10/50 loss=0.7799 acc=0.8555
+[2026-09-16 07:52:49] MR (Soft) fold 1 seed 2026 epoch 20/50 loss=0.6110 acc=0.9824
+[2026-09-16 07:53:13] MR (Soft) fold 1 seed 2026 epoch 30/50 loss=0.5792 acc=0.9962
+[2026-09-16 07:53:36] MR (Soft) fold 1 seed 2026 epoch 40/50 loss=0.5622 acc=1.0000
+[2026-09-16 07:54:00] MR (Soft) fold 1 seed 2026 epoch 50/50 loss=0.5639 acc=0.9937
+[2026-09-16 07:54:01] soft_MR/fold_01/soft_MR_seed_2026 done | acc=0.4900 macro_f1=0.4209 mae=0.6550 (1.99 min)
+[2026-09-16 07:54:02] training soft_MR/fold_02/soft_MR_seed_42 ...
+[2026-09-16 07:54:26] MR (Soft) fold 2 seed 42 epoch 10/50 loss=0.8079 acc=0.8181
+[2026-09-16 07:54:50] MR (Soft) fold 2 seed 42 epoch 20/50 loss=0.6029 acc=0.9900
+[2026-09-16 07:55:13] MR (Soft) fold 2 seed 42 epoch 30/50 loss=0.5705 acc=0.9975
+[2026-09-16 07:55:37] MR (Soft) fold 2 seed 42 epoch 40/50 loss=0.5633 acc=0.9975
+[2026-09-16 07:56:00] MR (Soft) fold 2 seed 42 epoch 50/50 loss=0.5535 acc=0.9987
+[2026-09-16 07:56:01] soft_MR/fold_02/soft_MR_seed_42 done | acc=0.4774 macro_f1=0.3943 mae=0.6432 (1.98 min)
+[2026-09-16 07:56:01] training soft_MR/fold_02/soft_MR_seed_3407 ...
+[2026-09-16 07:56:25] MR (Soft) fold 2 seed 3407 epoch 10/50 loss=0.7451 acc=0.8745
+[2026-09-16 07:56:49] MR (Soft) fold 2 seed 3407 epoch 20/50 loss=0.5971 acc=0.9937
+[2026-09-16 07:57:13] MR (Soft) fold 2 seed 3407 epoch 30/50 loss=0.5736 acc=0.9950
+[2026-09-16 07:57:36] MR (Soft) fold 2 seed 3407 epoch 40/50 loss=0.5590 acc=0.9975
+[2026-09-16 07:57:59] MR (Soft) fold 2 seed 3407 epoch 50/50 loss=0.5518 acc=0.9987
+[2026-09-16 07:58:00] soft_MR/fold_02/soft_MR_seed_3407 done | acc=0.5528 macro_f1=0.4594 mae=0.5729 (1.97 min)
+[2026-09-16 07:58:00] training soft_MR/fold_02/soft_MR_seed_2026 ...
+[2026-09-16 07:58:24] MR (Soft) fold 2 seed 2026 epoch 10/50 loss=0.8037 acc=0.8356
+[2026-09-16 07:58:47] MR (Soft) fold 2 seed 2026 epoch 20/50 loss=0.6074 acc=0.9875
+[2026-09-16 07:59:11] MR (Soft) fold 2 seed 2026 epoch 30/50 loss=0.5741 acc=0.9987
+[2026-09-16 07:59:34] MR (Soft) fold 2 seed 2026 epoch 40/50 loss=0.5646 acc=0.9987
+[2026-09-16 07:59:58] MR (Soft) fold 2 seed 2026 epoch 50/50 loss=0.5502 acc=1.0000
+[2026-09-16 08:00:00] soft_MR/fold_02/soft_MR_seed_2026 done | acc=0.4724 macro_f1=0.4017 mae=0.6583 (1.99 min)
+[2026-09-16 08:00:00] training soft_MR/fold_03/soft_MR_seed_42 ...
+[2026-09-16 08:00:24] MR (Soft) fold 3 seed 42 epoch 10/50 loss=0.8237 acc=0.8118
+[2026-09-16 08:00:48] MR (Soft) fold 3 seed 42 epoch 20/50 loss=0.6061 acc=0.9862
+[2026-09-16 08:01:12] MR (Soft) fold 3 seed 42 epoch 30/50 loss=0.5752 acc=0.9962
+[2026-09-16 08:01:36] MR (Soft) fold 3 seed 42 epoch 40/50 loss=0.5625 acc=0.9975
+[2026-09-16 08:02:00] MR (Soft) fold 3 seed 42 epoch 50/50 loss=0.5692 acc=0.9912
+[2026-09-16 08:02:01] soft_MR/fold_03/soft_MR_seed_42 done | acc=0.4523 macro_f1=0.4002 mae=0.6734 (2.01 min)
+[2026-09-16 08:02:01] training soft_MR/fold_03/soft_MR_seed_3407 ...
+[2026-09-16 08:02:25] MR (Soft) fold 3 seed 3407 epoch 10/50 loss=0.7720 acc=0.8607
+[2026-09-16 08:02:49] MR (Soft) fold 3 seed 3407 epoch 20/50 loss=0.6238 acc=0.9724
+[2026-09-16 08:03:13] MR (Soft) fold 3 seed 3407 epoch 30/50 loss=0.5722 acc=0.9987
+[2026-09-16 08:03:36] MR (Soft) fold 3 seed 3407 epoch 40/50 loss=0.5626 acc=0.9987
+[2026-09-16 08:04:00] MR (Soft) fold 3 seed 3407 epoch 50/50 loss=0.5548 acc=1.0000
+[2026-09-16 08:04:01] soft_MR/fold_03/soft_MR_seed_3407 done | acc=0.4774 macro_f1=0.4319 mae=0.6382 (1.99 min)
+[2026-09-16 08:04:01] training soft_MR/fold_03/soft_MR_seed_2026 ...
+[2026-09-16 08:04:25] MR (Soft) fold 3 seed 2026 epoch 10/50 loss=0.7801 acc=0.8469
+[2026-09-16 08:04:49] MR (Soft) fold 3 seed 2026 epoch 20/50 loss=0.6071 acc=0.9837
+[2026-09-16 08:05:14] MR (Soft) fold 3 seed 2026 epoch 30/50 loss=0.5687 acc=0.9975
+[2026-09-16 08:05:38] MR (Soft) fold 3 seed 2026 epoch 40/50 loss=0.5580 acc=0.9987
+[2026-09-16 08:06:03] MR (Soft) fold 3 seed 2026 epoch 50/50 loss=0.5633 acc=0.9900
+[2026-09-16 08:06:04] soft_MR/fold_03/soft_MR_seed_2026 done | acc=0.4975 macro_f1=0.4658 mae=0.5829 (2.04 min)
+[2026-09-16 08:06:04] training soft_MR/fold_04/soft_MR_seed_42 ...
+[2026-09-16 08:06:28] MR (Soft) fold 4 seed 42 epoch 10/50 loss=0.7859 acc=0.8595
+[2026-09-16 08:06:52] MR (Soft) fold 4 seed 42 epoch 20/50 loss=0.6180 acc=0.9837
+[2026-09-16 08:07:15] MR (Soft) fold 4 seed 42 epoch 30/50 loss=0.5786 acc=0.9937
+[2026-09-16 08:07:39] MR (Soft) fold 4 seed 42 epoch 40/50 loss=0.5613 acc=1.0000
+[2026-09-16 08:08:03] MR (Soft) fold 4 seed 42 epoch 50/50 loss=0.5564 acc=0.9987
+[2026-09-16 08:08:04] soft_MR/fold_04/soft_MR_seed_42 done | acc=0.5126 macro_f1=0.4188 mae=0.5729 (1.99 min)
+[2026-09-16 08:08:04] training soft_MR/fold_04/soft_MR_seed_3407 ...
+[2026-09-16 08:08:28] MR (Soft) fold 4 seed 3407 epoch 10/50 loss=0.8137 acc=0.8193
+[2026-09-16 08:08:52] MR (Soft) fold 4 seed 3407 epoch 20/50 loss=0.6149 acc=0.9787
+[2026-09-16 08:09:16] MR (Soft) fold 4 seed 3407 epoch 30/50 loss=0.5761 acc=0.9975
+[2026-09-16 08:09:39] MR (Soft) fold 4 seed 3407 epoch 40/50 loss=0.5699 acc=0.9950
+[2026-09-16 08:10:03] MR (Soft) fold 4 seed 3407 epoch 50/50 loss=0.5546 acc=1.0000
+[2026-09-16 08:10:04] soft_MR/fold_04/soft_MR_seed_3407 done | acc=0.4975 macro_f1=0.4065 mae=0.6080 (2.0 min)
+[2026-09-16 08:10:04] training soft_MR/fold_04/soft_MR_seed_2026 ...
+[2026-09-16 08:10:28] MR (Soft) fold 4 seed 2026 epoch 10/50 loss=0.7976 acc=0.8494
+[2026-09-16 08:10:52] MR (Soft) fold 4 seed 2026 epoch 20/50 loss=0.6049 acc=0.9900
+[2026-09-16 08:11:16] MR (Soft) fold 4 seed 2026 epoch 30/50 loss=0.5742 acc=0.9975
+[2026-09-16 08:11:39] MR (Soft) fold 4 seed 2026 epoch 40/50 loss=0.5612 acc=0.9987
+[2026-09-16 08:12:04] MR (Soft) fold 4 seed 2026 epoch 50/50 loss=0.5528 acc=0.9987
+[2026-09-16 08:12:05] soft_MR/fold_04/soft_MR_seed_2026 done | acc=0.4874 macro_f1=0.4512 mae=0.6080 (2.0 min)
+[2026-09-16 08:12:05] training soft_MR/fold_05/soft_MR_seed_42 ...
+[2026-09-16 08:12:30] MR (Soft) fold 5 seed 42 epoch 10/50 loss=0.8221 acc=0.8294
+[2026-09-16 08:12:53] MR (Soft) fold 5 seed 42 epoch 20/50 loss=0.6242 acc=0.9624
+[2026-09-16 08:13:17] MR (Soft) fold 5 seed 42 epoch 30/50 loss=0.5760 acc=0.9975
+[2026-09-16 08:13:41] MR (Soft) fold 5 seed 42 epoch 40/50 loss=0.5655 acc=1.0000
+[2026-09-16 08:14:05] MR (Soft) fold 5 seed 42 epoch 50/50 loss=0.5561 acc=1.0000
+[2026-09-16 08:14:06] soft_MR/fold_05/soft_MR_seed_42 done | acc=0.4673 macro_f1=0.3767 mae=0.6281 (2.0 min)
+[2026-09-16 08:14:06] training soft_MR/fold_05/soft_MR_seed_3407 ...
+[2026-09-16 08:14:30] MR (Soft) fold 5 seed 3407 epoch 10/50 loss=0.8198 acc=0.8080
+[2026-09-16 08:14:53] MR (Soft) fold 5 seed 3407 epoch 20/50 loss=0.6099 acc=0.9887
+[2026-09-16 08:15:17] MR (Soft) fold 5 seed 3407 epoch 30/50 loss=0.5843 acc=0.9937
+[2026-09-16 08:15:40] MR (Soft) fold 5 seed 3407 epoch 40/50 loss=0.5678 acc=0.9962
+[2026-09-16 08:16:04] MR (Soft) fold 5 seed 3407 epoch 50/50 loss=0.5613 acc=0.9975
+[2026-09-16 08:16:05] soft_MR/fold_05/soft_MR_seed_3407 done | acc=0.5075 macro_f1=0.4629 mae=0.5829 (1.98 min)
+[2026-09-16 08:16:05] training soft_MR/fold_05/soft_MR_seed_2026 ...
+[2026-09-16 08:16:29] MR (Soft) fold 5 seed 2026 epoch 10/50 loss=0.8101 acc=0.8256
+[2026-09-16 08:16:52] MR (Soft) fold 5 seed 2026 epoch 20/50 loss=0.6194 acc=0.9762
+[2026-09-16 08:17:16] MR (Soft) fold 5 seed 2026 epoch 30/50 loss=0.5757 acc=0.9987
+[2026-09-16 08:17:39] MR (Soft) fold 5 seed 2026 epoch 40/50 loss=0.5648 acc=0.9987
+[2026-09-16 08:18:02] MR (Soft) fold 5 seed 2026 epoch 50/50 loss=0.5543 acc=1.0000
+[2026-09-16 08:18:03] soft_MR/fold_05/soft_MR_seed_2026 done | acc=0.4975 macro_f1=0.4632 mae=0.6281 (1.97 min)
+[2026-09-16 08:18:03] training soft_MUV/fold_01/soft_MUV_seed_42 ...
+[2026-09-16 08:18:28] MUV (Soft) fold 1 seed 42 epoch 10/50 loss=0.8107 acc=0.8216
+[2026-09-16 08:18:52] MUV (Soft) fold 1 seed 42 epoch 20/50 loss=0.6266 acc=0.9698
+[2026-09-16 08:19:15] MUV (Soft) fold 1 seed 42 epoch 30/50 loss=0.5878 acc=0.9937
+[2026-09-16 08:19:39] MUV (Soft) fold 1 seed 42 epoch 40/50 loss=0.5801 acc=0.9987
+[2026-09-16 08:20:02] MUV (Soft) fold 1 seed 42 epoch 50/50 loss=0.5664 acc=1.0000
+[2026-09-16 08:20:03] soft_MUV/fold_01/soft_MUV_seed_42 done | acc=0.4550 macro_f1=0.3543 mae=0.7200 (1.99 min)
+[2026-09-16 08:20:03] training soft_MUV/fold_01/soft_MUV_seed_3407 ...
+[2026-09-16 08:20:27] MUV (Soft) fold 1 seed 3407 epoch 10/50 loss=0.8364 acc=0.7940
+[2026-09-16 08:20:51] MUV (Soft) fold 1 seed 3407 epoch 20/50 loss=0.6360 acc=0.9686
+[2026-09-16 08:21:14] MUV (Soft) fold 1 seed 3407 epoch 30/50 loss=0.5855 acc=0.9975
+[2026-09-16 08:21:37] MUV (Soft) fold 1 seed 3407 epoch 40/50 loss=0.5724 acc=1.0000
+[2026-09-16 08:22:01] MUV (Soft) fold 1 seed 3407 epoch 50/50 loss=0.5661 acc=1.0000
+[2026-09-16 08:22:02] soft_MUV/fold_01/soft_MUV_seed_3407 done | acc=0.4700 macro_f1=0.3522 mae=0.6750 (1.96 min)
+[2026-09-16 08:22:02] training soft_MUV/fold_01/soft_MUV_seed_2026 ...
+[2026-09-16 08:22:26] MUV (Soft) fold 1 seed 2026 epoch 10/50 loss=0.8084 acc=0.8392
+[2026-09-16 08:22:49] MUV (Soft) fold 1 seed 2026 epoch 20/50 loss=0.6242 acc=0.9799
+[2026-09-16 08:23:13] MUV (Soft) fold 1 seed 2026 epoch 30/50 loss=0.5923 acc=0.9975
+[2026-09-16 08:23:36] MUV (Soft) fold 1 seed 2026 epoch 40/50 loss=0.5755 acc=1.0000
+[2026-09-16 08:23:59] MUV (Soft) fold 1 seed 2026 epoch 50/50 loss=0.5664 acc=0.9987
+[2026-09-16 08:24:00] soft_MUV/fold_01/soft_MUV_seed_2026 done | acc=0.4300 macro_f1=0.3192 mae=0.7450 (1.97 min)
+[2026-09-16 08:24:00] training soft_MUV/fold_02/soft_MUV_seed_42 ...
+[2026-09-16 08:24:24] MUV (Soft) fold 2 seed 42 epoch 10/50 loss=0.8557 acc=0.7980
+[2026-09-16 08:24:48] MUV (Soft) fold 2 seed 42 epoch 20/50 loss=0.6276 acc=0.9737
+[2026-09-16 08:25:11] MUV (Soft) fold 2 seed 42 epoch 30/50 loss=0.5846 acc=1.0000
+[2026-09-16 08:25:34] MUV (Soft) fold 2 seed 42 epoch 40/50 loss=0.5696 acc=1.0000
+[2026-09-16 08:25:58] MUV (Soft) fold 2 seed 42 epoch 50/50 loss=0.5620 acc=1.0000
+[2026-09-16 08:25:59] soft_MUV/fold_02/soft_MUV_seed_42 done | acc=0.4925 macro_f1=0.3890 mae=0.6432 (1.98 min)
+[2026-09-16 08:25:59] training soft_MUV/fold_02/soft_MUV_seed_3407 ...
+[2026-09-16 08:26:24] MUV (Soft) fold 2 seed 3407 epoch 10/50 loss=0.8592 acc=0.7880
+[2026-09-16 08:26:47] MUV (Soft) fold 2 seed 3407 epoch 20/50 loss=0.6194 acc=0.9812
+[2026-09-16 08:27:10] MUV (Soft) fold 2 seed 3407 epoch 30/50 loss=0.5858 acc=0.9950
+[2026-09-16 08:27:34] MUV (Soft) fold 2 seed 3407 epoch 40/50 loss=0.5693 acc=0.9975
+[2026-09-16 08:27:58] MUV (Soft) fold 2 seed 3407 epoch 50/50 loss=0.5646 acc=1.0000
+[2026-09-16 08:27:59] soft_MUV/fold_02/soft_MUV_seed_3407 done | acc=0.4724 macro_f1=0.4084 mae=0.7136 (1.99 min)
+[2026-09-16 08:27:59] training soft_MUV/fold_02/soft_MUV_seed_2026 ...
+[2026-09-16 08:28:23] MUV (Soft) fold 2 seed 2026 epoch 10/50 loss=0.8660 acc=0.7980
+[2026-09-16 08:28:47] MUV (Soft) fold 2 seed 2026 epoch 20/50 loss=0.6250 acc=0.9787
+[2026-09-16 08:29:10] MUV (Soft) fold 2 seed 2026 epoch 30/50 loss=0.5905 acc=0.9962
+[2026-09-16 08:29:33] MUV (Soft) fold 2 seed 2026 epoch 40/50 loss=0.5780 acc=0.9962
+[2026-09-16 08:29:56] MUV (Soft) fold 2 seed 2026 epoch 50/50 loss=0.5633 acc=1.0000
+[2026-09-16 08:29:57] soft_MUV/fold_02/soft_MUV_seed_2026 done | acc=0.4372 macro_f1=0.4126 mae=0.7035 (1.96 min)
+[2026-09-16 08:29:58] training soft_MUV/fold_03/soft_MUV_seed_42 ...
+[2026-09-16 08:30:22] MUV (Soft) fold 3 seed 42 epoch 10/50 loss=0.8424 acc=0.7955
+[2026-09-16 08:30:47] MUV (Soft) fold 3 seed 42 epoch 20/50 loss=0.6326 acc=0.9711
+[2026-09-16 08:31:11] MUV (Soft) fold 3 seed 42 epoch 30/50 loss=0.5882 acc=0.9962
+[2026-09-16 08:31:35] MUV (Soft) fold 3 seed 42 epoch 40/50 loss=0.5714 acc=0.9975
+[2026-09-16 08:31:59] MUV (Soft) fold 3 seed 42 epoch 50/50 loss=0.5642 acc=1.0000
+[2026-09-16 08:32:00] soft_MUV/fold_03/soft_MUV_seed_42 done | acc=0.4573 macro_f1=0.3977 mae=0.6734 (2.03 min)
+[2026-09-16 08:32:00] training soft_MUV/fold_03/soft_MUV_seed_3407 ...
+[2026-09-16 08:32:24] MUV (Soft) fold 3 seed 3407 epoch 10/50 loss=0.8326 acc=0.7992
+[2026-09-16 08:32:48] MUV (Soft) fold 3 seed 3407 epoch 20/50 loss=0.6307 acc=0.9774
+[2026-09-16 08:33:11] MUV (Soft) fold 3 seed 3407 epoch 30/50 loss=0.5822 acc=0.9987
+[2026-09-16 08:33:35] MUV (Soft) fold 3 seed 3407 epoch 40/50 loss=0.5697 acc=1.0000
+[2026-09-16 08:33:58] MUV (Soft) fold 3 seed 3407 epoch 50/50 loss=0.5643 acc=0.9987
+[2026-09-16 08:33:59] soft_MUV/fold_03/soft_MUV_seed_3407 done | acc=0.4975 macro_f1=0.4502 mae=0.5879 (1.98 min)
+[2026-09-16 08:33:59] training soft_MUV/fold_03/soft_MUV_seed_2026 ...
+[2026-09-16 08:34:24] MUV (Soft) fold 3 seed 2026 epoch 10/50 loss=0.8340 acc=0.8080
+[2026-09-16 08:34:47] MUV (Soft) fold 3 seed 2026 epoch 20/50 loss=0.6369 acc=0.9686
+[2026-09-16 08:35:11] MUV (Soft) fold 3 seed 2026 epoch 30/50 loss=0.5899 acc=0.9912
+[2026-09-16 08:35:34] MUV (Soft) fold 3 seed 2026 epoch 40/50 loss=0.5749 acc=0.9987
+[2026-09-16 08:35:58] MUV (Soft) fold 3 seed 2026 epoch 50/50 loss=0.5671 acc=0.9987
+[2026-09-16 08:35:59] soft_MUV/fold_03/soft_MUV_seed_2026 done | acc=0.4774 macro_f1=0.4453 mae=0.6583 (1.98 min)
+[2026-09-16 08:35:59] training soft_MUV/fold_04/soft_MUV_seed_42 ...
+[2026-09-16 08:36:24] MUV (Soft) fold 4 seed 42 epoch 10/50 loss=0.8606 acc=0.7942
+[2026-09-16 08:36:47] MUV (Soft) fold 4 seed 42 epoch 20/50 loss=0.6274 acc=0.9762
+[2026-09-16 08:37:11] MUV (Soft) fold 4 seed 42 epoch 30/50 loss=0.5904 acc=0.9950
+[2026-09-16 08:37:35] MUV (Soft) fold 4 seed 42 epoch 40/50 loss=0.5725 acc=0.9987
+[2026-09-16 08:37:58] MUV (Soft) fold 4 seed 42 epoch 50/50 loss=0.5647 acc=1.0000
+[2026-09-16 08:37:59] soft_MUV/fold_04/soft_MUV_seed_42 done | acc=0.4523 macro_f1=0.3580 mae=0.6834 (2.0 min)
+[2026-09-16 08:37:59] training soft_MUV/fold_04/soft_MUV_seed_3407 ...
+[2026-09-16 08:38:24] MUV (Soft) fold 4 seed 3407 epoch 10/50 loss=0.8261 acc=0.8043
+[2026-09-16 08:38:48] MUV (Soft) fold 4 seed 3407 epoch 20/50 loss=0.6340 acc=0.9711
+[2026-09-16 08:39:12] MUV (Soft) fold 4 seed 3407 epoch 30/50 loss=0.5823 acc=0.9987
+[2026-09-16 08:39:35] MUV (Soft) fold 4 seed 3407 epoch 40/50 loss=0.5698 acc=1.0000
+[2026-09-16 08:39:59] MUV (Soft) fold 4 seed 3407 epoch 50/50 loss=0.5640 acc=0.9987
+[2026-09-16 08:40:00] soft_MUV/fold_04/soft_MUV_seed_3407 done | acc=0.4523 macro_f1=0.3666 mae=0.6683 (1.99 min)
+[2026-09-16 08:40:00] training soft_MUV/fold_04/soft_MUV_seed_2026 ...
+[2026-09-16 08:40:23] MUV (Soft) fold 4 seed 2026 epoch 10/50 loss=0.8363 acc=0.8181
+[2026-09-16 08:40:47] MUV (Soft) fold 4 seed 2026 epoch 20/50 loss=0.6310 acc=0.9686
+[2026-09-16 08:41:11] MUV (Soft) fold 4 seed 2026 epoch 30/50 loss=0.5848 acc=0.9925
+[2026-09-16 08:41:35] MUV (Soft) fold 4 seed 2026 epoch 40/50 loss=0.5749 acc=0.9987
+[2026-09-16 08:41:58] MUV (Soft) fold 4 seed 2026 epoch 50/50 loss=0.5625 acc=1.0000
+[2026-09-16 08:41:59] soft_MUV/fold_04/soft_MUV_seed_2026 done | acc=0.4724 macro_f1=0.3791 mae=0.6884 (1.99 min)
+[2026-09-16 08:41:59] training soft_MUV/fold_05/soft_MUV_seed_42 ...
+[2026-09-16 08:42:23] MUV (Soft) fold 5 seed 42 epoch 10/50 loss=0.8676 acc=0.8055
+[2026-09-16 08:42:47] MUV (Soft) fold 5 seed 42 epoch 20/50 loss=0.6361 acc=0.9711
+[2026-09-16 08:43:10] MUV (Soft) fold 5 seed 42 epoch 30/50 loss=0.5875 acc=0.9937
+[2026-09-16 08:43:34] MUV (Soft) fold 5 seed 42 epoch 40/50 loss=0.5733 acc=1.0000
+[2026-09-16 08:43:57] MUV (Soft) fold 5 seed 42 epoch 50/50 loss=0.5669 acc=0.9962
+[2026-09-16 08:43:58] soft_MUV/fold_05/soft_MUV_seed_42 done | acc=0.5176 macro_f1=0.4019 mae=0.6332 (1.97 min)
+[2026-09-16 08:43:58] training soft_MUV/fold_05/soft_MUV_seed_3407 ...
+[2026-09-16 08:44:22] MUV (Soft) fold 5 seed 3407 epoch 10/50 loss=0.8157 acc=0.8093
+[2026-09-16 08:44:46] MUV (Soft) fold 5 seed 3407 epoch 20/50 loss=0.6263 acc=0.9749
+[2026-09-16 08:45:09] MUV (Soft) fold 5 seed 3407 epoch 30/50 loss=0.5869 acc=0.9950
+[2026-09-16 08:45:32] MUV (Soft) fold 5 seed 3407 epoch 40/50 loss=0.5754 acc=0.9962
+[2026-09-16 08:45:57] MUV (Soft) fold 5 seed 3407 epoch 50/50 loss=0.5635 acc=1.0000
+[2026-09-16 08:45:58] soft_MUV/fold_05/soft_MUV_seed_3407 done | acc=0.4623 macro_f1=0.3579 mae=0.7035 (1.98 min)
+[2026-09-16 08:45:58] training soft_MUV/fold_05/soft_MUV_seed_2026 ...
+[2026-09-16 08:46:23] MUV (Soft) fold 5 seed 2026 epoch 10/50 loss=0.8526 acc=0.7955
+[2026-09-16 08:46:47] MUV (Soft) fold 5 seed 2026 epoch 20/50 loss=0.6446 acc=0.9674
+[2026-09-16 08:47:11] MUV (Soft) fold 5 seed 2026 epoch 30/50 loss=0.5852 acc=0.9962
+[2026-09-16 08:47:34] MUV (Soft) fold 5 seed 2026 epoch 40/50 loss=0.5722 acc=0.9987
+[2026-09-16 08:47:57] MUV (Soft) fold 5 seed 2026 epoch 50/50 loss=0.5623 acc=1.0000
+[2026-09-16 08:47:58] soft_MUV/fold_05/soft_MUV_seed_2026 done | acc=0.5075 macro_f1=0.3783 mae=0.6231 (2.0 min)
+[2026-09-16 08:48:01] FINAL | M (Soft): acc=0.4639 f1=0.4056 mae=0.6753 | MB (Soft): acc=0.4572 f1=0.3943 mae=0.6626 | MP (Soft): acc=0.4950 f1=0.4109 mae=0.6332 | MR (Soft): acc=0.4860 f1=0.4213 mae=0.6308 | MUV (Soft): acc=0.4702 f1=0.3847 mae=0.6747 | White ref: acc=0.4421 f1=0.3901 mae=0.7433
+[2026-09-16 08:48:01] report: /root/autodl-tmp/skin_comparison/isolated/step_08_I/report_step_08_I.html

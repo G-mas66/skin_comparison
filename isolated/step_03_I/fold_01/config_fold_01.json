@@ -1,0 +1,130 @@
+{
+  "fold": 1,
+  "schemes": {
+    "M_MR": [
+      "M",
+      "MR"
+    ],
+    "M_MB_MR": [
+      "M",
+      "MB",
+      "MR"
+    ],
+    "ALL5": [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ],
+    "M_MB": [
+      "M",
+      "MB"
+    ],
+    "MB_MR": [
+      "MB",
+      "MR"
+    ]
+  },
+  "train_n": 796,
+  "eval_n": 200,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "shared": {
+    "experiment_name": "step_03_I",
+    "benchmark": "binary multi-channel combinations vs White baseline",
+    "task": "binary",
+    "num_classes": 2,
+    "label_strategy": "hard label; binary mapping 0-2->0, 3-4->1 generated dynamically",
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "training_seeds": [
+      42,
+      3407,
+      2026
+    ],
+    "input_resolution": "384x384",
+    "schemes_preregistered": [
+      {
+        "key": "M_MR",
+        "channels": [
+          "M",
+          "MR"
+        ],
+        "rationale": "White plus MR, the only channel that beat White in Step 02_I (acc +1.6pp, macro-F1 +1.6pp, lowest variance)"
+      },
+      {
+        "key": "M_MB_MR",
+        "channels": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "rationale": "best pair plus MB, which performed on par with White; tests additive gains"
+      },
+      {
+        "key": "ALL5",
+        "channels": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "rationale": "all five channels; full-input upper bound"
+      },
+      {
+        "key": "M_MB",
+        "channels": [
+          "M",
+          "MB"
+        ],
+        "rationale": "White plus MB, the channel on par with White in Step 02_I; user-added amendment before any combination result was aggregated or compared"
+      },
+      {
+        "key": "MB_MR",
+        "channels": [
+          "MB",
+          "MR"
+        ],
+        "rationale": "the two strongest individual channels without White; user-added amendment before any combination result was aggregated or compared"
+      }
+    ],
+    "white_baseline_source": "Step 01_I metrics imported verbatim via Step 02_I summaries (identical configuration; not retrained)",
+    "single_channel_context_source": "Step 02_I metrics imported verbatim",
+    "model": "resnet50",
+    "pretrained": "ImageNet",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": null,
+    "early_stopping": false,
+    "loss": "CrossEntropyLoss",
+    "augmentation": {
+      "horizontal_flip_p": 0.5,
+      "rotation_degrees": 7.0,
+      "brightness": 0.1,
+      "contrast": 0.1
+    },
+    "augmentation_policy": "identical policy for every channel: flip 0.5, rotation U(-7,7) deg, brightness U(0.90,1.10), contrast U(0.90,1.10); no random augmentation on evaluation folds",
+    "num_workers": 8,
+    "precision": "fp32",
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae",
+      "auc",
+      "sensitivity",
+      "specificity"
+    ],
+    "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+    "data_root": "/root/autodl-tmp/data_all_384",
+    "cache_dir": null,
+    "total_samples": 996
+  }
+}

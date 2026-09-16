@@ -1,0 +1,5 @@
+scheme=MP (Soft) fold=1 training_seed=2026 checkpoint=last.pth (epoch 50)
+accuracy=0.4650 macro_f1=0.3772 mae=0.6750
+adjacent_error_rate=0.4200 far_error_rate=0.1150
+confusion_matrix (rows=true 0-4, cols=pred)=[[1, 5, 2, 0, 0], [2, 7, 6, 7, 2], [1, 4, 11, 28, 1], [1, 0, 7, 44, 13], [0, 2, 7, 19, 30]]
+train_n=796 eval_n=200

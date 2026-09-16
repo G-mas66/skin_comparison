@@ -1,0 +1,3522 @@
+{
+  "config": {
+    "experiment_name": "step_10_I",
+    "benchmark": "five-class soft-label DeepLIFT + channel perturbation (interpretability)",
+    "task": "5class",
+    "num_classes": 5,
+    "patient_isolation": true,
+    "fold_seed": 42,
+    "representative_schemes": [
+      {
+        "key": "M_MB_MR",
+        "channels": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "selection_basis": "pre-specified mirror of the Step 04 interpretability schemes"
+      },
+      {
+        "key": "M_MR",
+        "channels": [
+          "M",
+          "MR"
+        ],
+        "selection_basis": "pre-specified mirror of the Step 04 interpretability schemes"
+      },
+      {
+        "key": "ALL5",
+        "channels": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "selection_basis": "full five-channel input reference"
+      }
+    ],
+    "scheme_selection_rule": "explicit user confirmation 2026-09-15 before any Step 04 analysis; all 15 models per scheme analysed (no checkpoint selection)",
+    "perturbation_method": "one channel at a time replaced by black pixels (identical to the black center-padding fill, in-distribution); applied identically to every scheme",
+    "deeplift_settings": {
+      "implementation": "captum DeepLift",
+      "reference": "all-black image through identical preprocessing",
+      "target": "each sample's predicted class",
+      "channel_importance": "mean share of summed |attribution| per channel per sample"
+    },
+    "visual_example_rule": "seed 42 / fold 1 model; first 1 correctly classified eval samples per class in dataset order (pre-specified, no cherry-picking)",
+    "weights_source": "step_03_I fold checkpoints (read-only)",
+    "input_resolution": "384x384",
+    "model": "resnet50",
+    "no_training": true,
+    "metrics": [
+      "accuracy",
+      "macro_f1",
+      "mae"
+    ]
+  },
+  "integrity": {
+    "passed": true,
+    "checks": {
+      "excluded_69_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_296_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_769_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "excluded_770_absent": {
+        "in_manifest": true,
+        "channels_still_indexing_it": [],
+        "passed": true
+      },
+      "fold_overlap": {
+        "fold_1": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_2": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_3": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_4": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        },
+        "fold_5": {
+          "sample_overlap": [],
+          "patient_overlap": []
+        }
+      },
+      "fold_overlap_passed": {
+        "passed": true
+      },
+      "channel_available": {
+        "M": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MB": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MP": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MR": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        },
+        "MUV": {
+          "manifest_ids_without_image": [],
+          "passed": true
+        }
+      },
+      "task": {
+        "task": "5class",
+        "num_classes": 5,
+        "passed": true
+      }
+    }
+  },
+  "records": [
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.51,
+        "macro_f1": 0.41125153005033466,
+        "mae": 0.615
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.35,
+          "macro_f1": 0.23829414717239145,
+          "mae": 0.975
+        },
+        "MB": {
+          "accuracy": 0.355,
+          "macro_f1": 0.2624232521270211,
+          "mae": 0.985
+        },
+        "MR": {
+          "accuracy": 0.205,
+          "macro_f1": 0.15785019557664742,
+          "mae": 1.43
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.16000000000000003,
+          "macro_f1": -0.1729573828779432,
+          "mae": 0.36
+        },
+        "MB": {
+          "accuracy": -0.15500000000000003,
+          "macro_f1": -0.14882827792331355,
+          "mae": 0.37
+        },
+        "MR": {
+          "accuracy": -0.30500000000000005,
+          "macro_f1": -0.25340133447368723,
+          "mae": 0.815
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30959609426683465,
+        "MB": 0.3095431548642723,
+        "MR": 0.3808607508688893
+      },
+      "deeplift_center_share": {
+        "M": 0.7137473461052715,
+        "MB": 0.6292233193802808,
+        "MR": 0.6065620146830528
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.46,
+        "macro_f1": 0.35896000178624543,
+        "mae": 0.69
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.35,
+          "macro_f1": 0.25974631372435864,
+          "mae": 0.985
+        },
+        "MB": {
+          "accuracy": 0.285,
+          "macro_f1": 0.20058579459208298,
+          "mae": 1.125
+        },
+        "MR": {
+          "accuracy": 0.185,
+          "macro_f1": 0.1312826420890937,
+          "mae": 1.56
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.11000000000000004,
+          "macro_f1": -0.0992136880618868,
+          "mae": 0.29500000000000004
+        },
+        "MB": {
+          "accuracy": -0.17500000000000004,
+          "macro_f1": -0.15837420719416245,
+          "mae": 0.43500000000000005
+        },
+        "MR": {
+          "accuracy": -0.275,
+          "macro_f1": -0.22767735969715172,
+          "mae": 0.8700000000000001
+        }
+      },
+      "deeplift_share": {
+        "M": 0.31773799636460087,
+        "MB": 0.3042872483985513,
+        "MR": 0.37797475523684476
+      },
+      "deeplift_center_share": {
+        "M": 0.6712342514650439,
+        "MB": 0.6119695469266634,
+        "MR": 0.5921691847627838
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.505,
+        "macro_f1": 0.42931927060870223,
+        "mae": 0.635
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.35,
+          "macro_f1": 0.21567815643003616,
+          "mae": 1.06
+        },
+        "MB": {
+          "accuracy": 0.365,
+          "macro_f1": 0.2646429835306928,
+          "mae": 0.8
+        },
+        "MR": {
+          "accuracy": 0.185,
+          "macro_f1": 0.13555062823355507,
+          "mae": 1.265
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.15500000000000003,
+          "macro_f1": -0.21364111417866608,
+          "mae": 0.42500000000000004
+        },
+        "MB": {
+          "accuracy": -0.14,
+          "macro_f1": -0.1646762870780094,
+          "mae": 0.16500000000000004
+        },
+        "MR": {
+          "accuracy": -0.32,
+          "macro_f1": -0.29376864237514716,
+          "mae": 0.6299999999999999
+        }
+      },
+      "deeplift_share": {
+        "M": 0.29093475588325424,
+        "MB": 0.31267543728963,
+        "MR": 0.39638980682711217
+      },
+      "deeplift_center_share": {
+        "M": 0.5958161139460267,
+        "MB": 0.48501710679784443,
+        "MR": 0.458422813166778
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5125628140703518,
+        "macro_f1": 0.43651283518474704,
+        "mae": 0.6482412060301508
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.36180904522613067,
+          "macro_f1": 0.19171475953565506,
+          "mae": 0.914572864321608
+        },
+        "MB": {
+          "accuracy": 0.4020100502512563,
+          "macro_f1": 0.3085157288435977,
+          "mae": 0.8693467336683417
+        },
+        "MR": {
+          "accuracy": 0.19095477386934673,
+          "macro_f1": 0.18478638040582088,
+          "mae": 1.9396984924623115
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1507537688442211,
+          "macro_f1": -0.24479807564909198,
+          "mae": 0.2663316582914572
+        },
+        "MB": {
+          "accuracy": -0.11055276381909546,
+          "macro_f1": -0.12799710634114936,
+          "mae": 0.2211055276381909
+        },
+        "MR": {
+          "accuracy": -0.32160804020100503,
+          "macro_f1": -0.2517264547789262,
+          "mae": 1.2914572864321607
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3171321225884334,
+        "MB": 0.3099249499203696,
+        "MR": 0.372942927491193
+      },
+      "deeplift_center_share": {
+        "M": 0.7537807154596193,
+        "MB": 0.6749974529601469,
+        "MR": 0.6542004774654778
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.49246231155778897,
+        "macro_f1": 0.4006713594528721,
+        "mae": 0.6080402010050251
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3065326633165829,
+          "macro_f1": 0.18939883645765998,
+          "mae": 1.065326633165829
+        },
+        "MB": {
+          "accuracy": 0.19095477386934673,
+          "macro_f1": 0.1368623133921173,
+          "mae": 1.5577889447236182
+        },
+        "MR": {
+          "accuracy": 0.18592964824120603,
+          "macro_f1": 0.12100812231247013,
+          "mae": 1.5728643216080402
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.18592964824120606,
+          "macro_f1": -0.2112725229952121,
+          "mae": 0.457286432160804
+        },
+        "MB": {
+          "accuracy": -0.30150753768844224,
+          "macro_f1": -0.2638090460607548,
+          "mae": 0.9497487437185931
+        },
+        "MR": {
+          "accuracy": -0.3065326633165829,
+          "macro_f1": -0.279663237140402,
+          "mae": 0.9648241206030151
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3144357617013101,
+        "MB": 0.3082884582535622,
+        "MR": 0.37727578004512413
+      },
+      "deeplift_center_share": {
+        "M": 0.6923093973333327,
+        "MB": 0.6268881644343282,
+        "MR": 0.6056775293462985
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.457286432160804,
+        "macro_f1": 0.3777173913043478,
+        "mae": 0.7035175879396985
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3165829145728643,
+          "macro_f1": 0.17952904169698647,
+          "mae": 0.864321608040201
+        },
+        "MB": {
+          "accuracy": 0.3065326633165829,
+          "macro_f1": 0.30214691313277753,
+          "mae": 1.050251256281407
+        },
+        "MR": {
+          "accuracy": 0.15577889447236182,
+          "macro_f1": 0.09680502626429086,
+          "mae": 1.6130653266331658
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1407035175879397,
+          "macro_f1": -0.1981883496073613,
+          "mae": 0.16080402010050243
+        },
+        "MB": {
+          "accuracy": -0.1507537688442211,
+          "macro_f1": -0.07557047817157025,
+          "mae": 0.3467336683417085
+        },
+        "MR": {
+          "accuracy": -0.3015075376884422,
+          "macro_f1": -0.2809123650400569,
+          "mae": 0.9095477386934673
+        }
+      },
+      "deeplift_share": {
+        "M": 0.31491232001019,
+        "MB": 0.3072450796951374,
+        "MR": 0.37784260029466904
+      },
+      "deeplift_center_share": {
+        "M": 0.7199720629348528,
+        "MB": 0.6390325364083738,
+        "MR": 0.6192215394651985
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4472361809045226,
+        "macro_f1": 0.3523918712468365,
+        "mae": 0.7336683417085427
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2864321608040201,
+          "macro_f1": 0.09723320158102766,
+          "mae": 1.2864321608040201
+        },
+        "MB": {
+          "accuracy": 0.4371859296482412,
+          "macro_f1": 0.3277040067846205,
+          "mae": 0.8241206030150754
+        },
+        "MR": {
+          "accuracy": 0.23115577889447236,
+          "macro_f1": 0.16614893748664125,
+          "mae": 1.1457286432160805
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1608040201005025,
+          "macro_f1": -0.25515866966580886,
+          "mae": 0.5527638190954774
+        },
+        "MB": {
+          "accuracy": -0.010050251256281395,
+          "macro_f1": -0.02468786446221599,
+          "mae": 0.09045226130653272
+        },
+        "MR": {
+          "accuracy": -0.21608040201005024,
+          "macro_f1": -0.18624293376019527,
+          "mae": 0.4120603015075378
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3115536900330831,
+        "MB": 0.3096956774432821,
+        "MR": 0.3787506325236321
+      },
+      "deeplift_center_share": {
+        "M": 0.7265752566153085,
+        "MB": 0.632671004551908,
+        "MR": 0.5980604944232475
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.49246231155778897,
+        "macro_f1": 0.4424666435586011,
+        "mae": 0.6231155778894473
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3015075376884422,
+          "macro_f1": 0.1331402746698258,
+          "mae": 1.1658291457286432
+        },
+        "MB": {
+          "accuracy": 0.20100502512562815,
+          "macro_f1": 0.1565133702901321,
+          "mae": 1.4120603015075377
+        },
+        "MR": {
+          "accuracy": 0.1407035175879397,
+          "macro_f1": 0.07828574360553117,
+          "mae": 1.6633165829145728
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.19095477386934678,
+          "macro_f1": -0.3093263688887753,
+          "mae": 0.5427135678391959
+        },
+        "MB": {
+          "accuracy": -0.29145728643216084,
+          "macro_f1": -0.285953273268469,
+          "mae": 0.7889447236180904
+        },
+        "MR": {
+          "accuracy": -0.35175879396984927,
+          "macro_f1": -0.3641808999530699,
+          "mae": 1.0402010050251256
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3042008672209737,
+        "MB": 0.31471368922079124,
+        "MR": 0.38108544355823215
+      },
+      "deeplift_center_share": {
+        "M": 0.6876747408341146,
+        "MB": 0.5809485311456428,
+        "MR": 0.5499813429299912
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4623115577889447,
+        "macro_f1": 0.3676409818121842,
+        "mae": 0.6532663316582915
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.4623115577889447,
+          "macro_f1": 0.36598763488925545,
+          "mae": 0.6532663316582915
+        },
+        "MB": {
+          "accuracy": 0.15577889447236182,
+          "macro_f1": 0.09214285714285715,
+          "mae": 1.6130653266331658
+        },
+        "MR": {
+          "accuracy": 0.15577889447236182,
+          "macro_f1": 0.09074487701353373,
+          "mae": 1.6834170854271358
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": 0.0,
+          "macro_f1": -0.0016533469229287334,
+          "mae": 0.0
+        },
+        "MB": {
+          "accuracy": -0.3065326633165829,
+          "macro_f1": -0.27549812466932705,
+          "mae": 0.9597989949748743
+        },
+        "MR": {
+          "accuracy": -0.3065326633165829,
+          "macro_f1": -0.27689610479865046,
+          "mae": 1.0301507537688441
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3041184774370708,
+        "MB": 0.31312571923646576,
+        "MR": 0.38275580332645925
+      },
+      "deeplift_center_share": {
+        "M": 0.6776838412705359,
+        "MB": 0.5738411623754185,
+        "MR": 0.5506613754860833
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.48743718592964824,
+        "macro_f1": 0.4415082804281587,
+        "mae": 0.6683417085427136
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.33668341708542715,
+          "macro_f1": 0.1712405522652202,
+          "mae": 0.9949748743718593
+        },
+        "MB": {
+          "accuracy": 0.18090452261306533,
+          "macro_f1": 0.11993193686557531,
+          "mae": 1.6030150753768844
+        },
+        "MR": {
+          "accuracy": 0.2562814070351759,
+          "macro_f1": 0.14707915273132666,
+          "mae": 1.3517587939698492
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1507537688442211,
+          "macro_f1": -0.27026772816293854,
+          "mae": 0.3266331658291457
+        },
+        "MB": {
+          "accuracy": -0.3065326633165829,
+          "macro_f1": -0.3215763435625834,
+          "mae": 0.9346733668341708
+        },
+        "MR": {
+          "accuracy": -0.23115577889447236,
+          "macro_f1": -0.29442912769683205,
+          "mae": 0.6834170854271356
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3197131415354887,
+        "MB": 0.3090673205687698,
+        "MR": 0.3712195378957381
+      },
+      "deeplift_center_share": {
+        "M": 0.7497671048507273,
+        "MB": 0.6740811018679418,
+        "MR": 0.6525456321252604
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4723618090452261,
+        "macro_f1": 0.440212239794805,
+        "mae": 0.6582914572864321
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.35175879396984927,
+          "macro_f1": 0.24845996818995855,
+          "mae": 0.9597989949748744
+        },
+        "MB": {
+          "accuracy": 0.09547738693467336,
+          "macro_f1": 0.07797014925373133,
+          "mae": 1.8190954773869348
+        },
+        "MR": {
+          "accuracy": 0.18592964824120603,
+          "macro_f1": 0.12011634332418064,
+          "mae": 1.5376884422110553
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.19175227160484645,
+          "mae": 0.3015075376884423
+        },
+        "MB": {
+          "accuracy": -0.37688442211055273,
+          "macro_f1": -0.3622420905410737,
+          "mae": 1.1608040201005028
+        },
+        "MR": {
+          "accuracy": -0.2864321608040201,
+          "macro_f1": -0.32009589647062436,
+          "mae": 0.8793969849246231
+        }
+      },
+      "deeplift_share": {
+        "M": 0.31287799283705553,
+        "MB": 0.3088021249082715,
+        "MR": 0.37831988225467
+      },
+      "deeplift_center_share": {
+        "M": 0.7126318729614926,
+        "MB": 0.6358385230433407,
+        "MR": 0.61102467517027
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.507537688442211,
+        "macro_f1": 0.4183720205093625,
+        "mae": 0.6080402010050251
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2864321608040201,
+          "macro_f1": 0.1147215865751335,
+          "mae": 1.1809045226130652
+        },
+        "MB": {
+          "accuracy": 0.35678391959798994,
+          "macro_f1": 0.29102486609135547,
+          "mae": 0.8844221105527639
+        },
+        "MR": {
+          "accuracy": 0.25125628140703515,
+          "macro_f1": 0.18228979509878387,
+          "mae": 1.3165829145728642
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.2211055276381909,
+          "macro_f1": -0.303650433934229,
+          "mae": 0.5728643216080401
+        },
+        "MB": {
+          "accuracy": -0.1507537688442211,
+          "macro_f1": -0.12734715441800704,
+          "mae": 0.2763819095477388
+        },
+        "MR": {
+          "accuracy": -0.2562814070351759,
+          "macro_f1": -0.23608222541057863,
+          "mae": 0.7085427135678392
+        }
+      },
+      "deeplift_share": {
+        "M": 0.31153057815305163,
+        "MB": 0.31392793066433367,
+        "MR": 0.37454149118261104
+      },
+      "deeplift_center_share": {
+        "M": 0.7252419690711753,
+        "MB": 0.6324089067635865,
+        "MR": 0.6115581281930995
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5226130653266332,
+        "macro_f1": 0.41901457321304647,
+        "mae": 0.5879396984924623
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2964824120603015,
+          "macro_f1": 0.09967604433077579,
+          "mae": 1.2663316582914572
+        },
+        "MB": {
+          "accuracy": 0.36683417085427134,
+          "macro_f1": 0.2915570471074257,
+          "mae": 0.8743718592964824
+        },
+        "MR": {
+          "accuracy": 0.32663316582914576,
+          "macro_f1": 0.17923818194026248,
+          "mae": 0.949748743718593
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.2261306532663317,
+          "macro_f1": -0.31933852888227066,
+          "mae": 0.6783919597989949
+        },
+        "MB": {
+          "accuracy": -0.15577889447236187,
+          "macro_f1": -0.12745752610562078,
+          "mae": 0.2864321608040201
+        },
+        "MR": {
+          "accuracy": -0.19597989949748745,
+          "macro_f1": -0.239776391272784,
+          "mae": 0.36180904522613067
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3032682133744895,
+        "MB": 0.31404592615973176,
+        "MR": 0.38268586046577546
+      },
+      "deeplift_center_share": {
+        "M": 0.6489328443926131,
+        "MB": 0.5515301365522013,
+        "MR": 0.5198173135210442
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5477386934673367,
+        "macro_f1": 0.505112756782233,
+        "mae": 0.542713567839196
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.4221105527638191,
+          "macro_f1": 0.3615852595627877,
+          "mae": 0.8291457286432161
+        },
+        "MB": {
+          "accuracy": 0.18592964824120603,
+          "macro_f1": 0.12666941984934582,
+          "mae": 1.5226130653266332
+        },
+        "MR": {
+          "accuracy": 0.1708542713567839,
+          "macro_f1": 0.10462676797859927,
+          "mae": 1.5879396984924623
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12562814070351763,
+          "macro_f1": -0.1435274972194453,
+          "mae": 0.2864321608040201
+        },
+        "MB": {
+          "accuracy": -0.36180904522613067,
+          "macro_f1": -0.3784433369328872,
+          "mae": 0.9798994974874372
+        },
+        "MR": {
+          "accuracy": -0.37688442211055284,
+          "macro_f1": -0.40048598880363373,
+          "mae": 1.0452261306532664
+        }
+      },
+      "deeplift_share": {
+        "M": 0.3033558905638634,
+        "MB": 0.31197569708205597,
+        "MR": 0.38466841235407667
+      },
+      "deeplift_center_share": {
+        "M": 0.6810074551854686,
+        "MB": 0.5862095736514058,
+        "MR": 0.5615359662994451
+      }
+    },
+    {
+      "scheme": "M+MB+MR",
+      "scheme_key": "M_MB_MR",
+      "channels": [
+        "M",
+        "MB",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.49748743718592964,
+        "macro_f1": 0.4310628019323671,
+        "mae": 0.6080402010050251
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3869346733668342,
+          "macro_f1": 0.20904352487986974,
+          "mae": 0.9447236180904522
+        },
+        "MB": {
+          "accuracy": 0.23115577889447236,
+          "macro_f1": 0.16104533212430877,
+          "mae": 1.1608040201005025
+        },
+        "MR": {
+          "accuracy": 0.23618090452261306,
+          "macro_f1": 0.14451093414465022,
+          "mae": 1.2964824120603016
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.11055276381909546,
+          "macro_f1": -0.22201927705249738,
+          "mae": 0.33668341708542715
+        },
+        "MB": {
+          "accuracy": -0.2663316582914573,
+          "macro_f1": -0.27001746980805835,
+          "mae": 0.5527638190954774
+        },
+        "MR": {
+          "accuracy": -0.2613065326633166,
+          "macro_f1": -0.2865518677877169,
+          "mae": 0.6884422110552765
+        }
+      },
+      "deeplift_share": {
+        "M": 0.30731370168136224,
+        "MB": 0.3112297060711721,
+        "MR": 0.3814565922474614
+      },
+      "deeplift_center_share": {
+        "M": 0.695518749662306,
+        "MB": 0.5989410249206667,
+        "MR": 0.578299699119616
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.465,
+        "macro_f1": 0.3737421837421837,
+        "mae": 0.715
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.365,
+          "macro_f1": 0.23890117658940566,
+          "mae": 1.055
+        },
+        "MR": {
+          "accuracy": 0.11,
+          "macro_f1": 0.042105263157894736,
+          "mae": 1.845
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10000000000000003,
+          "macro_f1": -0.13484100715277805,
+          "mae": 0.33999999999999997
+        },
+        "MR": {
+          "accuracy": -0.35500000000000004,
+          "macro_f1": -0.33163692058428895,
+          "mae": 1.13
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4364892237065487,
+        "MR": 0.5635107762934478
+      },
+      "deeplift_center_share": {
+        "M": 0.6879870898134338,
+        "MR": 0.5585450193631247
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.515,
+        "macro_f1": 0.43737927635331103,
+        "mae": 0.6
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3,
+          "macro_f1": 0.12981236802413273,
+          "mae": 1.245
+        },
+        "MR": {
+          "accuracy": 0.18,
+          "macro_f1": 0.11798663416710334,
+          "mae": 1.555
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.21500000000000002,
+          "macro_f1": -0.3075669083291783,
+          "mae": 0.6450000000000001
+        },
+        "MR": {
+          "accuracy": -0.335,
+          "macro_f1": -0.31939264218620766,
+          "mae": 0.955
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44269669405322204,
+        "MR": 0.5573033059467748
+      },
+      "deeplift_center_share": {
+        "M": 0.6789456186546498,
+        "MR": 0.5622461661220449
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.445,
+        "macro_f1": 0.3651937831988983,
+        "mae": 0.705
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.155,
+          "macro_f1": 0.08526570048309179,
+          "mae": 1.69
+        },
+        "MR": {
+          "accuracy": 0.12,
+          "macro_f1": 0.04285714285714286,
+          "mae": 1.785
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.29000000000000004,
+          "macro_f1": -0.2799280827158065,
+          "mae": 0.985
+        },
+        "MR": {
+          "accuracy": -0.325,
+          "macro_f1": -0.3223366403417554,
+          "mae": 1.08
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4562784749326108,
+        "MR": 0.5437215250673858
+      },
+      "deeplift_center_share": {
+        "M": 0.677358190529429,
+        "MR": 0.5794072035096068
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4824120603015075,
+        "macro_f1": 0.43204929788072804,
+        "mae": 0.6683417085427136
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3165829145728643,
+          "macro_f1": 0.2196623824606238,
+          "mae": 1.120603015075377
+        },
+        "MR": {
+          "accuracy": 0.1507537688442211,
+          "macro_f1": 0.11142643664358429,
+          "mae": 1.7035175879396984
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1658291457286432,
+          "macro_f1": -0.21238691542010424,
+          "mae": 0.4522613065326634
+        },
+        "MR": {
+          "accuracy": -0.3316582914572864,
+          "macro_f1": -0.3206228612371438,
+          "mae": 1.0351758793969847
+        }
+      },
+      "deeplift_share": {
+        "M": 0.45753808019507003,
+        "MR": 0.5424619198049271
+      },
+      "deeplift_center_share": {
+        "M": 0.7490634714344834,
+        "MR": 0.6518785091415417
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.48743718592964824,
+        "macro_f1": 0.43163108200665673,
+        "mae": 0.6532663316582915
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2914572864321608,
+          "macro_f1": 0.1059195948084837,
+          "mae": 1.2512562814070352
+        },
+        "MR": {
+          "accuracy": 0.11055276381909548,
+          "macro_f1": 0.04971751412429379,
+          "mae": 2.0100502512562812
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.19597989949748745,
+          "macro_f1": -0.325711487198173,
+          "mae": 0.5979899497487436
+        },
+        "MR": {
+          "accuracy": -0.37688442211055273,
+          "macro_f1": -0.38191356788236297,
+          "mae": 1.3567839195979898
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44598881190248935,
+        "MR": 0.554011188097507
+      },
+      "deeplift_center_share": {
+        "M": 0.7092508713253773,
+        "MR": 0.5975953836757099
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.47738693467336685,
+        "macro_f1": 0.4297620237559765,
+        "mae": 0.6633165829145728
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2814070351758794,
+          "macro_f1": 0.12608160289270648,
+          "mae": 1.170854271356784
+        },
+        "MR": {
+          "accuracy": 0.11055276381909548,
+          "macro_f1": 0.0655350236355823,
+          "mae": 1.9698492462311559
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.19597989949748745,
+          "macro_f1": -0.30368042086327,
+          "mae": 0.5075376884422111
+        },
+        "MR": {
+          "accuracy": -0.3668341708542714,
+          "macro_f1": -0.3642270001203942,
+          "mae": 1.306532663316583
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4454815394573791,
+        "MR": 0.5545184605426182
+      },
+      "deeplift_center_share": {
+        "M": 0.6405267748237014,
+        "MR": 0.5398617504070279
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.46733668341708545,
+        "macro_f1": 0.37117515608081647,
+        "mae": 0.6582914572864321
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.36683417085427134,
+          "macro_f1": 0.21371890046580072,
+          "mae": 0.8241206030150754
+        },
+        "MR": {
+          "accuracy": 0.12562814070351758,
+          "macro_f1": 0.08497330114841636,
+          "mae": 2.030150753768844
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10050251256281412,
+          "macro_f1": -0.15745625561501575,
+          "mae": 0.16582914572864327
+        },
+        "MR": {
+          "accuracy": -0.3417085427135679,
+          "macro_f1": -0.28620185493240013,
+          "mae": 1.3718592964824121
+        }
+      },
+      "deeplift_share": {
+        "M": 0.45644634449691035,
+        "MR": 0.5435536555030869
+      },
+      "deeplift_center_share": {
+        "M": 0.7482541973975834,
+        "MR": 0.6387723769260555
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4723618090452261,
+        "macro_f1": 0.3857371332371332,
+        "mae": 0.6733668341708543
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.13724562786487984,
+          "mae": 0.9045226130653267
+        },
+        "MR": {
+          "accuracy": 0.12562814070351758,
+          "macro_f1": 0.044642857142857144,
+          "mae": 1.7738693467336684
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1608040201005025,
+          "macro_f1": -0.24849150537225337,
+          "mae": 0.23115577889447236
+        },
+        "MR": {
+          "accuracy": -0.34673366834170855,
+          "macro_f1": -0.34109427609427606,
+          "mae": 1.100502512562814
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44860172248337377,
+        "MR": 0.5513982775166236
+      },
+      "deeplift_center_share": {
+        "M": 0.7073117422380265,
+        "MR": 0.5849435076518954
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4472361809045226,
+        "macro_f1": 0.42365108575634897,
+        "mae": 0.6884422110552764
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.32160804020100503,
+          "macro_f1": 0.23965097402597402,
+          "mae": 0.914572864321608
+        },
+        "MR": {
+          "accuracy": 0.09547738693467336,
+          "macro_f1": 0.06222222222222222,
+          "mae": 2.236180904522613
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12562814070351758,
+          "macro_f1": -0.18400011173037495,
+          "mae": 0.22613065326633164
+        },
+        "MR": {
+          "accuracy": -0.3517587939698492,
+          "macro_f1": -0.36142886353412673,
+          "mae": 1.5477386934673365
+        }
+      },
+      "deeplift_share": {
+        "M": 0.45393325036010507,
+        "MR": 0.546066749639892
+      },
+      "deeplift_center_share": {
+        "M": 0.6924937063876033,
+        "MR": 0.5872487671393775
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.49748743718592964,
+        "macro_f1": 0.4051763609953265,
+        "mae": 0.6432160804020101
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.35678391959798994,
+          "macro_f1": 0.21976494059758828,
+          "mae": 0.9698492462311558
+        },
+        "MR": {
+          "accuracy": 0.12562814070351758,
+          "macro_f1": 0.05942350332594235,
+          "mae": 1.7688442211055277
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1407035175879397,
+          "macro_f1": -0.18541142039773822,
+          "mae": 0.3266331658291457
+        },
+        "MR": {
+          "accuracy": -0.37185929648241206,
+          "macro_f1": -0.34575285766938413,
+          "mae": 1.1256281407035176
+        }
+      },
+      "deeplift_share": {
+        "M": 0.46402016635250914,
+        "MR": 0.5359798336474878
+      },
+      "deeplift_center_share": {
+        "M": 0.7509436506268635,
+        "MR": 0.6554464121340416
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.49748743718592964,
+        "macro_f1": 0.4468072601511919,
+        "mae": 0.6231155778894473
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.15275888440741997,
+          "mae": 1.170854271356784
+        },
+        "MR": {
+          "accuracy": 0.135678391959799,
+          "macro_f1": 0.10077380952380952,
+          "mae": 1.7688442211055277
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.185929648241206,
+          "macro_f1": -0.2940483757437719,
+          "mae": 0.5477386934673367
+        },
+        "MR": {
+          "accuracy": -0.36180904522613067,
+          "macro_f1": -0.34603345062738233,
+          "mae": 1.1457286432160805
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4564168526833375,
+        "MR": 0.5435831473166588
+      },
+      "deeplift_center_share": {
+        "M": 0.7019018797570223,
+        "MR": 0.5935377811489768
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.507537688442211,
+        "macro_f1": 0.4540981885574314,
+        "mae": 0.6231155778894473
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.21428571428571427,
+          "mae": 1.085427135678392
+        },
+        "MR": {
+          "accuracy": 0.12562814070351758,
+          "macro_f1": 0.044642857142857144,
+          "mae": 1.778894472361809
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.1959798994974874,
+          "macro_f1": -0.23981247427171712,
+          "mae": 0.4623115577889447
+        },
+        "MR": {
+          "accuracy": -0.38190954773869346,
+          "macro_f1": -0.40945533141457424,
+          "mae": 1.1557788944723617
+        }
+      },
+      "deeplift_share": {
+        "M": 0.46307322886770247,
+        "MR": 0.5369267711322939
+      },
+      "deeplift_center_share": {
+        "M": 0.6974742584860382,
+        "MR": 0.6085681808274571
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5175879396984925,
+        "macro_f1": 0.44275270184361093,
+        "mae": 0.5829145728643216
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.15164227642276423,
+          "mae": 1.1758793969849246
+        },
+        "MR": {
+          "accuracy": 0.12562814070351758,
+          "macro_f1": 0.09246794871794872,
+          "mae": 1.7487437185929648
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.20603015075376885,
+          "macro_f1": -0.2911104254208467,
+          "mae": 0.592964824120603
+        },
+        "MR": {
+          "accuracy": -0.3919597989949749,
+          "macro_f1": -0.3502847531256622,
+          "mae": 1.1658291457286434
+        }
+      },
+      "deeplift_share": {
+        "M": 0.4536888409930884,
+        "MR": 0.5463111590069083
+      },
+      "deeplift_center_share": {
+        "M": 0.7009094459077789,
+        "MR": 0.5900287119008981
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5276381909547738,
+        "macro_f1": 0.4522559308875099,
+        "mae": 0.5979899497487438
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.2914572864321608,
+          "macro_f1": 0.090625,
+          "mae": 1.2663316582914572
+        },
+        "MR": {
+          "accuracy": 0.11557788944723618,
+          "macro_f1": 0.041628959276018104,
+          "mae": 1.7989949748743719
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.23618090452261303,
+          "macro_f1": -0.3616309308875099,
+          "mae": 0.6683417085427135
+        },
+        "MR": {
+          "accuracy": -0.41206030150753764,
+          "macro_f1": -0.4106269716114918,
+          "mae": 1.2010050251256281
+        }
+      },
+      "deeplift_share": {
+        "M": 0.44355984213441657,
+        "MR": 0.5564401578655808
+      },
+      "deeplift_center_share": {
+        "M": 0.6879124675465689,
+        "MR": 0.5581535555795468
+      }
+    },
+    {
+      "scheme": "M+MR",
+      "scheme_key": "M_MR",
+      "channels": [
+        "M",
+        "MR"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.542713567839196,
+        "macro_f1": 0.4686817932642581,
+        "mae": 0.628140703517588
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.34673366834170855,
+          "macro_f1": 0.2601148851148851,
+          "mae": 0.9748743718592965
+        },
+        "MR": {
+          "accuracy": 0.12060301507537688,
+          "macro_f1": 0.04304932735426009,
+          "mae": 1.7889447236180904
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.19597989949748745,
+          "macro_f1": -0.20856690814937295,
+          "mae": 0.3467336683417085
+        },
+        "MR": {
+          "accuracy": -0.42211055276381915,
+          "macro_f1": -0.425632465909998,
+          "mae": 1.1608040201005023
+        }
+      },
+      "deeplift_share": {
+        "M": 0.45107628526994764,
+        "MR": 0.5489237147300484
+      },
+      "deeplift_center_share": {
+        "M": 0.6758867494296278,
+        "MR": 0.5731972195176042
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 42,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.52,
+        "macro_f1": 0.4744861091893055,
+        "mae": 0.59
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.385,
+          "macro_f1": 0.3194901937467257,
+          "mae": 0.92
+        },
+        "MB": {
+          "accuracy": 0.265,
+          "macro_f1": 0.16986431478968794,
+          "mae": 1.065
+        },
+        "MP": {
+          "accuracy": 0.46,
+          "macro_f1": 0.3528349385492243,
+          "mae": 0.705
+        },
+        "MR": {
+          "accuracy": 0.365,
+          "macro_f1": 0.28186355734921875,
+          "mae": 0.92
+        },
+        "MUV": {
+          "accuracy": 0.365,
+          "macro_f1": 0.2377472810679862,
+          "mae": 1.045
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.135,
+          "macro_f1": -0.1549959154425798,
+          "mae": 0.33000000000000007
+        },
+        "MB": {
+          "accuracy": -0.255,
+          "macro_f1": -0.30462179439961756,
+          "mae": 0.475
+        },
+        "MP": {
+          "accuracy": -0.06,
+          "macro_f1": -0.12165117064008119,
+          "mae": 0.11499999999999999
+        },
+        "MR": {
+          "accuracy": -0.15500000000000003,
+          "macro_f1": -0.19262255184008675,
+          "mae": 0.33000000000000007
+        },
+        "MUV": {
+          "accuracy": -0.15500000000000003,
+          "macro_f1": -0.2367388281213193,
+          "mae": 0.45499999999999996
+        }
+      },
+      "deeplift_share": {
+        "M": 0.2526443065055546,
+        "MB": 0.24142048129696989,
+        "MP": 0.08545416690608848,
+        "MR": 0.2919686882641033,
+        "MUV": 0.1285123570272796
+      },
+      "deeplift_center_share": {
+        "M": 0.6477696225514457,
+        "MB": 0.5875151604253219,
+        "MP": 0.655165483676396,
+        "MR": 0.5622933564436495,
+        "MUV": 0.6447501566637456
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 3407,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.495,
+        "macro_f1": 0.4214677953625322,
+        "mae": 0.64
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.41,
+          "macro_f1": 0.3041245869311609,
+          "mae": 0.765
+        },
+        "MB": {
+          "accuracy": 0.335,
+          "macro_f1": 0.2626240174219242,
+          "mae": 1.09
+        },
+        "MP": {
+          "accuracy": 0.47,
+          "macro_f1": 0.38729807634917124,
+          "mae": 0.71
+        },
+        "MR": {
+          "accuracy": 0.375,
+          "macro_f1": 0.22205629631166568,
+          "mae": 0.835
+        },
+        "MUV": {
+          "accuracy": 0.335,
+          "macro_f1": 0.19800365877484327,
+          "mae": 1.02
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.08500000000000002,
+          "macro_f1": -0.1173432084313713,
+          "mae": 0.125
+        },
+        "MB": {
+          "accuracy": -0.15999999999999998,
+          "macro_f1": -0.158843777940608,
+          "mae": 0.45000000000000007
+        },
+        "MP": {
+          "accuracy": -0.025000000000000022,
+          "macro_f1": -0.034169719013360966,
+          "mae": 0.06999999999999995
+        },
+        "MR": {
+          "accuracy": -0.12,
+          "macro_f1": -0.19941149905086653,
+          "mae": 0.19499999999999995
+        },
+        "MUV": {
+          "accuracy": -0.15999999999999998,
+          "macro_f1": -0.22346413658768893,
+          "mae": 0.38
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24315193167415433,
+        "MB": 0.23901381848043135,
+        "MP": 0.08569937387986833,
+        "MR": 0.30085304125453655,
+        "MUV": 0.13128183471100482
+      },
+      "deeplift_center_share": {
+        "M": 0.6392218797974956,
+        "MB": 0.5630119178741092,
+        "MP": 0.6315898707721641,
+        "MR": 0.539093813531936,
+        "MUV": 0.6147744483444266
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 1,
+      "training_seed": 2026,
+      "eval_n": 200,
+      "baseline": {
+        "accuracy": 0.5,
+        "macro_f1": 0.4091573715686293,
+        "mae": 0.625
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.255,
+          "macro_f1": 0.19992582638557757,
+          "mae": 1.235
+        },
+        "MB": {
+          "accuracy": 0.36,
+          "macro_f1": 0.31208707791018725,
+          "mae": 0.795
+        },
+        "MP": {
+          "accuracy": 0.5,
+          "macro_f1": 0.38154964318117734,
+          "mae": 0.625
+        },
+        "MR": {
+          "accuracy": 0.305,
+          "macro_f1": 0.22011776224778323,
+          "mae": 1.09
+        },
+        "MUV": {
+          "accuracy": 0.48,
+          "macro_f1": 0.419866872609591,
+          "mae": 0.725
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.245,
+          "macro_f1": -0.20923154518305173,
+          "mae": 0.6100000000000001
+        },
+        "MB": {
+          "accuracy": -0.14,
+          "macro_f1": -0.09707029365844205,
+          "mae": 0.17000000000000004
+        },
+        "MP": {
+          "accuracy": 0.0,
+          "macro_f1": -0.027607728387451957,
+          "mae": 0.0
+        },
+        "MR": {
+          "accuracy": -0.195,
+          "macro_f1": -0.18903960932084607,
+          "mae": 0.4650000000000001
+        },
+        "MUV": {
+          "accuracy": -0.020000000000000018,
+          "macro_f1": 0.010709501040961689,
+          "mae": 0.09999999999999998
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24619910328839528,
+        "MB": 0.2397147430564251,
+        "MP": 0.08715575504293965,
+        "MR": 0.29619227062382397,
+        "MUV": 0.13073812798841292
+      },
+      "deeplift_center_share": {
+        "M": 0.6976678449334794,
+        "MB": 0.6212873288377622,
+        "MP": 0.6804487691782365,
+        "MR": 0.5958736533940154,
+        "MUV": 0.6683754949601909
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5175879396984925,
+        "macro_f1": 0.4671518322946895,
+        "mae": 0.592964824120603
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3065326633165829,
+          "macro_f1": 0.164628318541362,
+          "mae": 0.8793969849246231
+        },
+        "MB": {
+          "accuracy": 0.3768844221105528,
+          "macro_f1": 0.28173935935164207,
+          "mae": 0.9296482412060302
+        },
+        "MP": {
+          "accuracy": 0.48743718592964824,
+          "macro_f1": 0.4694402431478254,
+          "mae": 0.678391959798995
+        },
+        "MR": {
+          "accuracy": 0.2613065326633166,
+          "macro_f1": 0.20895133912000174,
+          "mae": 1.2311557788944723
+        },
+        "MUV": {
+          "accuracy": 0.4472361809045226,
+          "macro_f1": 0.391699197694762,
+          "mae": 0.7638190954773869
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.21105527638190957,
+          "macro_f1": -0.3025235137533275,
+          "mae": 0.2864321608040201
+        },
+        "MB": {
+          "accuracy": -0.1407035175879397,
+          "macro_f1": -0.1854124729430474,
+          "mae": 0.33668341708542715
+        },
+        "MP": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": 0.0022884108531359137,
+          "mae": 0.085427135678392
+        },
+        "MR": {
+          "accuracy": -0.2562814070351759,
+          "macro_f1": -0.25820049317468774,
+          "mae": 0.6381909547738692
+        },
+        "MUV": {
+          "accuracy": -0.07035175879396988,
+          "macro_f1": -0.07545263459992746,
+          "mae": 0.17085427135678388
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24515641686640818,
+        "MB": 0.24044162717563536,
+        "MP": 0.08957943841295346,
+        "MR": 0.29195540193535297,
+        "MUV": 0.13286711560964565
+      },
+      "deeplift_center_share": {
+        "M": 0.708735951601317,
+        "MB": 0.626950087816916,
+        "MP": 0.6876015073002463,
+        "MR": 0.5968459727179847,
+        "MUV": 0.6731158751547316
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.48743718592964824,
+        "macro_f1": 0.42918015745624094,
+        "mae": 0.6482412060301508
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.38190954773869346,
+          "macro_f1": 0.2996783385448943,
+          "mae": 0.8894472361809045
+        },
+        "MB": {
+          "accuracy": 0.23618090452261306,
+          "macro_f1": 0.17706282344500987,
+          "mae": 1.2512562814070352
+        },
+        "MP": {
+          "accuracy": 0.4723618090452261,
+          "macro_f1": 0.38252504352193994,
+          "mae": 0.6834170854271356
+        },
+        "MR": {
+          "accuracy": 0.34673366834170855,
+          "macro_f1": 0.2732267464151522,
+          "mae": 1.1457286432160805
+        },
+        "MUV": {
+          "accuracy": 0.4321608040201005,
+          "macro_f1": 0.3281199401381151,
+          "mae": 0.7738693467336684
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095479,
+          "macro_f1": -0.12950181891134666,
+          "mae": 0.2412060301507537
+        },
+        "MB": {
+          "accuracy": -0.25125628140703515,
+          "macro_f1": -0.25211733401123104,
+          "mae": 0.6030150753768844
+        },
+        "MP": {
+          "accuracy": -0.01507537688442212,
+          "macro_f1": -0.046655113934300996,
+          "mae": 0.035175879396984855
+        },
+        "MR": {
+          "accuracy": -0.1407035175879397,
+          "macro_f1": -0.15595341104108873,
+          "mae": 0.4974874371859297
+        },
+        "MUV": {
+          "accuracy": -0.055276381909547756,
+          "macro_f1": -0.10106021731812587,
+          "mae": 0.12562814070351758
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23917794115055407,
+        "MB": 0.24258055734343384,
+        "MP": 0.08419436485361122,
+        "MR": 0.30548787399110083,
+        "MUV": 0.12855926266129644
+      },
+      "deeplift_center_share": {
+        "M": 0.6531068756286834,
+        "MB": 0.5678585803554983,
+        "MP": 0.6432950144823115,
+        "MR": 0.5477301024145604,
+        "MUV": 0.625811297114864
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 2,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.44221105527638194,
+        "macro_f1": 0.36042509228298397,
+        "mae": 0.6984924623115578
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.49748743718592964,
+          "macro_f1": 0.3813665026335963,
+          "mae": 0.6582914572864321
+        },
+        "MB": {
+          "accuracy": 0.3417085427135678,
+          "macro_f1": 0.25369351621225683,
+          "mae": 0.9698492462311558
+        },
+        "MP": {
+          "accuracy": 0.4824120603015075,
+          "macro_f1": 0.4019424917613241,
+          "mae": 0.6683417085427136
+        },
+        "MR": {
+          "accuracy": 0.2814070351758794,
+          "macro_f1": 0.2217266869694054,
+          "mae": 1.1658291457286432
+        },
+        "MUV": {
+          "accuracy": 0.35175879396984927,
+          "macro_f1": 0.2621545698037747,
+          "mae": 1.135678391959799
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": 0.0552763819095477,
+          "macro_f1": 0.02094141035061231,
+          "mae": -0.04020100502512569
+        },
+        "MB": {
+          "accuracy": -0.10050251256281412,
+          "macro_f1": -0.10673157607072714,
+          "mae": 0.27135678391959794
+        },
+        "MP": {
+          "accuracy": 0.04020100502512558,
+          "macro_f1": 0.041517399478340156,
+          "mae": -0.03015075376884424
+        },
+        "MR": {
+          "accuracy": -0.16080402010050254,
+          "macro_f1": -0.13869840531357858,
+          "mae": 0.46733668341708534
+        },
+        "MUV": {
+          "accuracy": -0.09045226130653267,
+          "macro_f1": -0.09827052247920925,
+          "mae": 0.4371859296482412
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24946879468646482,
+        "MB": 0.24064850016363692,
+        "MP": 0.08594566860448205,
+        "MR": 0.2941837788434468,
+        "MUV": 0.1297532577019653
+      },
+      "deeplift_center_share": {
+        "M": 0.6939141237956266,
+        "MB": 0.6240454425266097,
+        "MP": 0.6905760927522898,
+        "MR": 0.6037689744717029,
+        "MUV": 0.67630665601572
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.46733668341708545,
+        "macro_f1": 0.367830503634463,
+        "mae": 0.628140703517588
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.40703517587939697,
+          "macro_f1": 0.24260443605808907,
+          "mae": 0.8040201005025126
+        },
+        "MB": {
+          "accuracy": 0.3165829145728643,
+          "macro_f1": 0.18847200141317788,
+          "mae": 0.8190954773869347
+        },
+        "MP": {
+          "accuracy": 0.4371859296482412,
+          "macro_f1": 0.31761576354679805,
+          "mae": 0.7286432160804021
+        },
+        "MR": {
+          "accuracy": 0.2663316582914573,
+          "macro_f1": 0.19913782376388095,
+          "mae": 1.085427135678392
+        },
+        "MUV": {
+          "accuracy": 0.4020100502512563,
+          "macro_f1": 0.2889950544311599,
+          "mae": 0.7386934673366834
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.06030150753768848,
+          "macro_f1": -0.12522606757637395,
+          "mae": 0.1758793969849246
+        },
+        "MB": {
+          "accuracy": -0.15075376884422115,
+          "macro_f1": -0.17935850222128513,
+          "mae": 0.19095477386934667
+        },
+        "MP": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": -0.050214740087664966,
+          "mae": 0.10050251256281406
+        },
+        "MR": {
+          "accuracy": -0.20100502512562818,
+          "macro_f1": -0.16869267987058206,
+          "mae": 0.457286432160804
+        },
+        "MUV": {
+          "accuracy": -0.06532663316582915,
+          "macro_f1": -0.0788354492033031,
+          "mae": 0.1105527638190954
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24790806063790116,
+        "MB": 0.24640628534793485,
+        "MP": 0.08599172070517733,
+        "MR": 0.29185004919497914,
+        "MUV": 0.12784388411400247
+      },
+      "deeplift_center_share": {
+        "M": 0.6929284258233791,
+        "MB": 0.6027895840069605,
+        "MP": 0.6844029469512135,
+        "MR": 0.5764336981084077,
+        "MUV": 0.665547179045073
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5025125628140703,
+        "macro_f1": 0.40017903069574806,
+        "mae": 0.6130653266331658
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3969849246231156,
+          "macro_f1": 0.270798878879308,
+          "mae": 0.7788944723618091
+        },
+        "MB": {
+          "accuracy": 0.19597989949748743,
+          "macro_f1": 0.1314612751390672,
+          "mae": 1.3969849246231156
+        },
+        "MP": {
+          "accuracy": 0.44221105527638194,
+          "macro_f1": 0.3318893675541168,
+          "mae": 0.7185929648241206
+        },
+        "MR": {
+          "accuracy": 0.36180904522613067,
+          "macro_f1": 0.25429946524064173,
+          "mae": 0.8040201005025126
+        },
+        "MUV": {
+          "accuracy": 0.4623115577889447,
+          "macro_f1": 0.2888097340790894,
+          "mae": 0.7185929648241206
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.10552763819095473,
+          "macro_f1": -0.12938015181644008,
+          "mae": 0.16582914572864327
+        },
+        "MB": {
+          "accuracy": -0.3065326633165829,
+          "macro_f1": -0.26871775555668087,
+          "mae": 0.7839195979899498
+        },
+        "MP": {
+          "accuracy": -0.06030150753768837,
+          "macro_f1": -0.06828966314163126,
+          "mae": 0.10552763819095479
+        },
+        "MR": {
+          "accuracy": -0.14070351758793964,
+          "macro_f1": -0.14587956545510633,
+          "mae": 0.19095477386934678
+        },
+        "MUV": {
+          "accuracy": -0.04020100502512558,
+          "macro_f1": -0.11136929661665868,
+          "mae": 0.10552763819095479
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24193934314262638,
+        "MB": 0.24897195620540805,
+        "MP": 0.08204003840326357,
+        "MR": 0.3003569996301816,
+        "MUV": 0.12669166261851517
+      },
+      "deeplift_center_share": {
+        "M": 0.6295063396014959,
+        "MB": 0.5394148359803493,
+        "MP": 0.6332225079968279,
+        "MR": 0.5136688148515363,
+        "MUV": 0.6115570979150129
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 3,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4723618090452261,
+        "macro_f1": 0.42787662757410655,
+        "mae": 0.6231155778894473
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.38190954773869346,
+          "macro_f1": 0.2986775551373409,
+          "mae": 0.8793969849246231
+        },
+        "MB": {
+          "accuracy": 0.1457286432160804,
+          "macro_f1": 0.08142305755999328,
+          "mae": 1.6532663316582914
+        },
+        "MP": {
+          "accuracy": 0.4623115577889447,
+          "macro_f1": 0.39020061801082606,
+          "mae": 0.6984924623115578
+        },
+        "MR": {
+          "accuracy": 0.36683417085427134,
+          "macro_f1": 0.18512715603291655,
+          "mae": 0.8442211055276382
+        },
+        "MUV": {
+          "accuracy": 0.48743718592964824,
+          "macro_f1": 0.3581783794162826,
+          "mae": 0.6633165829145728
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.09045226130653267,
+          "macro_f1": -0.12919907243676565,
+          "mae": 0.2562814070351759
+        },
+        "MB": {
+          "accuracy": -0.3266331658291457,
+          "macro_f1": -0.34645357001411325,
+          "mae": 1.0301507537688441
+        },
+        "MP": {
+          "accuracy": -0.010050251256281395,
+          "macro_f1": -0.03767600956328049,
+          "mae": 0.07537688442211055
+        },
+        "MR": {
+          "accuracy": -0.10552763819095479,
+          "macro_f1": -0.24274947154119,
+          "mae": 0.2211055276381909
+        },
+        "MUV": {
+          "accuracy": 0.01507537688442212,
+          "macro_f1": -0.06969824815782394,
+          "mae": 0.04020100502512558
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24308058012444897,
+        "MB": 0.2423973186995686,
+        "MP": 0.08791498535420056,
+        "MR": 0.2937331930427156,
+        "MUV": 0.13287392277906132
+      },
+      "deeplift_center_share": {
+        "M": 0.7313109672568939,
+        "MB": 0.6368950910769136,
+        "MP": 0.7068341093331765,
+        "MR": 0.6140496980351098,
+        "MUV": 0.6864400056181261
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.507537688442211,
+        "macro_f1": 0.4882151080935275,
+        "mae": 0.6080402010050251
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.4221105527638191,
+          "macro_f1": 0.318950121552104,
+          "mae": 0.8341708542713567
+        },
+        "MB": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.2353486418640677,
+          "mae": 0.9396984924623115
+        },
+        "MP": {
+          "accuracy": 0.4472361809045226,
+          "macro_f1": 0.3738106718489494,
+          "mae": 0.7738693467336684
+        },
+        "MR": {
+          "accuracy": 0.34673366834170855,
+          "macro_f1": 0.17150167304457137,
+          "mae": 0.7989949748743719
+        },
+        "MUV": {
+          "accuracy": 0.4271356783919598,
+          "macro_f1": 0.3367869223425696,
+          "mae": 0.7939698492462312
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.08542713567839194,
+          "macro_f1": -0.16926498654142347,
+          "mae": 0.22613065326633164
+        },
+        "MB": {
+          "accuracy": -0.1959798994974874,
+          "macro_f1": -0.25286646622945974,
+          "mae": 0.3316582914572864
+        },
+        "MP": {
+          "accuracy": -0.060301507537688426,
+          "macro_f1": -0.11440443624457808,
+          "mae": 0.16582914572864327
+        },
+        "MR": {
+          "accuracy": -0.1608040201005025,
+          "macro_f1": -0.3167134350489561,
+          "mae": 0.19095477386934678
+        },
+        "MUV": {
+          "accuracy": -0.08040201005025122,
+          "macro_f1": -0.1514281857509579,
+          "mae": 0.18592964824120606
+        }
+      },
+      "deeplift_share": {
+        "M": 0.2551478572539175,
+        "MB": 0.2389023450108879,
+        "MP": 0.09140527910596256,
+        "MR": 0.27890575696151637,
+        "MUV": 0.135638761667711
+      },
+      "deeplift_center_share": {
+        "M": 0.7410962461969672,
+        "MB": 0.6794972116002853,
+        "MP": 0.7280721220271985,
+        "MR": 0.6565711693394175,
+        "MUV": 0.7171650637968804
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4472361809045226,
+        "macro_f1": 0.3765050618205958,
+        "mae": 0.6834170854271356
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.4221105527638191,
+          "macro_f1": 0.30475530017832375,
+          "mae": 0.6984924623115578
+        },
+        "MB": {
+          "accuracy": 0.3316582914572864,
+          "macro_f1": 0.29762263080983226,
+          "mae": 1.035175879396985
+        },
+        "MP": {
+          "accuracy": 0.44221105527638194,
+          "macro_f1": 0.3511117491535968,
+          "mae": 0.7336683417085427
+        },
+        "MR": {
+          "accuracy": 0.2914572864321608,
+          "macro_f1": 0.23479417381513246,
+          "mae": 1.2814070351758795
+        },
+        "MUV": {
+          "accuracy": 0.41708542713567837,
+          "macro_f1": 0.3346391008811139,
+          "mae": 0.8140703517587939
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.025125628140703515,
+          "macro_f1": -0.07174976164227204,
+          "mae": 0.015075376884422176
+        },
+        "MB": {
+          "accuracy": -0.11557788944723618,
+          "macro_f1": -0.07888243101076353,
+          "mae": 0.3517587939698493
+        },
+        "MP": {
+          "accuracy": -0.00502512562814067,
+          "macro_f1": -0.025393312666999013,
+          "mae": 0.05025125628140703
+        },
+        "MR": {
+          "accuracy": -0.15577889447236182,
+          "macro_f1": -0.14171088800546333,
+          "mae": 0.5979899497487439
+        },
+        "MUV": {
+          "accuracy": -0.03015075376884424,
+          "macro_f1": -0.04186596093948186,
+          "mae": 0.1306532663316583
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24248830723003403,
+        "MB": 0.2445624755090583,
+        "MP": 0.08619562233420315,
+        "MR": 0.29655303635617275,
+        "MUV": 0.1302005585705281
+      },
+      "deeplift_center_share": {
+        "M": 0.7113552182630724,
+        "MB": 0.6149314506081907,
+        "MP": 0.6962394602685753,
+        "MR": 0.5905458397924968,
+        "MUV": 0.6807371736121733
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 4,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.4824120603015075,
+        "macro_f1": 0.44010289308022693,
+        "mae": 0.6080402010050251
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.40703517587939697,
+          "macro_f1": 0.32149739225015705,
+          "mae": 0.8592964824120602
+        },
+        "MB": {
+          "accuracy": 0.36180904522613067,
+          "macro_f1": 0.29660446085931125,
+          "mae": 0.9698492462311558
+        },
+        "MP": {
+          "accuracy": 0.45226130653266333,
+          "macro_f1": 0.35354867337186546,
+          "mae": 0.7788944723618091
+        },
+        "MR": {
+          "accuracy": 0.34673366834170855,
+          "macro_f1": 0.22393238812326105,
+          "mae": 1.0452261306532664
+        },
+        "MUV": {
+          "accuracy": 0.46733668341708545,
+          "macro_f1": 0.32952244135508046,
+          "mae": 0.678391959798995
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.07537688442211055,
+          "macro_f1": -0.11860550083006988,
+          "mae": 0.25125628140703515
+        },
+        "MB": {
+          "accuracy": -0.12060301507537685,
+          "macro_f1": -0.14349843222091568,
+          "mae": 0.36180904522613067
+        },
+        "MP": {
+          "accuracy": -0.030150753768844185,
+          "macro_f1": -0.08655421970836147,
+          "mae": 0.170854271356784
+        },
+        "MR": {
+          "accuracy": -0.13567839195979897,
+          "macro_f1": -0.21617050495696588,
+          "mae": 0.4371859296482413
+        },
+        "MUV": {
+          "accuracy": -0.015075376884422065,
+          "macro_f1": -0.11058045172514647,
+          "mae": 0.07035175879396993
+        }
+      },
+      "deeplift_share": {
+        "M": 0.2413105409876659,
+        "MB": 0.24745801312507518,
+        "MP": 0.08851552643333571,
+        "MR": 0.2875346117660028,
+        "MUV": 0.1351813076879154
+      },
+      "deeplift_center_share": {
+        "M": 0.6818402350367435,
+        "MB": 0.5969027735170853,
+        "MP": 0.6633529821054224,
+        "MR": 0.57284151627539,
+        "MUV": 0.6472362531839411
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 42,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5025125628140703,
+        "macro_f1": 0.42556060908243715,
+        "mae": 0.5979899497487438
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.49748743718592964,
+          "macro_f1": 0.4024876531918785,
+          "mae": 0.6482412060301508
+        },
+        "MB": {
+          "accuracy": 0.3768844221105528,
+          "macro_f1": 0.29986799961990435,
+          "mae": 0.8291457286432161
+        },
+        "MP": {
+          "accuracy": 0.457286432160804,
+          "macro_f1": 0.3564034505640345,
+          "mae": 0.6834170854271356
+        },
+        "MR": {
+          "accuracy": 0.32160804020100503,
+          "macro_f1": 0.17268807268807268,
+          "mae": 1.0301507537688441
+        },
+        "MUV": {
+          "accuracy": 0.35175879396984927,
+          "macro_f1": 0.1744956174261229,
+          "mae": 1.1407035175879396
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.00502512562814067,
+          "macro_f1": -0.023072955890558633,
+          "mae": 0.05025125628140703
+        },
+        "MB": {
+          "accuracy": -0.12562814070351752,
+          "macro_f1": -0.1256926094625328,
+          "mae": 0.23115577889447236
+        },
+        "MP": {
+          "accuracy": -0.045226130653266305,
+          "macro_f1": -0.06915715851840265,
+          "mae": 0.08542713567839189
+        },
+        "MR": {
+          "accuracy": -0.18090452261306528,
+          "macro_f1": -0.25287253639436447,
+          "mae": 0.4321608040201004
+        },
+        "MUV": {
+          "accuracy": -0.15075376884422104,
+          "macro_f1": -0.25106499165631424,
+          "mae": 0.5427135678391959
+        }
+      },
+      "deeplift_share": {
+        "M": 0.24672271673541668,
+        "MB": 0.24526962929961518,
+        "MP": 0.0855214626056053,
+        "MR": 0.295115053619132,
+        "MUV": 0.12737113774022543
+      },
+      "deeplift_center_share": {
+        "M": 0.6686774776194959,
+        "MB": 0.5898366615337974,
+        "MP": 0.6760693845268863,
+        "MR": 0.5738074186727872,
+        "MUV": 0.660028326820384
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 3407,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.542713567839196,
+        "macro_f1": 0.46867500315776167,
+        "mae": 0.5778894472361809
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.4221105527638191,
+          "macro_f1": 0.3574294532627866,
+          "mae": 0.7437185929648241
+        },
+        "MB": {
+          "accuracy": 0.19597989949748743,
+          "macro_f1": 0.2034854631944456,
+          "mae": 1.2914572864321607
+        },
+        "MP": {
+          "accuracy": 0.49748743718592964,
+          "macro_f1": 0.41561141678953745,
+          "mae": 0.6482412060301508
+        },
+        "MR": {
+          "accuracy": 0.2964824120603015,
+          "macro_f1": 0.21502968691924734,
+          "mae": 1.1155778894472361
+        },
+        "MUV": {
+          "accuracy": 0.46733668341708545,
+          "macro_f1": 0.3599573818642555,
+          "mae": 0.6834170854271356
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.12060301507537691,
+          "macro_f1": -0.1112455498949751,
+          "mae": 0.16582914572864327
+        },
+        "MB": {
+          "accuracy": -0.3467336683417086,
+          "macro_f1": -0.26518953996331607,
+          "mae": 0.7135678391959799
+        },
+        "MP": {
+          "accuracy": -0.04522613065326636,
+          "macro_f1": -0.053063586368224225,
+          "mae": 0.07035175879396993
+        },
+        "MR": {
+          "accuracy": -0.24623115577889448,
+          "macro_f1": -0.25364531623851433,
+          "mae": 0.5376884422110553
+        },
+        "MUV": {
+          "accuracy": -0.07537688442211055,
+          "macro_f1": -0.10871762129350615,
+          "mae": 0.10552763819095479
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23970566126274898,
+        "MB": 0.24376306483725882,
+        "MP": 0.08698957830712024,
+        "MR": 0.2992213397847181,
+        "MUV": 0.1303203558081493
+      },
+      "deeplift_center_share": {
+        "M": 0.6409445478699838,
+        "MB": 0.5532418818453284,
+        "MP": 0.6389602022192946,
+        "MR": 0.5343454505233409,
+        "MUV": 0.6197095913284711
+      }
+    },
+    {
+      "scheme": "M+MB+MP+MR+MUV",
+      "scheme_key": "ALL5",
+      "channels": [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ],
+      "fold": 5,
+      "training_seed": 2026,
+      "eval_n": 199,
+      "baseline": {
+        "accuracy": 0.5175879396984925,
+        "macro_f1": 0.46996359804578985,
+        "mae": 0.6180904522613065
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": 0.3165829145728643,
+          "macro_f1": 0.2544618736383442,
+          "mae": 1.0552763819095476
+        },
+        "MB": {
+          "accuracy": 0.23115577889447236,
+          "macro_f1": 0.20132916397061623,
+          "mae": 1.2462311557788945
+        },
+        "MP": {
+          "accuracy": 0.4824120603015075,
+          "macro_f1": 0.39205994259843474,
+          "mae": 0.6884422110552764
+        },
+        "MR": {
+          "accuracy": 0.31155778894472363,
+          "macro_f1": 0.13687480584032308,
+          "mae": 0.8341708542713567
+        },
+        "MUV": {
+          "accuracy": 0.4321608040201005,
+          "macro_f1": 0.31231549101778056,
+          "mae": 0.7788944723618091
+        }
+      },
+      "perturbation_deltas": {
+        "M": {
+          "accuracy": -0.20100502512562818,
+          "macro_f1": -0.21550172440744564,
+          "mae": 0.4371859296482411
+        },
+        "MB": {
+          "accuracy": -0.2864321608040201,
+          "macro_f1": -0.2686344340751736,
+          "mae": 0.628140703517588
+        },
+        "MP": {
+          "accuracy": -0.035175879396984966,
+          "macro_f1": -0.07790365544735511,
+          "mae": 0.07035175879396982
+        },
+        "MR": {
+          "accuracy": -0.20603015075376885,
+          "macro_f1": -0.3330887922054668,
+          "mae": 0.2160804020100502
+        },
+        "MUV": {
+          "accuracy": -0.085427135678392,
+          "macro_f1": -0.1576481070280093,
+          "mae": 0.16080402010050254
+        }
+      },
+      "deeplift_share": {
+        "M": 0.23955788343635484,
+        "MB": 0.24926050665462154,
+        "MP": 0.08733568895608142,
+        "MR": 0.2918277440811232,
+        "MUV": 0.13201817687181383
+      },
+      "deeplift_center_share": {
+        "M": 0.6552705951767664,
+        "MB": 0.5549704526241005,
+        "MP": 0.6452555652837579,
+        "MR": 0.5339978513672269,
+        "MUV": 0.6223362334796688
+      }
+    }
+  ],
+  "summary": {
+    "M_MB_MR": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.4916331658291458,
+          "std": 0.027710808145690054
+        },
+        "macro_f1": {
+          "mean": 0.41548097051098964,
+          "std": 0.039709152959639865
+        },
+        "mae": {
+          "mean": 0.6388810720268004,
+          "std": 0.048436630136180124
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.34437185929648245,
+            "std": 0.05023248034007755
+          },
+          "macro_f1": {
+            "mean": 0.2050299534640628,
+            "std": 0.0822843259582606
+          },
+          "mae": {
+            "mean": 1.009708542713568,
+            "std": 0.16909931786838447
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": 0.27437018425460635,
+            "std": 0.10379822838367038
+          },
+          "macro_f1": {
+            "mean": 0.20798239807517607,
+            "std": 0.08783660377426625
+          },
+          "mae": {
+            "mean": 1.2067303182579565,
+            "std": 0.34690020825234
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.20416247906197652,
+            "std": 0.048609179884543614
+          },
+          "macro_f1": {
+            "mean": 0.13602158188035915,
+            "std": 0.034197903116304364
+          },
+          "mae": {
+            "mean": 1.460886097152429,
+            "std": 0.2459665415374201
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.1472613065326633,
+            "std": 0.05421593162354095
+          },
+          "macro_f1": {
+            "mean": -0.21045101704692679,
+            "std": 0.08433560642418293
+          },
+          "mae": {
+            "mean": 0.37082747068676714,
+            "std": 0.173601830097078
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": -0.21726298157453933,
+            "std": 0.10552732645608533
+          },
+          "macro_f1": {
+            "mean": -0.20749857243581352,
+            "std": 0.10747265492472162
+          },
+          "mae": {
+            "mean": 0.5678492462311558,
+            "std": 0.3570498217716637
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.2874706867671692,
+            "std": 0.04930571995012228
+          },
+          "macro_f1": {
+            "mean": -0.2794593886306304,
+            "std": 0.053612042066250705
+          },
+          "mae": {
+            "mean": 0.8220050251256281,
+            "std": 0.248060325015459
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.3095121069100708,
+          "std": 0.007497194143274542
+        },
+        "MB": {
+          "mean": 0.3105698746517599,
+          "std": 0.0028940276958932293
+        },
+        "MR": {
+          "mean": 0.3799180184381659,
+          "std": 0.0058944480588423625
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.6967929148058593,
+          "std": 0.04025380099477443
+        },
+        "MB": {
+          "mean": 0.6089065394519833,
+          "std": 0.048827378958875144
+        },
+        "MR": {
+          "mean": 0.5846492124105098,
+          "std": 0.05091233924724751
+        }
+      }
+    },
+    "M_MR": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.48997487437185927,
+          "std": 0.02869524939682545
+        },
+        "macro_f1": {
+          "mean": 0.4213395505140921,
+          "std": 0.0331604738146388
+        },
+        "mae": {
+          "mean": 0.6482345058626465,
+          "std": 0.03918374243715822
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.30927303182579563,
+            "std": 0.050429089915661335
+          },
+          "macro_f1": {
+            "mean": 0.17236333522956473,
+            "std": 0.0593347547164299
+          },
+          "mae": {
+            "mean": 1.121276381909548,
+            "std": 0.2091887941706275
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.12515577889447235,
+            "std": 0.01973219460446889
+          },
+          "macro_f1": {
+            "mean": 0.06689685336266218,
+            "std": 0.02736813349577225
+          },
+          "mae": {
+            "mean": 1.837458961474037,
+            "std": 0.1631277609277111
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.18070184254606364,
+            "std": 0.050707653264388204
+          },
+          "macro_f1": {
+            "mean": -0.24897621528452737,
+            "std": 0.06681030701518711
+          },
+          "mae": {
+            "mean": 0.4730418760469012,
+            "std": 0.21315084125581568
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.3648190954773869,
+            "std": 0.02860262927166825
+          },
+          "macro_f1": {
+            "mean": -0.3544426971514299,
+            "std": 0.03879610966824137
+          },
+          "mae": {
+            "mean": 1.1892244556113905,
+            "std": 0.14980351891235236
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.4516859571925807,
+          "std": 0.007791311727174661
+        },
+        "MR": {
+          "mean": 0.5483140428074161,
+          "std": 0.007791311727174701
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.7004146742905458,
+          "std": 0.030354390819716776
+        },
+        "MR": {
+          "mean": 0.5919620363363273,
+          "std": 0.034396404486207746
+        }
+      }
+    },
+    "ALL5": {
+      "n_runs": 15,
+      "baseline": {
+        "accuracy": {
+          "mean": 0.4936298157453936,
+          "std": 0.027710723311134784
+        },
+        "macro_f1": {
+          "mean": 0.4284517862226025,
+          "std": 0.0404404728010506
+        },
+        "mae": {
+          "mean": 0.623499162479062,
+          "std": 0.03329964204291017
+        }
+      },
+      "perturbed": {
+        "M": {
+          "accuracy": {
+            "mean": 0.3939530988274706,
+            "std": 0.06421666195366273
+          },
+          "macro_f1": {
+            "mean": 0.2960584287287766,
+            "std": 0.06324156000023866
+          },
+          "mae": {
+            "mean": 0.843242881072027,
+            "std": 0.15219915158951688
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": 0.292140703517588,
+            "std": 0.07472286991796408
+          },
+          "macro_f1": {
+            "mean": 0.22617905357074164,
+            "std": 0.06876166381384745
+          },
+          "mae": {
+            "mean": 1.0854438860971523,
+            "std": 0.24075174895360954
+          }
+        },
+        "MP": {
+          "accuracy": {
+            "mean": 0.4661876046901173,
+            "std": 0.020406773520722836
+          },
+          "macro_f1": {
+            "mean": 0.37718947266325475,
+            "std": 0.036854856423550325
+          },
+          "mae": {
+            "mean": 0.7014941373534338,
+            "std": 0.041859620587828
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": 0.32293299832495814,
+            "std": 0.03825452056246621
+          },
+          "macro_f1": {
+            "mean": 0.21475517559208496,
+            "std": 0.03869662075290863
+          },
+          "mae": {
+            "mean": 1.0151273031825794,
+            "std": 0.16340999108743215
+          }
+        },
+        "MUV": {
+          "accuracy": {
+            "mean": 0.42171524288107204,
+            "std": 0.050256335409741795
+          },
+          "macro_f1": {
+            "mean": 0.30808610952683513,
+            "std": 0.06806057070135146
+          },
+          "mae": {
+            "mean": 0.8315611390284757,
+            "std": 0.16647328855255103
+          }
+        }
+      },
+      "perturbation_delta": {
+        "M": {
+          "accuracy": {
+            "mean": -0.09967671691792296,
+            "std": 0.07870254331849384
+          },
+          "macro_f1": {
+            "mean": -0.13239335749382594,
+            "std": 0.07732527449777869
+          },
+          "mae": {
+            "mean": 0.21974371859296485,
+            "std": 0.1634267948297431
+          }
+        },
+        "MB": {
+          "accuracy": {
+            "mean": -0.20148911222780572,
+            "std": 0.0853667391682792
+          },
+          "macro_f1": {
+            "mean": -0.2022727326518609,
+            "std": 0.08303190694027521
+          },
+          "mae": {
+            "mean": 0.4619447236180905,
+            "std": 0.24506016550471213
+          }
+        },
+        "MP": {
+          "accuracy": {
+            "mean": -0.027442211055276382,
+            "std": 0.027026995469217698
+          },
+          "macro_f1": {
+            "mean": -0.05126231355934775,
+            "std": 0.04201510551118315
+          },
+          "mae": {
+            "mean": 0.07799497487437185,
+            "std": 0.05321901401701379
+          }
+        },
+        "MR": {
+          "accuracy": {
+            "mean": -0.17069681742043555,
+            "std": 0.04342429937553687
+          },
+          "macro_f1": {
+            "mean": -0.21369661063051754,
+            "std": 0.06144102948435868
+          },
+          "mae": {
+            "mean": 0.3916281407035177,
+            "std": 0.15537008285950238
+          }
+        },
+        "MUV": {
+          "accuracy": {
+            "mean": -0.0719145728643216,
+            "std": 0.05213568634912886
+          },
+          "macro_f1": {
+            "mean": -0.12036567669576739,
+            "std": 0.07291603250502829
+          },
+          "mae": {
+            "mean": 0.20806197654941372,
+            "std": 0.16064134552149872
+          }
+        }
+      },
+      "deeplift_share": {
+        "M": {
+          "mean": 0.24491062966550972,
+          "std": 0.004796445976113526
+        },
+        "MB": {
+          "mean": 0.24338742148039738,
+          "std": 0.0034932633235863074
+        },
+        "MP": {
+          "mean": 0.08666257799365955,
+          "std": 0.0022222676677410187
+        },
+        "MR": {
+          "mean": 0.29438258928992705,
+          "std": 0.006235675008345052
+        },
+        "MUV": {
+          "mean": 0.1306567815705018,
+          "std": 0.0026980058097733533
+        }
+      },
+      "deeplift_center_share": {
+        "M": {
+          "mean": 0.6795564234101897,
+          "std": 0.03493604324089018
+        },
+        "MB": {
+          "mean": 0.5972765640419486,
+          "std": 0.037902750707692306
+        },
+        "MP": {
+          "mean": 0.6707390679249331,
+          "std": 0.02912677545080121
+        },
+        "MR": {
+          "mean": 0.5741244886626374,
+          "std": 0.03727072742671994
+        },
+        "MUV": {
+          "mean": 0.6542593902035605,
+          "std": 0.030983594601343423
+        }
+      }
+    }
+  },
+  "notes": [
+    "Representative schemes were fixed by explicit user confirmation (2026-09-15) before any Step 04 analysis ran: M+MB+MR, M+MR, and all five channels. The selection basis (Step 03_I ranking) and the confirmation are recorded in config_step_10_I.json.",
+    "No checkpoint selection: all 15 models per scheme (3 training seeds x 5 folds) were analysed, each strictly on its own evaluation fold, and aggregated as Mean +/- Std across the 15 runs.",
+    "Perturbation method (identical for every scheme): one channel at a time replaced by black pixels - the same fill used for black center padding, keeping the perturbation in-distribution. No retraining, no split changes.",
+    "DeepLIFT: captum implementation, reference = all-black image through the identical preprocessing, attribution target = each sample's predicted class; channel importance = per-sample share of summed absolute attribution, averaged per fold-model and aggregated over 15 runs.",
+    "Visual examples follow a pre-specified rule (seed 42 / fold 1 model, first two correctly classified eval samples per class in dataset order); they are illustrative, while quantitative conclusions use the full 15-run aggregation.",
+    "SUPPLEMENT (user-requested, 2026-09-15, after comparing with the previous rosacea_step4 report format): added (a) quantitative center-vs-periphery spatial attribution split (center box = middle 50% of each side, 192x192 of 384), (b) post-ablation absolute performance tables, and (c) the data-integrity section in this report. Analysis-only changes; no retraining, no split changes, same 15 models per scheme."
+  ]
+}
