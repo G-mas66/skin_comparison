@@ -1,0 +1,623 @@
+{
+  "passed": true,
+  "errors": [],
+  "manifest_rows_before_exclusion": 996,
+  "manifest_rows_after_exclusion": 996,
+  "excluded_ids": [
+    69,
+    296,
+    769,
+    770
+  ],
+  "reference_data_root": "/root/autodl-tmp/data/all",
+  "reference_excluded_image_counts": {
+    "M": {
+      "296": 1,
+      "769": 1,
+      "770": 0,
+      "69": 1
+    },
+    "MB": {
+      "296": 1,
+      "769": 0,
+      "770": 0,
+      "69": 1
+    },
+    "MP": {
+      "296": 1,
+      "769": 1,
+      "770": 0,
+      "69": 1
+    },
+    "MR": {
+      "296": 1,
+      "769": 0,
+      "770": 0,
+      "69": 2
+    },
+    "MUV": {
+      "296": 1,
+      "769": 1,
+      "770": 0,
+      "69": 1
+    }
+  },
+  "cache_excluded_image_counts": {
+    "M": {
+      "296": 0,
+      "769": 0,
+      "770": 0,
+      "69": 0
+    },
+    "MB": {
+      "296": 0,
+      "769": 0,
+      "770": 0,
+      "69": 0
+    },
+    "MP": {
+      "296": 0,
+      "769": 0,
+      "770": 0,
+      "69": 0
+    },
+    "MR": {
+      "296": 0,
+      "769": 0,
+      "770": 0,
+      "69": 0
+    },
+    "MUV": {
+      "296": 0,
+      "769": 0,
+      "770": 0,
+      "69": 0
+    }
+  },
+  "cache_image_size_counts": {
+    "M": {
+      "384x384": 996
+    },
+    "MB": {
+      "384x384": 996
+    },
+    "MP": {
+      "384x384": 996
+    },
+    "MR": {
+      "384x384": 996
+    },
+    "MUV": {
+      "384x384": 996
+    }
+  },
+  "patient_isolation": false,
+  "patient_overlap_check": "not_required_for_patient_isolation_false",
+  "sample_coverage": true,
+  "fold_counts": {
+    "0": 202,
+    "1": 200,
+    "2": 199,
+    "3": 198,
+    "4": 197
+  },
+  "global_class_counts": {
+    "0": 36,
+    "1": 123,
+    "2": 224,
+    "3": 326,
+    "4": 287
+  },
+  "modality_stats": {
+    "M": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      }
+    ],
+    "MB": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      }
+    ],
+    "MP": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      }
+    ],
+    "MR": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      }
+    ],
+    "MUV": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        },
+        "sample_overlap": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "passed": true,
+  "errors": [],
+  "manifest_rows_before_exclusion": 996,
+  "manifest_rows_after_exclusion": 996,
+  "excluded_ids": [
+    69,
+    296,
+    769,
+    770
+  ],
+  "reference_data_root": "/root/autodl-tmp/data/all",
+  "reference_excluded_image_counts": {
+    "M": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    },
+    "MB": {
+      "69": 1,
+      "296": 1,
+      "769": 0,
+      "770": 0
+    },
+    "MP": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    },
+    "MR": {
+      "69": 2,
+      "296": 1,
+      "769": 0,
+      "770": 0
+    },
+    "MUV": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    }
+  },
+  "cache_excluded_image_counts": {
+    "M": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MB": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MP": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MR": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MUV": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    }
+  },
+  "cache_image_size_counts": {
+    "M": {
+      "384x384": 996
+    },
+    "MB": {
+      "384x384": 996
+    },
+    "MP": {
+      "384x384": 996
+    },
+    "MR": {
+      "384x384": 996
+    },
+    "MUV": {
+      "384x384": 996
+    }
+  },
+  "patient_isolation": false,
+  "patient_overlap_check": "not_required_for_patient_isolation_false",
+  "sample_coverage": true,
+  "fixed_split_reference": "/root/skin_comparison/non_isolated/step_02_N/folds_step_02_N.csv",
+  "fixed_split_status": "matched_step_02_N_fixed_sample_split",
+  "fold_counts": {
+    "0": 202,
+    "1": 200,
+    "2": 199,
+    "3": 198,
+    "4": 197
+  },
+  "global_binary_class_counts": {
+    "0": 383,
+    "1": 613
+  },
+  "combination_stats": {
+    "M+MB": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 305,
+          "1": 489
+        },
+        "evaluation_class_counts": {
+          "0": 78,
+          "1": 124
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 306,
+          "1": 490
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 123
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 306,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 122
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 307,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 76,
+          "1": 122
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 308,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 75,
+          "1": 122
+        }
+      }
+    ],
+    "M+MR": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 305,
+          "1": 489
+        },
+        "evaluation_class_counts": {
+          "0": 78,
+          "1": 124
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 306,
+          "1": 490
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 123
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 306,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 122
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 307,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 76,
+          "1": 122
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 308,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 75,
+          "1": 122
+        }
+      }
+    ],
+    "M+MB+MR": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 305,
+          "1": 489
+        },
+        "evaluation_class_counts": {
+          "0": 78,
+          "1": 124
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 306,
+          "1": 490
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 123
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 306,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 122
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 307,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 76,
+          "1": 122
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 308,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 75,
+          "1": 122
+        }
+      }
+    ],
+    "MR+MB": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 305,
+          "1": 489
+        },
+        "evaluation_class_counts": {
+          "0": 78,
+          "1": 124
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 306,
+          "1": 490
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 123
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 306,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 122
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 307,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 76,
+          "1": 122
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 308,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 75,
+          "1": 122
+        }
+      }
+    ],
+    "M+MB+MP+MR+MUV": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 305,
+          "1": 489
+        },
+        "evaluation_class_counts": {
+          "0": 78,
+          "1": 124
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 306,
+          "1": 490
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 123
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 306,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 77,
+          "1": 122
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 307,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 76,
+          "1": 122
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 308,
+          "1": 491
+        },
+        "evaluation_class_counts": {
+          "0": 75,
+          "1": 122
+        }
+      }
+    ]
+  }
+}

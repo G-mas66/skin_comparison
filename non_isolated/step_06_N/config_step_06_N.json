@@ -1,0 +1,71 @@
+{
+  "experiment_name": "step_06_N",
+  "benchmark_type": "multi_modality_channel_combination",
+  "task": "five_class",
+  "label_strategy": "Hard Label",
+  "patient_isolation": false,
+  "manifest": "/root/autodl-tmp/data/step5_manifest_v1",
+  "data_root": "/root/autodl-tmp/cea_step5_cache_384/384x384",
+  "reference_data_root": "/root/autodl-tmp/data/all",
+  "reference_split": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_05_N/folds_step_05_N.csv",
+  "preprocessed_cache": "384x384_jpeg",
+  "output_root": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N",
+  "fold_seed": 42,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "combinations": [
+    [
+      "M",
+      "MR"
+    ],
+    [
+      "M",
+      "MB"
+    ],
+    [
+      "M",
+      "MB",
+      "MR"
+    ],
+    [
+      "MR",
+      "MB"
+    ],
+    [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ]
+  ],
+  "baseline_reference": "non_isolated/step_05_N M",
+  "input_size": [
+    384,
+    384
+  ],
+  "model": "resnet50",
+  "pretrained": true,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "augmentation": {
+    "horizontal_flip_p": 0.5,
+    "rotation_degrees": 7.0,
+    "brightness": 0.1,
+    "contrast": 0.1
+  },
+  "device": "cuda:0",
+  "num_workers": 4,
+  "evaluation_checkpoint": "Epoch 50 last.pth"
+}

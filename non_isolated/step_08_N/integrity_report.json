@@ -1,0 +1,7 @@
+{
+  "passed": null,
+  "preflight_skipped": true,
+  "integrity_checks": "skipped",
+  "smoke_test": "skipped",
+  "protocol_deviation": "Explicitly approved by the user for Step08_N resume after GPU switch."
+}

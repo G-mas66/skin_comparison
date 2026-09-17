@@ -1,0 +1,55 @@
+{
+  "experiment_name": "step_04_N",
+  "benchmark_type": "DeepLIFT_and_channel_perturbation",
+  "task": "binary",
+  "label_strategy": "dynamic_0_1_2_to_0_3_4_to_1",
+  "patient_isolation": false,
+  "source_step": "step_03_N",
+  "source_step_root": "/root/skin_comparison/non_isolated/step_03_N",
+  "model_selection": "all_15_models_per_selected_combination",
+  "selected_combinations": [
+    [
+      "M",
+      "MR"
+    ],
+    [
+      "M",
+      "MB",
+      "MR"
+    ],
+    [
+      "M",
+      "MB",
+      "MP",
+      "MR",
+      "MUV"
+    ]
+  ],
+  "input_size": [
+    384,
+    384
+  ],
+  "fold_seed": 42,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "evaluation": "each Step 03_N model uses its own held-out Fold",
+  "deeplift": {
+    "method": "Captum DeepLift",
+    "baseline": "zero_normalized_tensor",
+    "target_rule": "predicted_class",
+    "relu_preparation": "torch.fx distinct non-inplace ReLU call modules"
+  },
+  "perturbation": {
+    "unit": "three channels per modality",
+    "replacement": "zero_normalized_tensor",
+    "augmentation": "disabled on evaluation Fold"
+  },
+  "output_root": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_04_N",
+  "save_checkpoints": false,
+  "num_workers": 4,
+  "analysis_batch_size": 1,
+  "device": "cuda:0"
+}

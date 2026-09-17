@@ -1,0 +1,132 @@
+[
+  {
+    "combination": "M+MR",
+    "modality": "M",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 0.00014009936054270526,
+      "std": 1.8273630329446674e-05
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.45355777645240225,
+      "std": 0.005880343390040355
+    }
+  },
+  {
+    "combination": "M+MR",
+    "modality": "MR",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 0.00017021659274730374,
+      "std": 2.3121576879379997e-05
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.5464422228084173,
+      "std": 0.005880343611147326
+    }
+  },
+  {
+    "combination": "M+MB+MR",
+    "modality": "M",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 9.283064660356503e-05,
+      "std": 1.6597113993388443e-05
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.31993285175459496,
+      "std": 0.004445322636691584
+    }
+  },
+  {
+    "combination": "M+MB+MR",
+    "modality": "MB",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 8.366180571551048e-05,
+      "std": 1.548885111904975e-05
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.28903149755914986,
+      "std": 0.0022262491339746296
+    }
+  },
+  {
+    "combination": "M+MB+MR",
+    "modality": "MR",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 0.00011402465926128366,
+      "std": 2.224830127140915e-05
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.3910356515643112,
+      "std": 0.004619187300226201
+    }
+  },
+  {
+    "combination": "M+MB+MP+MR+MUV",
+    "modality": "M",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 3.546983894119425e-05,
+      "std": 5.125399469040203e-06
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.19416288994270428,
+      "std": 0.003802656104500578
+    }
+  },
+  {
+    "combination": "M+MB+MP+MR+MUV",
+    "modality": "MB",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 3.2029490907667145e-05,
+      "std": 4.445032388523258e-06
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.17502108835849634,
+      "std": 0.0019567930636671532
+    }
+  },
+  {
+    "combination": "M+MB+MP+MR+MUV",
+    "modality": "MP",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 4.106787455975643e-05,
+      "std": 5.5363190097230465e-06
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.22158734431567084,
+      "std": 0.002596860206999875
+    }
+  },
+  {
+    "combination": "M+MB+MP+MR+MUV",
+    "modality": "MR",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 4.361135437911692e-05,
+      "std": 5.550914353246587e-06
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.23913816376716424,
+      "std": 0.005332275395508482
+    }
+  },
+  {
+    "combination": "M+MB+MP+MR+MUV",
+    "modality": "MUV",
+    "model_count": 15,
+    "mean_abs_attribution": {
+      "mean": 3.1409606960180816e-05,
+      "std": 4.150774525017327e-06
+    },
+    "mean_attribution_fraction": {
+      "mean": 0.1700905131726575,
+      "std": 0.0016427619615760037
+    }
+  }
+]

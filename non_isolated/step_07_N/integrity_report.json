@@ -1,0 +1,1182 @@
+{
+  "passed": true,
+  "errors": [],
+  "manifest_rows_before_exclusion": 996,
+  "manifest_rows_after_exclusion": 996,
+  "excluded_ids": [
+    69,
+    296,
+    769,
+    770
+  ],
+  "reference_data_root": "/root/autodl-tmp/data/all",
+  "reference_excluded_image_counts": {
+    "M": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    },
+    "MB": {
+      "69": 1,
+      "296": 1,
+      "769": 0,
+      "770": 0
+    },
+    "MP": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    },
+    "MR": {
+      "69": 2,
+      "296": 1,
+      "769": 0,
+      "770": 0
+    },
+    "MUV": {
+      "69": 1,
+      "296": 1,
+      "769": 1,
+      "770": 0
+    }
+  },
+  "cache_excluded_image_counts": {
+    "M": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MB": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MP": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MR": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    },
+    "MUV": {
+      "69": 0,
+      "296": 0,
+      "769": 0,
+      "770": 0
+    }
+  },
+  "cache_image_size_counts": {
+    "M": {
+      "384x384": 996
+    },
+    "MB": {
+      "384x384": 996
+    },
+    "MP": {
+      "384x384": 996
+    },
+    "MR": {
+      "384x384": 996
+    },
+    "MUV": {
+      "384x384": 996
+    }
+  },
+  "patient_isolation": false,
+  "patient_overlap_check": "not_required_for_patient_isolation_false",
+  "sample_coverage": true,
+  "fixed_split_reference": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_05_N/folds_step_05_N.csv",
+  "fixed_split_status": "matched_step_02_N_fixed_sample_split",
+  "fold_counts": {
+    "0": 202,
+    "1": 200,
+    "2": 199,
+    "3": 198,
+    "4": 197
+  },
+  "global_class_counts": {
+    "0": 36,
+    "1": 123,
+    "2": 224,
+    "3": 326,
+    "4": 287
+  },
+  "combination_stats": {
+    "M+MR": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        }
+      }
+    ],
+    "M+MB": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        }
+      }
+    ],
+    "M+MB+MR": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        }
+      }
+    ],
+    "MR+MB": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        }
+      }
+    ],
+    "M+MB+MP+MR+MUV": [
+      {
+        "fold": 1,
+        "train_count": 794,
+        "evaluation_count": 202,
+        "train_class_counts": {
+          "0": 28,
+          "1": 98,
+          "2": 179,
+          "3": 260,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 8,
+          "1": 25,
+          "2": 45,
+          "3": 66,
+          "4": 58
+        }
+      },
+      {
+        "fold": 2,
+        "train_count": 796,
+        "evaluation_count": 200,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 229
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 58
+        }
+      },
+      {
+        "fold": 3,
+        "train_count": 797,
+        "evaluation_count": 199,
+        "train_class_counts": {
+          "0": 29,
+          "1": 98,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 25,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 4,
+        "train_count": 798,
+        "evaluation_count": 198,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 179,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 45,
+          "3": 65,
+          "4": 57
+        }
+      },
+      {
+        "fold": 5,
+        "train_count": 799,
+        "evaluation_count": 197,
+        "train_class_counts": {
+          "0": 29,
+          "1": 99,
+          "2": 180,
+          "3": 261,
+          "4": 230
+        },
+        "evaluation_class_counts": {
+          "0": 7,
+          "1": 24,
+          "2": 44,
+          "3": 65,
+          "4": 57
+        }
+      }
+    ]
+  },
+  "step3_artifact_check": {
+    "passed": true,
+    "errors": [],
+    "source_step": "step_06_N",
+    "selected_combinations": [
+      [
+        "M",
+        "MR"
+      ],
+      [
+        "M",
+        "MB",
+        "MR"
+      ],
+      [
+        "M",
+        "MB",
+        "MP",
+        "MR",
+        "MUV"
+      ]
+    ],
+    "expected_checkpoint_count": 45,
+    "available_checkpoint_count": 45,
+    "checkpoints": [
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MR",
+        "modalities": [
+          "M",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282750654
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MR/seed_42/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MR/seed_3407/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 1,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 2,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 3,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 4,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MR",
+        "modalities": [
+          "M",
+          "MB",
+          "MR"
+        ],
+        "fold": 5,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MR/seed_2026/checkpoints/last.pth",
+        "size_bytes": 282863550
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 1,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MP_MR_MUV/seed_42/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 2,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MP_MR_MUV/seed_42/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 3,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MP_MR_MUV/seed_42/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 4,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MP_MR_MUV/seed_42/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 5,
+        "training_seed": 42,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MP_MR_MUV/seed_42/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 1,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MP_MR_MUV/seed_3407/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 2,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MP_MR_MUV/seed_3407/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 3,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MP_MR_MUV/seed_3407/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 4,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MP_MR_MUV/seed_3407/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 5,
+        "training_seed": 3407,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MP_MR_MUV/seed_3407/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 1,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_01/M_MB_MP_MR_MUV/seed_2026/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 2,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_02/M_MB_MP_MR_MUV/seed_2026/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 3,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_03/M_MB_MP_MR_MUV/seed_2026/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 4,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_04/M_MB_MP_MR_MUV/seed_2026/checkpoints/last.pth",
+        "size_bytes": 283089406
+      },
+      {
+        "combination": "M+MB+MP+MR+MUV",
+        "modalities": [
+          "M",
+          "MB",
+          "MP",
+          "MR",
+          "MUV"
+        ],
+        "fold": 5,
+        "training_seed": 2026,
+        "checkpoint": "/root/autodl-tmp/skin_comparison_runs/non_isolated/step_06_N/fold_05/M_MB_MP_MR_MUV/seed_2026/checkpoints/last.pth",
+        "size_bytes": 283089406
+      }
+    ]
+  }
+}
