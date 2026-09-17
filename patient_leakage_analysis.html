@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>患者重叠与标签连续性分析</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #64727d;
+      --paper: #fbfcfa;
+      --panel: #ffffff;
+      --line: #dce3df;
+      --soft: #eef3ef;
+      --teal: #2a9d8f;
+      --navy: #264653;
+      --amber: #e9c46a;
+      --coral: #e76f51;
+      --purple: #6d597a;
+      --green: #4f8b72;
+      --shadow: 0 18px 45px rgba(38, 70, 83, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 0%, rgba(42, 157, 143, .10), transparent 28rem),
+        linear-gradient(180deg, #f4f7f3 0%, var(--paper) 32rem);
+      font-family: "Inter", "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.65;
+    }
+
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .hero { padding: 70px 0 46px; }
+    .eyebrow {
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 860px;
+      margin: 12px 0 16px;
+      font-size: clamp(34px, 6vw, 68px);
+      line-height: 1.06;
+      letter-spacing: -.055em;
+    }
+    .hero-lead {
+      max-width: 820px;
+      margin-bottom: 24px;
+      color: #3f4e56;
+      font-size: clamp(17px, 2vw, 21px);
+    }
+    .meta-line { display: flex; flex-wrap: wrap; gap: 9px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .pill.accent { border-color: #9bd8ce; color: #167d71; background: #e7f6f2; }
+
+    .section { padding: 24px 0 44px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+    .section-head h2 { margin-bottom: 3px; font-size: 27px; letter-spacing: -.03em; }
+    .section-head p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .grid { display: grid; gap: 16px; }
+    .grid.stats { grid-template-columns: repeat(6, 1fr); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: var(--shadow);
+    }
+    .stat { min-height: 168px; padding: 18px; position: relative; overflow: hidden; }
+    .stat::after {
+      content: "";
+      position: absolute;
+      width: 96px;
+      height: 96px;
+      right: -30px;
+      bottom: -37px;
+      border: 14px solid rgba(42, 157, 143, .11);
+      border-radius: 50%;
+    }
+    .stat:nth-child(2)::after { border-color: rgba(231, 111, 81, .12); }
+    .stat:nth-child(3)::after { border-color: rgba(233, 196, 106, .18); }
+    .stat:nth-child(4)::after { border-color: rgba(109, 89, 122, .13); }
+    .stat:nth-child(5)::after { border-color: rgba(38, 70, 83, .12); }
+    .stat:nth-child(6)::after { border-color: rgba(79, 139, 114, .13); }
+    .stat-label { color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .02em; }
+    .stat-value { margin: 10px 0 4px; font-size: 32px; font-weight: 850; letter-spacing: -.055em; line-height: 1; }
+    .stat-note { max-width: 150px; color: #738089; font-size: 12px; line-height: 1.45; }
+
+    .panel { padding: 26px; }
+    .panel h3 { margin-bottom: 10px; font-size: 19px; letter-spacing: -.02em; }
+    .panel p:last-child { margin-bottom: 0; }
+    .intro-panel { border-left: 5px solid var(--teal); }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+    .formula {
+      display: inline-block;
+      margin: 4px 0 12px;
+      padding: 9px 13px;
+      border: 1px solid #c8ded9;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #eff8f5;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+    }
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: #35525e;
+      background: #eef3f1;
+      font-family: Consolas, "SFMono-Regular", monospace;
+      font-size: .9em;
+    }
+
+    .chain { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; }
+    .chain-step { min-height: 176px; padding: 18px; border: 1px solid var(--line); background: var(--panel); position: relative; }
+    .chain-step:first-child { border-radius: 16px 0 0 16px; }
+    .chain-step:last-child { border-radius: 0 16px 16px 0; }
+    .chain-step:not(:first-child) { border-left: 0; }
+    .chain-step:not(:last-child)::after {
+      content: "›";
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: -13px;
+      width: 25px;
+      height: 25px;
+      transform: translateY(-50%);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--teal);
+      background: var(--panel);
+      font-size: 22px;
+      line-height: 20px;
+      text-align: center;
+    }
+    .chain-no { color: var(--teal); font-size: 11px; font-weight: 850; letter-spacing: .13em; }
+    .chain-big { margin: 18px 0 6px; font-size: 30px; font-weight: 850; letter-spacing: -.05em; line-height: 1; }
+    .chain-step p { margin-bottom: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    .chart-card { padding: 24px; }
+    .chart-card h3 { margin-bottom: 4px; }
+    .chart-sub { margin-bottom: 20px; color: var(--muted); font-size: 13px; }
+    .bar-row { display: grid; grid-template-columns: 122px minmax(0, 1fr) 72px; align-items: center; gap: 12px; margin: 13px 0; }
+    .bar-label { color: #40535c; font-size: 13px; font-weight: 750; }
+    .bar-track { height: 18px; overflow: hidden; border: 1.5px solid #111827; border-radius: 5px; background: #edf1ee; }
+    .bar-fill { height: 100%; min-width: 3px; border-right: 1.5px solid #111827; }
+    .teal { background: var(--teal); }
+    .navy { background: var(--navy); }
+    .amber { background: var(--amber); }
+    .coral { background: var(--coral); }
+    .purple { background: var(--purple); }
+    .green { background: var(--green); }
+    .bar-value { text-align: right; font-size: 13px; font-weight: 850; }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 17px; color: var(--muted); font-size: 12px; }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i { width: 11px; height: 11px; display: inline-block; border: 1px solid #111827; border-radius: 3px; }
+    .callout { margin-top: 20px; padding: 13px 15px; border-radius: 12px; color: #455a61; background: #f3f7f4; font-size: 13px; }
+    .callout strong { color: var(--navy); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: .02em; text-transform: uppercase; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr.total { color: var(--navy); background: #eef7f4; font-weight: 850; }
+    .table-wrap { overflow-x: auto; }
+
+    .distribution { display: grid; gap: 10px; }
+    .dist-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 48px; align-items: center; gap: 11px; }
+    .dist-label { color: #40535c; font-size: 13px; }
+    .dist-track { height: 24px; overflow: hidden; border: 1px solid #cfdad5; border-radius: 6px; background: #f1f4f2; }
+    .dist-fill { height: 100%; border-right: 1.5px solid #111827; }
+    .dist-num { text-align: right; font-weight: 850; }
+
+    .quote {
+      margin: 0;
+      padding: 22px 24px;
+      border: 1px solid #b9ded7;
+      border-left: 5px solid var(--teal);
+      border-radius: 14px;
+      color: #294650;
+      background: #eff8f5;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .quote em { color: var(--navy); font-style: normal; font-weight: 800; }
+    .conclusion { border-top: 4px solid var(--navy); }
+    .conclusion ul { margin: 12px 0 0; padding-left: 20px; }
+    .conclusion li { margin: 7px 0; color: #465860; }
+    .footer { padding: 28px 0 54px; color: #849096; font-size: 12px; }
+    .footer a { color: var(--teal); }
+
+    @media (max-width: 980px) {
+      .grid.stats { grid-template-columns: repeat(3, 1fr); }
+      .chain { grid-template-columns: 1fr; gap: 10px; }
+      .chain-step, .chain-step:first-child, .chain-step:last-child { min-height: auto; border: 1px solid var(--line); border-radius: 14px; }
+      .chain-step:not(:last-child)::after { content: "↓"; top: auto; right: 50%; bottom: -19px; transform: translateX(50%); }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .hero { padding-top: 42px; }
+      .grid.stats, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .stat { min-height: 130px; }
+      .section-head { display: block; }
+      .bar-row { grid-template-columns: 95px minmax(0, 1fr) 58px; gap: 7px; }
+      .dist-row { grid-template-columns: 105px minmax(0, 1fr) 36px; gap: 7px; }
+      .panel, .chart-card { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Skin comparison · evidence report · 2026-09-17</div>
+      <h1>患者重叠很强，<br><span style="color:var(--teal)">但患者身份不是稳定标签。</span></h1>
+      <p class="hero-lead">
+        对不隔离路线的 996 条有效记录进行患者—图片映射后，发现每个测试图片对应的患者都在训练集中出现过；但患者内部标签高度变化，患者 ID 只能提供有限的严重程度信息。
+      </p>
+      <div class="meta-line">
+        <span class="pill accent">Step02_N sample-level five-fold</span>
+        <span class="pill">82 个患者组</span>
+        <span class="pill">原始五级 CEA_class：0–4</span>
+        <span class="pill">无原始医学图像</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section" aria-labelledby="headline">
+      <div class="section-head">
+        <div>
+          <h2 id="headline">六个先看结论</h2>
+          <p>这些数字共同构成“泄漏机会大，但稳定标签捷径有限”的证据链。</p>
+        </div>
+      </div>
+      <div class="grid stats">
+        <article class="card stat"><div class="stat-label">患者跨 Fold</div><div class="stat-value">82/82</div><div class="stat-note">所有患者都出现在至少两个 Fold</div></article>
+        <article class="card stat"><div class="stat-label">Leakage Rate</div><div class="stat-value">100%</div><div class="stat-note">996/996 Test 图片的患者都在 Train 出现</div></article>
+        <article class="card stat"><div class="stat-label">同患者同标签</div><div class="stat-value">91.37%</div><div class="stat-note">910/996 张 Test 图片存在同患者同标签 Train 图片</div></article>
+        <article class="card stat"><div class="stat-label">Patient-ID Majority</div><div class="stat-value">41.37%</div><div class="stat-note">比全局多数类 32.73% 高 8.64 个百分点</div></article>
+        <article class="card stat"><div class="stat-label">多标签患者</div><div class="stat-value">97.56%</div><div class="stat-note">80/82 个患者包含至少两个五级标签</div></article>
+        <article class="card stat"><div class="stat-label">相邻图片优势</div><div class="stat-value">+7.42pp</div><div class="stat-note">相邻同标签率 40.61%，非相邻 33.20%</div></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="scope">
+      <div class="section-head">
+        <div>
+          <h2 id="scope">分析边界与数据核验</h2>
+          <p>附件中的文字被视为数据映射说明，不是新的实验指令。</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <article class="card panel intro-panel">
+          <h3>映射是否对齐？</h3>
+          <p>截图中的患者组 1–38 覆盖图片序号 1–540；<code>数据标注.docx</code> 中的患者组 39–82 覆盖 541–1000。两部分合并后与患者分组表完全一致，范围无重叠、无间隙。</p>
+          <p class="small muted">当前可用 manifest/Fold 文件有 996 条记录。未进入本次计算的序号是 69、296、769、770，因此所有比例的分母均是 996，而不是 1000。</p>
+        </article>
+        <article class="card panel">
+          <h3>本报告实际使用的定义</h3>
+          <p class="formula">Leakage Rate = Test 中患者也在 Train 的图片数 ÷ Test 图片总数</p>
+          <p class="small muted">“同患者同标签存在率”按每个 Test 图片判断：在该 Test Fold 之外的 Train 图片中，同一患者是否至少存在一张相同原始 CEA 标签的图片。标签距离是该 Test 标签与同患者 Train 标签之间的最小绝对差值。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chain">
+      <div class="section-head">
+        <div>
+          <h2 id="chain">证据链</h2>
+          <p>从数据划分事实到论文可用结论，避免把“有泄漏机会”直接等同于“模型一定获益”。</p>
+        </div>
+      </div>
+      <div class="chain">
+        <article class="chain-step"><div class="chain-no">01 · SPLIT</div><div class="chain-big">100%</div><p>所有患者都跨越至少两个 Fold；N 路线存在完全患者重叠。</p></article>
+        <article class="chain-step"><div class="chain-no">02 · REFERENCE</div><div class="chain-big">91.37%</div><p>绝大多数 Test 图片能在 Train 找到同患者同标签样本。</p></article>
+        <article class="chain-step"><div class="chain-no">03 · VARIATION</div><div class="chain-big">97.56%</div><p>患者内部包含多个五级标签，患者身份与严重程度不是一一映射。</p></article>
+        <article class="chain-step"><div class="chain-no">04 · ID-ONLY</div><div class="chain-big">41.37%</div><p>显式知道患者身份后，仅用历史多数标签预测，能力仍然有限。</p></article>
+        <article class="chain-step"><div class="chain-no">05 · INTERPRET</div><div class="chain-big">有限相关</div><p>Patient ID 与 severity 有相关性，但不是稳定、充分的预测器。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="adjacent">
+      <div class="section-head">
+        <div>
+          <h2 id="adjacent">相邻图片：更相似，但不是“看到附近图片就知道标签”</h2>
+          <p>相邻定义为同一患者组内图片序号严格连续；不跨越 69、296、769、770 造成的缺失序号。</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <article class="card chart-card">
+          <h3>同标签比例</h3>
+          <div class="chart-sub">配对层面；越高表示相邻图片更容易保持同一标签。</div>
+          <div class="bar-row"><span class="bar-label">相邻图片</span><div class="bar-track"><div class="bar-fill teal" style="width:40.61%"></div></div><span class="bar-value">40.61%</span></div>
+          <div class="bar-row"><span class="bar-label">非相邻图片</span><div class="bar-track"><div class="bar-fill navy" style="width:33.20%"></div></div><span class="bar-value">33.20%</span></div>
+          <div class="callout"><strong>差值：+7.42 个百分点。</strong> 这说明序列连续性存在，但强度有限。</div>
+        </article>
+        <article class="card chart-card">
+          <h3>平均标签距离</h3>
+          <div class="chart-sub">同一患者内部配对的 <code>|label₁ − label₂|</code>；越低表示越接近。</div>
+          <div class="bar-row"><span class="bar-label">相邻图片</span><div class="bar-track"><div class="bar-fill amber" style="width:87.4%"></div></div><span class="bar-value">0.874</span></div>
+          <div class="bar-row"><span class="bar-label">非相邻图片</span><div class="bar-track"><div class="bar-fill coral" style="width:97.8%"></div></div><span class="bar-value">0.978</span></div>
+          <div class="callout">跨 Fold 的 736 个严格相邻图片对中，同标签比例为 <strong>41.30%</strong>，平均标签距离为 <strong>0.860</strong>。</div>
+        </article>
+      </div>
+      <div class="card panel" style="margin-top:16px">
+        <h3>从 Test 图片角度看相邻 Train 参考</h3>
+        <div class="grid three">
+          <div><div class="stat-label">有相邻 Train 图片</div><div class="stat-value" style="font-size:28px">945/996</div><div class="small muted">94.88% 的 Test 图片至少有一张同患者相邻 Train 图片</div></div>
+          <div><div class="stat-label">存在同标签相邻图片</div><div class="stat-value" style="font-size:28px">501/945</div><div class="small muted">在拥有相邻 Train 图片的 Test 图片中，占 53.02%</div></div>
+          <div><div class="stat-label">相邻结构的含义</div><div class="stat-value" style="font-size:28px">有限连续</div><div class="small muted">比非相邻更相似，但仍有大量相邻图片标签不同</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="fold-metrics">
+      <div class="section-head">
+        <div>
+          <h2 id="fold-metrics">每个 Test Fold 的三个指标</h2>
+          <p>Patient-majority 使用该 Fold 的 Train 历史；平票时取较小标签，保证规则确定且不偏向正确答案。</p>
+        </div>
+      </div>
+      <article class="card panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Test Fold</th><th>Test 图片</th><th>同患者同标签存在率</th><th>最小标签距离均值</th><th>Patient-ID Majority Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fold 01</td><td>202</td><td>92.57%</td><td>0.084</td><td>45.05%</td></tr>
+              <tr><td>Fold 02</td><td>200</td><td>90.00%</td><td>0.100</td><td>39.50%</td></tr>
+              <tr><td>Fold 03</td><td>199</td><td>93.97%</td><td>0.085</td><td>35.68%</td></tr>
+              <tr><td>Fold 04</td><td>198</td><td>90.40%</td><td>0.131</td><td>42.93%</td></tr>
+              <tr><td>Fold 05</td><td>197</td><td>89.85%</td><td>0.117</td><td>43.65%</td></tr>
+              <tr class="total"><td>总体</td><td>996</td><td>91.37%</td><td>0.103</td><td>41.37%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><strong>平票宽松上限：47.19%。</strong> 该数值把测试标签落在任一并列最高频标签都视为正确，只适合作为辅助上限，不作为正式可部署 baseline。</div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="labels">
+      <div class="section-head">
+        <div>
+          <h2 id="labels">患者内部标签一致性</h2>
+          <p>按原始五级 CEA 标签统计；不是 Step02_N 的二分类折叠标签。</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <article class="card chart-card">
+          <h3>每个患者拥有的不同标签数</h3>
+          <div class="chart-sub">总计 82 个患者组；柱体宽度按最多的一组归一化。</div>
+          <div class="distribution">
+            <div class="dist-row"><span class="dist-label">1 个标签 · 2.44%</span><div class="dist-track"><div class="dist-fill navy" style="width:6.90%"></div></div><span class="dist-num">2</span></div>
+            <div class="dist-row"><span class="dist-label">2 个标签 · 25.61%</span><div class="dist-track"><div class="dist-fill teal" style="width:72.41%"></div></div><span class="dist-num">21</span></div>
+            <div class="dist-row"><span class="dist-label">3 个标签 · 35.37%</span><div class="dist-track"><div class="dist-fill amber" style="width:100%"></div></div><span class="dist-num">29</span></div>
+            <div class="dist-row"><span class="dist-label">4 个标签 · 28.05%</span><div class="dist-track"><div class="dist-fill coral" style="width:79.31%"></div></div><span class="dist-num">23</span></div>
+            <div class="dist-row"><span class="dist-label">5 个标签 · 8.54%</span><div class="dist-track"><div class="dist-fill purple" style="width:24.14%"></div></div><span class="dist-num">7</span></div>
+          </div>
+          <div class="callout"><strong>80/82 个患者有多个标签。</strong> 只有患者组 38（535–540）和患者组 65（824–829）保持单一标签，均为标签 4。</div>
+        </article>
+        <article class="card chart-card">
+          <h3>患者跨越的 Fold 数</h3>
+          <div class="chart-sub">每个患者在当前样本级五折划分中实际出现的 Fold 数。</div>
+          <div class="distribution">
+            <div class="dist-row"><span class="dist-label">2 个 Fold</span><div class="dist-track"><div class="dist-fill navy" style="width:8.33%"></div></div><span class="dist-num">4</span></div>
+            <div class="dist-row"><span class="dist-label">3 个 Fold</span><div class="dist-track"><div class="dist-fill teal" style="width:25%"></div></div><span class="dist-num">12</span></div>
+            <div class="dist-row"><span class="dist-label">4 个 Fold</span><div class="dist-track"><div class="dist-fill amber" style="width:37.5%"></div></div><span class="dist-num">18</span></div>
+            <div class="dist-row"><span class="dist-label">5 个 Fold</span><div class="dist-track"><div class="dist-fill coral" style="width:100%"></div></div><span class="dist-num">48</span></div>
+          </div>
+          <div class="callout">患者内部图像数量从 3 到 48 不等；所有患者都足以被样本级划分拆到至少两个 Fold。</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="interpretation">
+      <div class="section-head">
+        <div>
+          <h2 id="interpretation">如何解释 41.37% 的患者多数标签 baseline？</h2>
+          <p>它是显式知道 patient ID 后的历史标签上限参考，不是 ResNet50 应达到的最低性能。</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <article class="card panel">
+          <h3>它说明了什么</h3>
+          <ul>
+            <li>41.37% 高于全局多数类 32.73%，所以患者身份确实携带了一定的 severity 信息。</li>
+            <li>但患者内部标签高度变化，患者 ID 不能稳定决定当前图片的严重程度。</li>
+            <li>91.37% 的“同患者同标签存在”只是说明 Train 中存在可参考样本，不代表模型一定能从脸部外观中识别患者并正确利用它。</li>
+          </ul>
+        </article>
+        <article class="card panel">
+          <h3>它不能直接说明什么</h3>
+          <ul>
+            <li>不能把 41.37% 当作模型应达到的下限；baseline 显式拿到了 patient ID，ResNet50 没有。</li>
+            <li>不能把 47.19% 的平票宽松结果当作正式 baseline；它是有利于正确答案的乐观上限。</li>
+            <li>不能写“患者泄漏没有影响”；只能说泄漏机会很大，但未必稳定转化为性能提升。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="paper">
+      <div class="section-head">
+        <div>
+          <h2 id="paper">建议采用的论文表述</h2>
+          <p>这段文字收紧了因果语气，保留当前数据真正支持的结论。</p>
+        </div>
+      </div>
+      <blockquote class="quote">
+        图像级随机划分造成了完全的患者重叠，并且 91.37% 的测试样本能够在训练集中找到同患者、同严重程度的样本，表明非患者隔离设置存在显著的信息泄漏机会。然而，97.56% 的患者具有多个严重程度标签，且基于患者训练历史多数标签的预测准确率仅为 41.37%，仅比全局多数类基线高 8.64 个百分点。这表明患者身份虽然携带一定的严重程度信息，但不足以稳定决定当前疾病等级。因此，患者重叠并未必然转化为明显的分类性能提升，模型仍需要主要依据当前图像中的疾病表型完成严重程度判断。
+      </blockquote>
+    </section>
+
+    <section class="section" aria-labelledby="recommendation">
+      <article class="card panel conclusion">
+        <h2 id="recommendation">最终实验定位</h2>
+        <p>患者隔离路线应作为正式泛化性能的主结果，因为它回答的是“遇到完全没见过的新患者是否仍能工作”。Non-isolated 路线适合作为泄漏敏感性对照，而不应作为主性能评估。</p>
+        <ul>
+          <li>当前证据链：<strong>100% 患者重叠 → 91.37% 同患者同标签参考 → 97.56% 患者多标签 → 41.37% ID-only 多数标签准确率</strong>。</li>
+          <li>相邻图片存在有限的序列连续性：同标签率比非相邻图片高 7.42 个百分点，但仍不足以让相邻图片直接决定标签。</li>
+          <li>若比较 Isolated 与 Non-isolated，下一步应直接报告每个 seed 的 Accuracy、Macro-F1、QWK 和差值 Δ = Non-isolated − Isolated。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>报告为自包含 HTML，仅包含匿名化统计、图表和解释，不包含原始医学图片、患者身份信息或患者级明细。</p>
+    <p>核验来源：<code>D:\skin_comparison\non_isolated\step_02_N\folds_step_02_N.csv</code> · <code>C:\Users\17919\Documents\ChatGPT\skin_learning\outputs\cea_split_manifest_996.csv</code> · <code>数据标注.docx</code></p>
+  </footer>
+</body>
+</html>
