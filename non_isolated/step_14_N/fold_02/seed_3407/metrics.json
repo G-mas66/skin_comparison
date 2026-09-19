@@ -1,0 +1,81 @@
+{
+ "step": "step_14_N",
+ "task": "five_class",
+ "label_strategy": "Hard Label",
+ "modality": "MR",
+ "input_region": "context",
+ "fold": 2,
+ "training_seed": 3407,
+ "train_count": 796,
+ "evaluation_count": 200,
+ "train_class_counts": {
+  "0": 29,
+  "1": 98,
+  "2": 179,
+  "3": 261,
+  "4": 229
+ },
+ "evaluation_class_counts": {
+  "0": 7,
+  "1": 25,
+  "2": 45,
+  "3": 65,
+  "4": 58
+ },
+ "parameter_count": 23518277,
+ "class_0_precision": 0.25,
+ "class_0_recall": 0.14285714285714285,
+ "class_0_f1": 0.18181818181818182,
+ "class_1_precision": 0.6190476190476191,
+ "class_1_recall": 0.52,
+ "class_1_f1": 0.5652173913043478,
+ "class_2_precision": 0.43902439024390244,
+ "class_2_recall": 0.4,
+ "class_2_f1": 0.4186046511627907,
+ "class_3_precision": 0.45901639344262296,
+ "class_3_recall": 0.4307692307692308,
+ "class_3_f1": 0.4444444444444444,
+ "class_4_precision": 0.4794520547945205,
+ "class_4_recall": 0.603448275862069,
+ "class_4_f1": 0.5343511450381679,
+ "accuracy": 0.475,
+ "macro_f1": 0.4288871627535865,
+ "mae": 0.67,
+ "confusion_matrix": [
+  [
+   1,
+   2,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   13,
+   4,
+   1,
+   4
+  ],
+  [
+   0,
+   4,
+   18,
+   16,
+   7
+  ],
+  [
+   0,
+   1,
+   9,
+   28,
+   27
+  ],
+  [
+   0,
+   1,
+   6,
+   16,
+   35
+  ]
+ ]
+}

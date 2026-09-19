@@ -1,0 +1,263 @@
+{
+ "step": "step_11_N",
+ "patient_isolation": false,
+ "fold_seed": 42,
+ "json_files_total": 999,
+ "duplicate_annotation_files": [
+  "MR0182_1.json"
+ ],
+ "excluded_json_capture_ids": [
+  69,
+  296
+ ],
+ "roi_valid_samples": 996,
+ "manifest_samples": 996,
+ "mask_cache_dir": "/root/autodl-tmp/data_all_384/roi_cache/masks",
+ "mean_fill_files": [
+  "mean_fill_fold_01.npy",
+  "mean_fill_fold_02.npy",
+  "mean_fill_fold_03.npy",
+  "mean_fill_fold_04.npy",
+  "mean_fill_fold_05.npy"
+ ],
+ "mean_fill_stats": [
+  {
+   "fold": 1,
+   "n_training_images": 794,
+   "channel_mean_0-255": [
+    165.2469024658203,
+    136.71681213378906,
+    139.89505004882812
+   ],
+   "channel_std_0-255": [
+    96.88079071044922,
+    86.47929382324219,
+    87.36213684082031
+   ]
+  },
+  {
+   "fold": 2,
+   "n_training_images": 796,
+   "channel_mean_0-255": [
+    165.17417907714844,
+    136.564697265625,
+    139.75074768066406
+   ],
+   "channel_std_0-255": [
+    96.8310546875,
+    86.35599517822266,
+    87.24851989746094
+   ]
+  },
+  {
+   "fold": 3,
+   "n_training_images": 797,
+   "channel_mean_0-255": [
+    165.39520263671875,
+    137.02630615234375,
+    140.1885223388672
+   ],
+   "channel_std_0-255": [
+    96.94548034667969,
+    86.54560089111328,
+    87.43360137939453
+   ]
+  },
+  {
+   "fold": 4,
+   "n_training_images": 798,
+   "channel_mean_0-255": [
+    165.42124938964844,
+    137.0830841064453,
+    140.23806762695312
+   ],
+   "channel_std_0-255": [
+    96.95760345458984,
+    86.56132507324219,
+    87.4489517211914
+   ]
+  },
+  {
+   "fold": 5,
+   "n_training_images": 799,
+   "channel_mean_0-255": [
+    165.39894104003906,
+    137.0352325439453,
+    140.19422912597656
+   ],
+   "channel_std_0-255": [
+    96.95498657226562,
+    86.58597564697266,
+    87.46866607666016
+   ]
+  }
+ ],
+ "fold_structure_matches_step_05_N": true,
+ "fold_stats": [
+  {
+   "fold": 1,
+   "train_count": 794,
+   "evaluation_count": 202,
+   "train_class_counts": {
+    "0": 28,
+    "1": 98,
+    "2": 179,
+    "3": 260,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 8,
+    "1": 25,
+    "2": 45,
+    "3": 66,
+    "4": 58
+   }
+  },
+  {
+   "fold": 2,
+   "train_count": 796,
+   "evaluation_count": 200,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 58
+   }
+  },
+  {
+   "fold": 3,
+   "train_count": 797,
+   "evaluation_count": 199,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   }
+  },
+  {
+   "fold": 4,
+   "train_count": 798,
+   "evaluation_count": 198,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   }
+  },
+  {
+   "fold": 5,
+   "train_count": 799,
+   "evaluation_count": 197,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 180,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 44,
+    "3": 65,
+    "4": 57
+   }
+  }
+ ],
+ "roi_summary": {
+  "polygon_count": {
+   "min": 1,
+   "median": 5.0,
+   "mean": 5.622489959839357,
+   "max": 15,
+   "total": 5600
+  },
+  "area_ratio": {
+   "min": 0.0004679361979166667,
+   "median": 0.11090087890625,
+   "mean": 0.112714713835812,
+   "max": 0.2359958224826389
+  },
+  "bbox_max_side": {
+   "min": 17,
+   "median": 280.0,
+   "max": 357
+  },
+  "upsample_factor": {
+   "median": 1.3714285714285714,
+   "max": 22.58823529411765
+  },
+  "out_of_range_vertices_total": 0
+ },
+ "per_fold_roi_stats": [
+  {
+   "fold": 1,
+   "n": 202,
+   "polygon_mean": 5.648514851485149,
+   "area_ratio_median": 0.10614013671875,
+   "area_ratio_min": 0.0030381944444444445,
+   "area_ratio_max": 0.2156711154513889
+  },
+  {
+   "fold": 2,
+   "n": 200,
+   "polygon_mean": 5.775,
+   "area_ratio_median": 0.11375935872395833,
+   "area_ratio_min": 0.007147894965277778,
+   "area_ratio_max": 0.23341878255208334
+  },
+  {
+   "fold": 3,
+   "n": 199,
+   "polygon_mean": 5.653266331658291,
+   "area_ratio_median": 0.11094835069444445,
+   "area_ratio_min": 0.0004679361979166667,
+   "area_ratio_max": 0.23539903428819445
+  },
+  {
+   "fold": 4,
+   "n": 198,
+   "polygon_mean": 5.575757575757576,
+   "area_ratio_median": 0.11521063910590278,
+   "area_ratio_min": 0.00225830078125,
+   "area_ratio_max": 0.2241482204861111
+  },
+  {
+   "fold": 5,
+   "n": 197,
+   "polygon_mean": 5.456852791878172,
+   "area_ratio_median": 0.10949028862847222,
+   "area_ratio_min": 0.0005289713541666666,
+   "area_ratio_max": 0.2359958224826389
+  }
+ ],
+ "qa_note": "8 random samples rendered to /root/autodl-tmp/data_all_384/roi_qa_step11_N (overlay mask + bbox + context + crop) for local visual QA",
+ "errors": [],
+ "passed": true
+}

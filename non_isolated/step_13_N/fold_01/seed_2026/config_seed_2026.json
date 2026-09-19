@@ -1,0 +1,75 @@
+{
+  "model": "resnet50",
+  "pretrained": true,
+  "input_channels": 3,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "fold_seed": 42,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "augmentation": {
+    "horizontal_flip_p": 0.5,
+    "rotation_degrees": 7.0,
+    "brightness": 0.1,
+    "contrast": 0.1
+  },
+  "evaluation_checkpoint": "Epoch 50 last.pth",
+  "step_dir": "/root/autodl-tmp/skin_comparison/non_isolated/step_13_N",
+  "experiment_name": "step_13_N",
+  "benchmark_type": "roi_input_region",
+  "description": "step_13_N: crop input, Hard Label, five-class, patient isolation = false",
+  "input_variant": "crop",
+  "label_strategy": "Hard Label",
+  "scheme_name": "ROI Crop",
+  "report_title": "ROI Crop vs reference schemes (CEA five-class, N route)",
+  "reference_schemes": [
+    {
+      "kind": "whole_image",
+      "file": "metrics_step_05_N.json",
+      "name": "Whole Image (Hard, step_05_N)"
+    }
+  ],
+  "report_notes": [
+    "Whole Image baseline referenced from step_05_N MR records; not retrained.",
+    "Input: joint bounding-box crop of all red polygons, restored to 384x384 via the distortion-free ResizePad; no mask, no mean fill."
+  ],
+  "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+  "data_root": "/root/autodl-tmp/data_all_384",
+  "roi_cache": "/root/autodl-tmp/data_all_384/roi_cache",
+  "repo_root": "/root/autodl-tmp/skin_comparison",
+  "output_root": "/root/autodl-tmp/skin_comparison/non_isolated/step_13_N",
+  "device": "cuda:0",
+  "num_workers": 4,
+  "patient_isolation": false,
+  "input_resolution": "384x384",
+  "smoke": false,
+  "fold": 1,
+  "training_seed": 2026,
+  "train_count": 794,
+  "evaluation_count": 202,
+  "train_class_counts": {
+    "0": 28,
+    "1": 98,
+    "2": 179,
+    "3": 260,
+    "4": 229
+  },
+  "evaluation_class_counts": {
+    "0": 8,
+    "1": 25,
+    "2": 45,
+    "3": 66,
+    "4": 58
+  }
+}

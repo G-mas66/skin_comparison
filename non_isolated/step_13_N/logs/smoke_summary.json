@@ -1,0 +1,142 @@
+{
+ "passed": true,
+ "config": {
+  "model": "resnet50",
+  "pretrained": true,
+  "input_channels": 3,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "fold_seed": 42,
+  "training_seeds": [
+   42,
+   3407,
+   2026
+  ],
+  "augmentation": {
+   "horizontal_flip_p": 0.5,
+   "rotation_degrees": 7.0,
+   "brightness": 0.1,
+   "contrast": 0.1
+  },
+  "evaluation_checkpoint": "Epoch 50 last.pth",
+  "step_dir": "/root/autodl-tmp/skin_comparison/non_isolated/step_13_N",
+  "experiment_name": "step_13_N",
+  "benchmark_type": "roi_input_region",
+  "description": "step_13_N: crop input, Hard Label, five-class, patient isolation = false",
+  "input_variant": "crop",
+  "label_strategy": "Hard Label",
+  "scheme_name": "ROI Crop",
+  "report_title": "ROI Crop vs reference schemes (CEA five-class, N route)",
+  "reference_schemes": [
+   {
+    "kind": "whole_image",
+    "file": "metrics_step_05_N.json",
+    "name": "Whole Image (Hard, step_05_N)"
+   }
+  ],
+  "report_notes": [
+   "Whole Image baseline referenced from step_05_N MR records; not retrained.",
+   "Input: joint bounding-box crop of all red polygons, restored to 384x384 via the distortion-free ResizePad; no mask, no mean fill."
+  ],
+  "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+  "data_root": "/root/autodl-tmp/data_all_384",
+  "roi_cache": "/root/autodl-tmp/data_all_384/roi_cache",
+  "repo_root": "/root/autodl-tmp/skin_comparison",
+  "output_root": "/root/autodl-tmp/skin_comparison/non_isolated/step_13_N",
+  "device": "cuda:0",
+  "num_workers": 4,
+  "patient_isolation": false,
+  "input_resolution": "384x384",
+  "smoke": true,
+  "smoke_note": "1 epoch, capped 96 train/96 eval samples, no checkpoints"
+ },
+ "record": {
+  "step": "step_13_N",
+  "task": "five_class",
+  "label_strategy": "Hard Label",
+  "modality": "MR",
+  "input_region": "crop",
+  "fold": 1,
+  "training_seed": 42,
+  "train_count": 96,
+  "evaluation_count": 96,
+  "train_class_counts": {
+   "0": 28,
+   "1": 98,
+   "2": 179,
+   "3": 260,
+   "4": 229
+  },
+  "evaluation_class_counts": {
+   "0": 8,
+   "1": 25,
+   "2": 45,
+   "3": 66,
+   "4": 58
+  },
+  "parameter_count": 23518277,
+  "class_0_precision": 0.0,
+  "class_0_recall": 0.0,
+  "class_0_f1": 0.0,
+  "class_1_precision": 0.125,
+  "class_1_recall": 0.6,
+  "class_1_f1": 0.20689655172413793,
+  "class_2_precision": 0.0,
+  "class_2_recall": 0.0,
+  "class_2_f1": 0.0,
+  "class_3_precision": 0.4117647058823529,
+  "class_3_recall": 0.4,
+  "class_3_f1": 0.40579710144927533,
+  "class_4_precision": 0.2727272727272727,
+  "class_4_recall": 0.13636363636363635,
+  "class_4_f1": 0.1818181818181818,
+  "accuracy": 0.23958333333333334,
+  "macro_f1": 0.158902366998319,
+  "mae": 1.21875,
+  "confusion_matrix": [
+   [
+    0,
+    3,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    6,
+    0,
+    3,
+    1
+   ],
+   [
+    0,
+    16,
+    0,
+    7,
+    2
+   ],
+   [
+    1,
+    14,
+    1,
+    14,
+    5
+   ],
+   [
+    0,
+    9,
+    1,
+    9,
+    3
+   ]
+  ]
+ }
+}

@@ -1,0 +1,2 @@
+[step_13_N] integrity checks passed: 996 ROI samples, 5 folds
+[step_13_N] SMOKE OK acc=0.2396 macro_f1=0.1589 mae=1.2188

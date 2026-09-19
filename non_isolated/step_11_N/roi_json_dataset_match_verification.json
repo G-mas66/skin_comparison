@@ -1,0 +1,24 @@
+{
+  "title": "ROI JSON 与 all_384 数据集匹配性复核（补充审计）",
+  "trigger": "用户质疑 JSON 与缩放后数据集不匹配",
+  "findings": {
+    "imagePath_shift": {
+      "description": "MR0419.json–MR0999.json（共 579 个文件）内部 imagePath 字符串指向编号+1 的图像（如 MR0656.json -> imagePath=MR0657.JPG）；MR0001–MR0418 及 MR0182_1 的 imagePath 与文件名一致",
+      "conclusion": "imagePath 字符串在 0419–0999 区间不可靠（标注工具产物）；不可按 imagePath 建立映射"
+    },
+    "pixel_verification": {
+      "method": "解码每个 JSON 内嵌 imageData 原图（3448x4600），按数据集管线（等比缩放 288x384 + 左右补 48px 黑边）重算，与 all_384 同编号 PNG 做全像素相关",
+      "initial_10": "10 个样本（含 +1 区块内 6 个）相关系数全部 = 1.0000（与编号+1 的 PNG 仅 0.83–0.94）",
+      "extended_64": "分层抽样 64 个（<419 区 30 个、>=419 区 30 个、边界 418/419/1/1000），相关系数最小 0.99997，均值 0.99998，零错配",
+      "conclusion": "JSON 文件名与数据集图像内容严格一一对应；多边形坐标经固定公式（x*288/3448+48, y*384/4600）转换后与 all_384 图像对齐"
+    },
+    "scaling_check": "all_384 MR PNG 均含 48px 纯黑侧边（左 0–47 列、右 336–383 列均值=0.0），证实数据集图像为等比缩放+补边产物，与坐标转换公式假设一致"
+  },
+  "impact_on_experiments": "Step 11_N–19_N 采用文件名映射构建 ROI，经本复核证实正确；imagePath 误导的映射未进入任何实验。协议中『通过 imagePath 建立映射』的规则如按字面执行反而会错配 579 个样本，应修订为按文件名映射（已在此记录为数据质量发现）。",
+  "mismatched_files_count": 579,
+  "visual_examples": [
+    "roi_verification_examples/MR0656_roi_check.png (imagePath=MR0657.JPG 的错位文件，验证仍对应 MR0656.png)",
+    "roi_verification_examples/MR0116_roi_check.png",
+    "roi_verification_examples/MR0419_roi_check.png"
+  ]
+}

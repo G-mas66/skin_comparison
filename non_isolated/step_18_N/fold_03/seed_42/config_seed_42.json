@@ -1,0 +1,82 @@
+{
+  "model": "resnet50",
+  "pretrained": true,
+  "input_channels": 3,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "fold_seed": 42,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "augmentation": {
+    "horizontal_flip_p": 0.5,
+    "rotation_degrees": 7.0,
+    "brightness": 0.1,
+    "contrast": 0.1
+  },
+  "evaluation_checkpoint": "Epoch 50 last.pth",
+  "step_dir": "/root/autodl-tmp/skin_comparison/non_isolated/step_18_N",
+  "experiment_name": "step_18_N",
+  "benchmark_type": "roi_input_region",
+  "description": "step_18_N: context input, Soft Label, five-class, patient isolation = false",
+  "input_variant": "context",
+  "label_strategy": "Soft Label",
+  "scheme_name": "ROI + 20% Context (Soft Label)",
+  "report_title": "ROI + 20% Context (Soft Label) vs reference schemes (CEA five-class, N route)",
+  "reference_schemes": [
+    {
+      "kind": "whole_image",
+      "file": "metrics_step_08_N.json",
+      "name": "Whole Image (Soft, step_08_N)"
+    },
+    {
+      "kind": "sibling_step",
+      "step_id": "step_14_N",
+      "step_dir": "step_14_N",
+      "name": "ROI + 20% Context (Hard, step_14_N)"
+    }
+  ],
+  "report_notes": [
+    "Soft Label matrix fixed to [0.9 diag / 0.1 adjacent]; loss = soft-target cross entropy.",
+    "Hard Label ROI + 20% Context referenced from step_14_N; Whole Image Soft referenced from step_08_N MR records.",
+    "Input construction identical to step_14_N (four sides +20% context)."
+  ],
+  "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+  "data_root": "/root/autodl-tmp/data_all_384",
+  "roi_cache": "/root/autodl-tmp/data_all_384/roi_cache",
+  "repo_root": "/root/autodl-tmp/skin_comparison",
+  "output_root": "/root/autodl-tmp/skin_comparison/non_isolated/step_18_N",
+  "device": "cuda:0",
+  "num_workers": 4,
+  "patient_isolation": false,
+  "input_resolution": "384x384",
+  "smoke": false,
+  "fold": 3,
+  "training_seed": 42,
+  "train_count": 797,
+  "evaluation_count": 199,
+  "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 230
+  },
+  "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 57
+  }
+}

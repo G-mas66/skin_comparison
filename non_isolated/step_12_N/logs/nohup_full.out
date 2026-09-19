@@ -1,0 +1,29 @@
+[step_12_N] integrity checks passed: 996 ROI samples, 5 folds
+[step_12_N] seed=42 fold=1 acc=0.4257 macro_f1=0.3963 mae=0.7178
+[step_12_N] seed=42 fold=2 acc=0.3850 macro_f1=0.3199 mae=0.7850
+[step_12_N] seed=42 fold=3 acc=0.4322 macro_f1=0.3721 mae=0.7035
+[step_12_N] seed=42 fold=4 acc=0.3939 macro_f1=0.3000 mae=0.8535
+[step_12_N] seed=42 fold=5 acc=0.4518 macro_f1=0.3767 mae=0.6701
+[step_12_N] seed=3407 fold=1 acc=0.4010 macro_f1=0.3503 mae=0.7525
+[step_12_N] seed=3407 fold=2 acc=0.4350 macro_f1=0.3431 mae=0.7800
+[step_12_N] seed=3407 fold=3 acc=0.5176 macro_f1=0.4745 mae=0.6281
+[step_12_N] seed=3407 fold=4 acc=0.4545 macro_f1=0.3670 mae=0.7576
+[step_12_N] seed=3407 fold=5 acc=0.4772 macro_f1=0.4417 mae=0.6294
+[step_12_N] seed=2026 fold=1 acc=0.4109 macro_f1=0.3625 mae=0.7624
+[step_12_N] seed=2026 fold=2 acc=0.4350 macro_f1=0.3557 mae=0.7800
+[step_12_N] seed=2026 fold=3 acc=0.4070 macro_f1=0.3471 mae=0.7337
+[step_12_N] seed=2026 fold=4 acc=0.4444 macro_f1=0.3460 mae=0.8333
+[step_12_N] seed=2026 fold=5 acc=0.4619 macro_f1=0.4292 mae=0.6193
+[step_12_N] all 15 runs complete; building figures and report
+Traceback (most recent call last):
+  File "/root/autodl-tmp/skin_comparison/non_isolated/step_12_N/step_12_N.py", line 39, in <module>
+    run_step(CONFIG)
+  File "/root/autodl-tmp/skin_comparison/train_common.py", line 846, in run_step
+    finalize_step(return_dict)
+  File "/root/autodl-tmp/skin_comparison/train_common.py", line 858, in finalize_step
+    schemes = build_schemes(config, records, aggregation)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/skin_comparison/train_common.py", line 883, in build_schemes
+    repo_root = Path(config["repo_root"])
+                     ~~~~~~^^^^^^^^^^^^^
+KeyError: 'repo_root'

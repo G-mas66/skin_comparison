@@ -1,0 +1,65 @@
+{
+  "model": "resnet50",
+  "pretrained": true,
+  "input_channels": 3,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "fold_seed": 42,
+  "training_seeds": [
+    42,
+    3407,
+    2026
+  ],
+  "augmentation": {
+    "horizontal_flip_p": 0.5,
+    "rotation_degrees": 7.0,
+    "brightness": 0.1,
+    "contrast": 0.1
+  },
+  "evaluation_checkpoint": "Epoch 50 last.pth",
+  "step_dir": "/root/autodl-tmp/skin_comparison/non_isolated/step_17_N",
+  "experiment_name": "step_17_N",
+  "benchmark_type": "roi_input_region",
+  "description": "step_17_N: crop input, Soft Label, five-class, patient isolation = false",
+  "input_variant": "crop",
+  "label_strategy": "Soft Label",
+  "scheme_name": "ROI Crop (Soft Label)",
+  "report_title": "ROI Crop (Soft Label) vs reference schemes (CEA five-class, N route)",
+  "reference_schemes": [
+    {
+      "kind": "whole_image",
+      "file": "metrics_step_08_N.json",
+      "name": "Whole Image (Soft, step_08_N)"
+    },
+    {
+      "kind": "sibling_step",
+      "step_id": "step_13_N",
+      "step_dir": "step_13_N",
+      "name": "ROI Crop (Hard, step_13_N)"
+    }
+  ],
+  "report_notes": [
+    "Soft Label matrix fixed to [0.9 diag / 0.1 adjacent]; loss = soft-target cross entropy.",
+    "Hard Label ROI Crop referenced from step_13_N; Whole Image Soft referenced from step_08_N MR records.",
+    "Input construction identical to step_13_N."
+  ],
+  "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+  "data_root": "/root/autodl-tmp/data_all_384",
+  "roi_cache": "/root/autodl-tmp/data_all_384/roi_cache",
+  "repo_root": "/root/autodl-tmp/skin_comparison",
+  "output_root": "/root/autodl-tmp/skin_comparison/non_isolated/step_17_N",
+  "device": "cuda:0",
+  "num_workers": 4,
+  "patient_isolation": false,
+  "input_resolution": "384x384",
+  "smoke": false,
+  "fold": 3
+}

@@ -1,0 +1,43 @@
+step_12_N already-complete 2026-09-19 02:47:43
+step_12_N audit 2026-09-19 02:47:43
+step_12_N AUDIT_FAIL
+AUDIT FAIL step_12_N:
+  - missing artifact: report_step_12_N.html
+  - missing figure: figures/benchmark_accuracy.png
+  - missing figure: figures/benchmark_macro_f1.png
+  - missing figure: figures/benchmark_mae.png
+  - missing figure: figures/benchmark_seed_detail.png
+  - missing figure: figures/benchmark_per_class.png
+  - missing figure: figures/own_confusion.png
+step_12_N already-complete 2026-09-19 03:09:40
+step_12_N audit 2026-09-19 03:09:40
+step_12_N COMPLETE 2026-09-19 03:09:40 :: AUDIT PASS step_12_N: final: acc=0.4355±0.0163 macro_f1=0.3721±0.0175 mae=0.7337±0.0171
+step_13_N smoke 2026-09-19 03:09:40
+step_13_N full-start 2026-09-19 03:09:46
+step_13_N audit 2026-09-19 03:47:46
+step_13_N COMPLETE 2026-09-19 03:47:46 :: AUDIT PASS step_13_N: final: acc=0.4588±0.0159 macro_f1=0.3829±0.0130 mae=0.6944±0.0234
+step_14_N smoke 2026-09-19 03:47:46
+step_14_N full-start 2026-09-19 03:47:52
+step_14_N audit 2026-09-19 04:25:16
+step_14_N COMPLETE 2026-09-19 04:25:16 :: AUDIT PASS step_14_N: final: acc=0.4593±0.0052 macro_f1=0.3892±0.0050 mae=0.7108±0.0141
+step_15_N smoke 2026-09-19 04:25:16
+step_15_N full-start 2026-09-19 04:25:22
+step_15_N audit 2026-09-19 05:09:46
+step_15_N COMPLETE 2026-09-19 05:09:46 :: AUDIT PASS step_15_N: final: acc=0.4521±0.0100 macro_f1=0.3829±0.0124 mae=0.6939±0.0191
+step_16_N smoke 2026-09-19 05:09:46
+step_16_N full-start 2026-09-19 05:09:52
+step_16_N audit 2026-09-19 05:54:10
+step_16_N COMPLETE 2026-09-19 05:54:10 :: AUDIT PASS step_16_N: final: acc=0.4620±0.0016 macro_f1=0.3818±0.0069 mae=0.6888±0.0122
+step_17_N smoke 2026-09-19 05:54:10
+step_17_N full-start 2026-09-19 05:54:15
+step_17_N audit 2026-09-19 06:32:02
+step_17_N COMPLETE 2026-09-19 06:32:02 :: AUDIT PASS step_17_N: final: acc=0.4763±0.0105 macro_f1=0.3923±0.0125 mae=0.6512±0.0087
+step_18_N smoke 2026-09-19 06:32:02
+step_18_N full-start 2026-09-19 06:32:08
+step_18_N audit 2026-09-19 07:09:10
+step_18_N COMPLETE 2026-09-19 07:09:10 :: AUDIT PASS step_18_N: final: acc=0.4753±0.0169 macro_f1=0.3970±0.0245 mae=0.6505±0.0279
+step_19_N smoke 2026-09-19 07:09:10
+step_19_N full-start 2026-09-19 07:09:16
+step_19_N audit 2026-09-19 07:53:16
+step_19_N COMPLETE 2026-09-19 07:53:16 :: AUDIT PASS step_19_N: final: acc=0.4672±0.0183 macro_f1=0.3884±0.0126 mae=0.6612±0.0232
+ALL_STEPS_DONE 2026-09-19 07:53:16

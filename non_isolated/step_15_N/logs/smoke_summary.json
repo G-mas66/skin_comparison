@@ -1,0 +1,142 @@
+{
+ "passed": true,
+ "config": {
+  "model": "resnet50",
+  "pretrained": true,
+  "input_channels": 3,
+  "num_classes": 5,
+  "batch_size": 32,
+  "epochs": 50,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": null,
+  "early_stopping": false,
+  "loss": "CrossEntropyLoss",
+  "dropout": 0.3,
+  "fold_seed": 42,
+  "training_seeds": [
+   42,
+   3407,
+   2026
+  ],
+  "augmentation": {
+   "horizontal_flip_p": 0.5,
+   "rotation_degrees": 7.0,
+   "brightness": 0.1,
+   "contrast": 0.1
+  },
+  "evaluation_checkpoint": "Epoch 50 last.pth",
+  "step_dir": "/root/autodl-tmp/skin_comparison/non_isolated/step_15_N",
+  "experiment_name": "step_15_N",
+  "benchmark_type": "roi_input_region",
+  "description": "step_15_N: background input, Hard Label, five-class, patient isolation = false",
+  "input_variant": "background",
+  "label_strategy": "Hard Label",
+  "scheme_name": "Background Only",
+  "report_title": "Background Only vs reference schemes (CEA five-class, N route)",
+  "reference_schemes": [
+   {
+    "kind": "whole_image",
+    "file": "metrics_step_05_N.json",
+    "name": "Whole Image (Hard, step_05_N)"
+   }
+  ],
+  "report_notes": [
+   "Whole Image baseline referenced from step_05_N MR records; not retrained.",
+   "Input: MR x (1 - Mask) + Training Mean Fill x Mask (ROI erased, background kept)."
+  ],
+  "manifest": "/root/autodl-tmp/data_all_384/manifest.csv",
+  "data_root": "/root/autodl-tmp/data_all_384",
+  "roi_cache": "/root/autodl-tmp/data_all_384/roi_cache",
+  "repo_root": "/root/autodl-tmp/skin_comparison",
+  "output_root": "/root/autodl-tmp/skin_comparison/non_isolated/step_15_N",
+  "device": "cuda:0",
+  "num_workers": 4,
+  "patient_isolation": false,
+  "input_resolution": "384x384",
+  "smoke": true,
+  "smoke_note": "1 epoch, capped 96 train/96 eval samples, no checkpoints"
+ },
+ "record": {
+  "step": "step_15_N",
+  "task": "five_class",
+  "label_strategy": "Hard Label",
+  "modality": "MR",
+  "input_region": "background",
+  "fold": 1,
+  "training_seed": 42,
+  "train_count": 96,
+  "evaluation_count": 96,
+  "train_class_counts": {
+   "0": 28,
+   "1": 98,
+   "2": 179,
+   "3": 260,
+   "4": 229
+  },
+  "evaluation_class_counts": {
+   "0": 8,
+   "1": 25,
+   "2": 45,
+   "3": 66,
+   "4": 58
+  },
+  "parameter_count": 23518277,
+  "class_0_precision": 0.0,
+  "class_0_recall": 0.0,
+  "class_0_f1": 0.0,
+  "class_1_precision": 0.1016949152542373,
+  "class_1_recall": 0.6,
+  "class_1_f1": 0.17391304347826086,
+  "class_2_precision": 0.2222222222222222,
+  "class_2_recall": 0.08,
+  "class_2_f1": 0.11764705882352941,
+  "class_3_precision": 0.35714285714285715,
+  "class_3_recall": 0.2857142857142857,
+  "class_3_f1": 0.3174603174603175,
+  "class_4_precision": 0.0,
+  "class_4_recall": 0.0,
+  "class_4_f1": 0.0,
+  "accuracy": 0.1875,
+  "macro_f1": 0.12180408395242157,
+  "mae": 1.4375,
+  "confusion_matrix": [
+   [
+    0,
+    1,
+    1,
+    2,
+    0
+   ],
+   [
+    0,
+    6,
+    2,
+    2,
+    0
+   ],
+   [
+    0,
+    15,
+    2,
+    8,
+    0
+   ],
+   [
+    0,
+    23,
+    2,
+    10,
+    0
+   ],
+   [
+    0,
+    14,
+    2,
+    6,
+    0
+   ]
+  ]
+ }
+}

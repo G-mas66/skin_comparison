@@ -1,0 +1,18 @@
+[step_14_N] integrity checks passed: 996 ROI samples, 5 folds
+[step_14_N] seed=42 fold=1 acc=0.5198 macro_f1=0.4097 mae=0.5990
+[step_14_N] seed=42 fold=2 acc=0.4500 macro_f1=0.3705 mae=0.7100
+[step_14_N] seed=42 fold=3 acc=0.4422 macro_f1=0.3958 mae=0.7387
+[step_14_N] seed=42 fold=4 acc=0.3687 macro_f1=0.2935 mae=0.8990
+[step_14_N] seed=42 fold=5 acc=0.4975 macro_f1=0.4426 mae=0.5939
+[step_14_N] seed=3407 fold=1 acc=0.4604 macro_f1=0.4091 mae=0.6683
+[step_14_N] seed=3407 fold=2 acc=0.4750 macro_f1=0.4289 mae=0.6700
+[step_14_N] seed=3407 fold=3 acc=0.4774 macro_f1=0.3942 mae=0.6583
+[step_14_N] seed=3407 fold=4 acc=0.4242 macro_f1=0.3705 mae=0.7828
+[step_14_N] seed=3407 fold=5 acc=0.4416 macro_f1=0.3507 mae=0.6954
+[step_14_N] seed=2026 fold=1 acc=0.5149 macro_f1=0.4639 mae=0.6287
+[step_14_N] seed=2026 fold=2 acc=0.5000 macro_f1=0.4034 mae=0.6700
+[step_14_N] seed=2026 fold=3 acc=0.4523 macro_f1=0.4202 mae=0.9196
+[step_14_N] seed=2026 fold=4 acc=0.4040 macro_f1=0.3261 mae=0.7424
+[step_14_N] seed=2026 fold=5 acc=0.4619 macro_f1=0.3588 mae=0.6853
+[step_14_N] all 15 runs complete; building figures and report
+[step_14_N] report written: report_step_14_N.html

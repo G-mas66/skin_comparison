@@ -1,0 +1,1694 @@
+{
+ "integrity": {
+  "passed": true,
+  "errors": [],
+  "patient_isolation": false,
+  "patient_overlap_check": "not_required_for_patient_isolation_false",
+  "fold_stats": [
+   {
+    "fold": 1,
+    "train_count": 794,
+    "evaluation_count": 202,
+    "train_class_counts": {
+     "0": 28,
+     "1": 98,
+     "2": 179,
+     "3": 260,
+     "4": 229
+    },
+    "evaluation_class_counts": {
+     "0": 8,
+     "1": 25,
+     "2": 45,
+     "3": 66,
+     "4": 58
+    },
+    "sample_overlap": 0
+   },
+   {
+    "fold": 2,
+    "train_count": 796,
+    "evaluation_count": 200,
+    "train_class_counts": {
+     "0": 29,
+     "1": 98,
+     "2": 179,
+     "3": 261,
+     "4": 229
+    },
+    "evaluation_class_counts": {
+     "0": 7,
+     "1": 25,
+     "2": 45,
+     "3": 65,
+     "4": 58
+    },
+    "sample_overlap": 0
+   },
+   {
+    "fold": 3,
+    "train_count": 797,
+    "evaluation_count": 199,
+    "train_class_counts": {
+     "0": 29,
+     "1": 98,
+     "2": 179,
+     "3": 261,
+     "4": 230
+    },
+    "evaluation_class_counts": {
+     "0": 7,
+     "1": 25,
+     "2": 45,
+     "3": 65,
+     "4": 57
+    },
+    "sample_overlap": 0
+   },
+   {
+    "fold": 4,
+    "train_count": 798,
+    "evaluation_count": 198,
+    "train_class_counts": {
+     "0": 29,
+     "1": 99,
+     "2": 179,
+     "3": 261,
+     "4": 230
+    },
+    "evaluation_class_counts": {
+     "0": 7,
+     "1": 24,
+     "2": 45,
+     "3": 65,
+     "4": 57
+    },
+    "sample_overlap": 0
+   },
+   {
+    "fold": 5,
+    "train_count": 799,
+    "evaluation_count": 197,
+    "train_class_counts": {
+     "0": 29,
+     "1": 99,
+     "2": 180,
+     "3": 261,
+     "4": 230
+    },
+    "evaluation_class_counts": {
+     "0": 7,
+     "1": 24,
+     "2": 44,
+     "3": 65,
+     "4": 57
+    },
+    "sample_overlap": 0
+   }
+  ],
+  "roi_sample_count": 996,
+  "roi_fold_stats": [
+   {
+    "fold": 1,
+    "train_polygon_count_mean": 5.6158690176322414,
+    "eval_polygon_count_mean": 5.648514851485149,
+    "train_area_ratio_median": 0.1121961805555555,
+    "eval_area_ratio_median": 0.10614013671875,
+    "train_area_ratio_min": 0.0004679361979166,
+    "train_area_ratio_max": 0.2359958224826389
+   },
+   {
+    "fold": 2,
+    "train_polygon_count_mean": 5.584170854271357,
+    "eval_polygon_count_mean": 5.775,
+    "train_area_ratio_median": 0.11011420355902775,
+    "eval_area_ratio_median": 0.1137593587239583,
+    "train_area_ratio_min": 0.0004679361979166,
+    "train_area_ratio_max": 0.2359958224826389
+   },
+   {
+    "fold": 3,
+    "train_polygon_count_mean": 5.614805520702635,
+    "eval_polygon_count_mean": 5.653266331658291,
+    "train_area_ratio_median": 0.1108940972222222,
+    "eval_area_ratio_median": 0.1109483506944444,
+    "train_area_ratio_min": 0.0005289713541666,
+    "train_area_ratio_max": 0.2359958224826389
+   },
+   {
+    "fold": 4,
+    "train_polygon_count_mean": 5.634085213032582,
+    "eval_polygon_count_mean": 5.575757575757576,
+    "train_area_ratio_median": 0.11008707682291666,
+    "eval_area_ratio_median": 0.11521063910590276,
+    "train_area_ratio_min": 0.0004679361979166,
+    "train_area_ratio_max": 0.2359958224826389
+   },
+   {
+    "fold": 5,
+    "train_polygon_count_mean": 5.663329161451815,
+    "eval_polygon_count_mean": 5.456852791878172,
+    "train_area_ratio_median": 0.1114095052083333,
+    "eval_area_ratio_median": 0.1094902886284722,
+    "train_area_ratio_min": 0.0004679361979166,
+    "train_area_ratio_max": 0.2353990342881944
+   }
+  ],
+  "task": "five_class",
+  "num_classes": 5
+ },
+ "fold_results": [
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 1,
+   "training_seed": 42,
+   "train_count": 794,
+   "evaluation_count": 202,
+   "train_class_counts": {
+    "0": 28,
+    "1": 98,
+    "2": 179,
+    "3": 260,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 8,
+    "1": 25,
+    "2": 45,
+    "3": 66,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.5,
+   "class_1_recall": 0.44,
+   "class_1_f1": 0.46808510638297873,
+   "class_2_precision": 0.2962962962962963,
+   "class_2_recall": 0.35555555555555557,
+   "class_2_f1": 0.3232323232323232,
+   "class_3_precision": 0.4578313253012048,
+   "class_3_recall": 0.5757575757575758,
+   "class_3_f1": 0.5100671140939598,
+   "class_4_precision": 0.6190476190476191,
+   "class_4_recall": 0.4482758620689655,
+   "class_4_f1": 0.52,
+   "accuracy": 0.4504950495049505,
+   "macro_f1": 0.36427690874185237,
+   "mae": 0.6732673267326733,
+   "confusion_matrix": [
+    [
+     0,
+     5,
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     11,
+     11,
+     3,
+     0
+    ],
+    [
+     0,
+     5,
+     16,
+     21,
+     3
+    ],
+    [
+     1,
+     0,
+     14,
+     38,
+     13
+    ],
+    [
+     0,
+     1,
+     11,
+     20,
+     26
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 2,
+   "training_seed": 42,
+   "train_count": 796,
+   "evaluation_count": 200,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.43243243243243246,
+   "class_1_recall": 0.64,
+   "class_1_f1": 0.5161290322580645,
+   "class_2_precision": 0.425531914893617,
+   "class_2_recall": 0.4444444444444444,
+   "class_2_f1": 0.4347826086956522,
+   "class_3_precision": 0.45652173913043476,
+   "class_3_recall": 0.3230769230769231,
+   "class_3_f1": 0.3783783783783784,
+   "class_4_precision": 0.4927536231884058,
+   "class_4_recall": 0.5862068965517241,
+   "class_4_f1": 0.5354330708661417,
+   "accuracy": 0.455,
+   "macro_f1": 0.37294461803964735,
+   "mae": 0.705,
+   "confusion_matrix": [
+    [
+     0,
+     5,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     16,
+     3,
+     1,
+     5
+    ],
+    [
+     1,
+     11,
+     20,
+     9,
+     4
+    ],
+    [
+     0,
+     2,
+     16,
+     21,
+     26
+    ],
+    [
+     0,
+     3,
+     6,
+     15,
+     34
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 3,
+   "training_seed": 42,
+   "train_count": 797,
+   "evaluation_count": 199,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.5416666666666666,
+   "class_1_recall": 0.52,
+   "class_1_f1": 0.5306122448979592,
+   "class_2_precision": 0.29310344827586204,
+   "class_2_recall": 0.37777777777777777,
+   "class_2_f1": 0.33009708737864074,
+   "class_3_precision": 0.36666666666666664,
+   "class_3_recall": 0.3384615384615385,
+   "class_3_f1": 0.35200000000000004,
+   "class_4_precision": 0.5535714285714286,
+   "class_4_recall": 0.543859649122807,
+   "class_4_f1": 0.5486725663716814,
+   "accuracy": 0.41708542713567837,
+   "macro_f1": 0.3522763797296563,
+   "mae": 0.6834170854271356,
+   "confusion_matrix": [
+    [
+     0,
+     4,
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     13,
+     10,
+     2,
+     0
+    ],
+    [
+     1,
+     6,
+     17,
+     17,
+     4
+    ],
+    [
+     0,
+     1,
+     21,
+     22,
+     21
+    ],
+    [
+     0,
+     0,
+     8,
+     18,
+     31
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 4,
+   "training_seed": 42,
+   "train_count": 798,
+   "evaluation_count": 198,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.45,
+   "class_1_recall": 0.375,
+   "class_1_f1": 0.4090909090909091,
+   "class_2_precision": 0.3684210526315789,
+   "class_2_recall": 0.4666666666666667,
+   "class_2_f1": 0.4117647058823529,
+   "class_3_precision": 0.5121951219512195,
+   "class_3_recall": 0.3230769230769231,
+   "class_3_f1": 0.39622641509433965,
+   "class_4_precision": 0.4675324675324675,
+   "class_4_recall": 0.631578947368421,
+   "class_4_f1": 0.5373134328358209,
+   "accuracy": 0.4393939393939394,
+   "macro_f1": 0.3508790925806845,
+   "mae": 0.7676767676767676,
+   "confusion_matrix": [
+    [
+     0,
+     5,
+     0,
+     1,
+     1
+    ],
+    [
+     1,
+     9,
+     8,
+     3,
+     3
+    ],
+    [
+     2,
+     4,
+     21,
+     7,
+     11
+    ],
+    [
+     0,
+     1,
+     17,
+     21,
+     26
+    ],
+    [
+     0,
+     1,
+     11,
+     9,
+     36
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 5,
+   "training_seed": 42,
+   "train_count": 799,
+   "evaluation_count": 197,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 180,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 44,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.25,
+   "class_0_recall": 0.14285714285714285,
+   "class_0_f1": 0.18181818181818182,
+   "class_1_precision": 0.5,
+   "class_1_recall": 0.625,
+   "class_1_f1": 0.5555555555555556,
+   "class_2_precision": 0.3888888888888889,
+   "class_2_recall": 0.3181818181818182,
+   "class_2_f1": 0.35000000000000003,
+   "class_3_precision": 0.5125,
+   "class_3_recall": 0.6307692307692307,
+   "class_3_f1": 0.5655172413793104,
+   "class_4_precision": 0.5957446808510638,
+   "class_4_recall": 0.49122807017543857,
+   "class_4_f1": 0.5384615384615384,
+   "accuracy": 0.5025380710659898,
+   "macro_f1": 0.4382705034429173,
+   "mae": 0.5634517766497462,
+   "confusion_matrix": [
+    [
+     1,
+     6,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     15,
+     6,
+     0,
+     0
+    ],
+    [
+     0,
+     8,
+     14,
+     16,
+     6
+    ],
+    [
+     0,
+     1,
+     10,
+     41,
+     13
+    ],
+    [
+     0,
+     0,
+     6,
+     23,
+     28
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 1,
+   "training_seed": 3407,
+   "train_count": 794,
+   "evaluation_count": 202,
+   "train_class_counts": {
+    "0": 28,
+    "1": 98,
+    "2": 179,
+    "3": 260,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 8,
+    "1": 25,
+    "2": 45,
+    "3": 66,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.3870967741935484,
+   "class_1_recall": 0.48,
+   "class_1_f1": 0.42857142857142855,
+   "class_2_precision": 0.38636363636363635,
+   "class_2_recall": 0.37777777777777777,
+   "class_2_f1": 0.38202247191011235,
+   "class_3_precision": 0.43661971830985913,
+   "class_3_recall": 0.4696969696969697,
+   "class_3_f1": 0.4525547445255474,
+   "class_4_precision": 0.6,
+   "class_4_recall": 0.5689655172413793,
+   "class_4_f1": 0.584070796460177,
+   "accuracy": 0.4603960396039604,
+   "macro_f1": 0.3694438882934531,
+   "mae": 0.6485148514851485,
+   "confusion_matrix": [
+    [
+     0,
+     6,
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     12,
+     11,
+     2,
+     0
+    ],
+    [
+     0,
+     7,
+     17,
+     19,
+     2
+    ],
+    [
+     1,
+     3,
+     11,
+     31,
+     20
+    ],
+    [
+     0,
+     3,
+     4,
+     18,
+     33
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 2,
+   "training_seed": 3407,
+   "train_count": 796,
+   "evaluation_count": 200,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.5,
+   "class_1_recall": 0.52,
+   "class_1_f1": 0.5098039215686274,
+   "class_2_precision": 0.42857142857142855,
+   "class_2_recall": 0.6,
+   "class_2_f1": 0.5,
+   "class_3_precision": 0.5072463768115942,
+   "class_3_recall": 0.5384615384615384,
+   "class_3_f1": 0.5223880597014926,
+   "class_4_precision": 0.6666666666666666,
+   "class_4_recall": 0.4482758620689655,
+   "class_4_f1": 0.536082474226804,
+   "accuracy": 0.505,
+   "macro_f1": 0.4136548910993848,
+   "mae": 0.615,
+   "confusion_matrix": [
+    [
+     0,
+     3,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     13,
+     5,
+     1,
+     3
+    ],
+    [
+     0,
+     7,
+     27,
+     10,
+     1
+    ],
+    [
+     0,
+     1,
+     20,
+     35,
+     9
+    ],
+    [
+     0,
+     2,
+     7,
+     23,
+     26
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 3,
+   "training_seed": 3407,
+   "train_count": 797,
+   "evaluation_count": 199,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.6086956521739131,
+   "class_1_recall": 0.56,
+   "class_1_f1": 0.5833333333333334,
+   "class_2_precision": 0.4423076923076923,
+   "class_2_recall": 0.5111111111111111,
+   "class_2_f1": 0.4742268041237113,
+   "class_3_precision": 0.4457831325301205,
+   "class_3_recall": 0.5692307692307692,
+   "class_3_f1": 0.5,
+   "class_4_precision": 0.7073170731707317,
+   "class_4_recall": 0.5087719298245614,
+   "class_4_f1": 0.5918367346938775,
+   "accuracy": 0.5175879396984925,
+   "macro_f1": 0.4298793744301845,
+   "mae": 0.5829145728643216,
+   "confusion_matrix": [
+    [
+     0,
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     0,
+     14,
+     8,
+     3,
+     0
+    ],
+    [
+     0,
+     2,
+     23,
+     19,
+     1
+    ],
+    [
+     0,
+     2,
+     15,
+     37,
+     11
+    ],
+    [
+     0,
+     2,
+     4,
+     22,
+     29
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 4,
+   "training_seed": 3407,
+   "train_count": 798,
+   "evaluation_count": 198,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.6190476190476191,
+   "class_1_recall": 0.5416666666666666,
+   "class_1_f1": 0.5777777777777778,
+   "class_2_precision": 0.3333333333333333,
+   "class_2_recall": 0.4,
+   "class_2_f1": 0.3636363636363636,
+   "class_3_precision": 0.46153846153846156,
+   "class_3_recall": 0.46153846153846156,
+   "class_3_f1": 0.46153846153846156,
+   "class_4_precision": 0.509090909090909,
+   "class_4_recall": 0.49122807017543857,
+   "class_4_f1": 0.5,
+   "accuracy": 0.4494949494949495,
+   "macro_f1": 0.38059052059052056,
+   "mae": 0.7626262626262627,
+   "confusion_matrix": [
+    [
+     0,
+     1,
+     0,
+     4,
+     2
+    ],
+    [
+     2,
+     13,
+     7,
+     0,
+     2
+    ],
+    [
+     1,
+     4,
+     18,
+     13,
+     9
+    ],
+    [
+     0,
+     2,
+     19,
+     30,
+     14
+    ],
+    [
+     0,
+     1,
+     10,
+     18,
+     28
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 5,
+   "training_seed": 3407,
+   "train_count": 799,
+   "evaluation_count": 197,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 180,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 44,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.5909090909090909,
+   "class_1_recall": 0.5416666666666666,
+   "class_1_f1": 0.5652173913043478,
+   "class_2_precision": 0.47619047619047616,
+   "class_2_recall": 0.45454545454545453,
+   "class_2_f1": 0.46511627906976744,
+   "class_3_precision": 0.5,
+   "class_3_recall": 0.5384615384615384,
+   "class_3_f1": 0.5185185185185186,
+   "class_4_precision": 0.5967741935483871,
+   "class_4_recall": 0.6491228070175439,
+   "class_4_f1": 0.6218487394957983,
+   "accuracy": 0.5329949238578681,
+   "macro_f1": 0.4341401856776864,
+   "mae": 0.5329949238578681,
+   "confusion_matrix": [
+    [
+     0,
+     4,
+     3,
+     0,
+     0
+    ],
+    [
+     1,
+     13,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     4,
+     20,
+     16,
+     4
+    ],
+    [
+     0,
+     0,
+     9,
+     35,
+     21
+    ],
+    [
+     0,
+     1,
+     2,
+     17,
+     37
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 1,
+   "training_seed": 2026,
+   "train_count": 794,
+   "evaluation_count": 202,
+   "train_class_counts": {
+    "0": 28,
+    "1": 98,
+    "2": 179,
+    "3": 260,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 8,
+    "1": 25,
+    "2": 45,
+    "3": 66,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.35714285714285715,
+   "class_1_recall": 0.4,
+   "class_1_f1": 0.3773584905660378,
+   "class_2_precision": 0.3728813559322034,
+   "class_2_recall": 0.4888888888888889,
+   "class_2_f1": 0.42307692307692313,
+   "class_3_precision": 0.5084745762711864,
+   "class_3_recall": 0.45454545454545453,
+   "class_3_f1": 0.4799999999999999,
+   "class_4_precision": 0.5818181818181818,
+   "class_4_recall": 0.5517241379310345,
+   "class_4_f1": 0.5663716814159292,
+   "accuracy": 0.46534653465346537,
+   "macro_f1": 0.36936141901177805,
+   "mae": 0.6831683168316832,
+   "confusion_matrix": [
+    [
+     0,
+     6,
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     10,
+     14,
+     1,
+     0
+    ],
+    [
+     0,
+     5,
+     22,
+     13,
+     5
+    ],
+    [
+     1,
+     5,
+     12,
+     30,
+     18
+    ],
+    [
+     0,
+     2,
+     10,
+     14,
+     32
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 2,
+   "training_seed": 2026,
+   "train_count": 796,
+   "evaluation_count": 200,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 229
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 58
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.4666666666666667,
+   "class_1_recall": 0.56,
+   "class_1_f1": 0.509090909090909,
+   "class_2_precision": 0.4166666666666667,
+   "class_2_recall": 0.4444444444444444,
+   "class_2_f1": 0.4301075268817204,
+   "class_3_precision": 0.4594594594594595,
+   "class_3_recall": 0.5230769230769231,
+   "class_3_f1": 0.48920863309352514,
+   "class_4_precision": 0.6041666666666666,
+   "class_4_recall": 0.5,
+   "class_4_f1": 0.5471698113207547,
+   "accuracy": 0.485,
+   "macro_f1": 0.3951153760773819,
+   "mae": 0.62,
+   "confusion_matrix": [
+    [
+     0,
+     4,
+     3,
+     0,
+     0
+    ],
+    [
+     0,
+     14,
+     6,
+     2,
+     3
+    ],
+    [
+     0,
+     9,
+     20,
+     14,
+     2
+    ],
+    [
+     0,
+     2,
+     15,
+     34,
+     14
+    ],
+    [
+     0,
+     1,
+     4,
+     24,
+     29
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 3,
+   "training_seed": 2026,
+   "train_count": 797,
+   "evaluation_count": 199,
+   "train_class_counts": {
+    "0": 29,
+    "1": 98,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 25,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.5,
+   "class_0_recall": 0.2857142857142857,
+   "class_0_f1": 0.36363636363636365,
+   "class_1_precision": 0.5652173913043478,
+   "class_1_recall": 0.52,
+   "class_1_f1": 0.5416666666666667,
+   "class_2_precision": 0.3888888888888889,
+   "class_2_recall": 0.3111111111111111,
+   "class_2_f1": 0.34567901234567905,
+   "class_3_precision": 0.38028169014084506,
+   "class_3_recall": 0.4153846153846154,
+   "class_3_f1": 0.39705882352941174,
+   "class_4_precision": 0.5076923076923077,
+   "class_4_recall": 0.5789473684210527,
+   "class_4_f1": 0.540983606557377,
+   "accuracy": 0.4472361809045226,
+   "macro_f1": 0.43780489454709964,
+   "mae": 0.6733668341708543,
+   "confusion_matrix": [
+    [
+     2,
+     3,
+     1,
+     0,
+     1
+    ],
+    [
+     1,
+     13,
+     6,
+     3,
+     2
+    ],
+    [
+     1,
+     4,
+     14,
+     22,
+     4
+    ],
+    [
+     0,
+     3,
+     10,
+     27,
+     25
+    ],
+    [
+     0,
+     0,
+     5,
+     19,
+     33
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 4,
+   "training_seed": 2026,
+   "train_count": 798,
+   "evaluation_count": 198,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 179,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 45,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.36666666666666664,
+   "class_1_recall": 0.4583333333333333,
+   "class_1_f1": 0.4074074074074074,
+   "class_2_precision": 0.3333333333333333,
+   "class_2_recall": 0.37777777777777777,
+   "class_2_f1": 0.3541666666666667,
+   "class_3_precision": 0.4492753623188406,
+   "class_3_recall": 0.47692307692307695,
+   "class_3_f1": 0.4626865671641791,
+   "class_4_precision": 0.5555555555555556,
+   "class_4_recall": 0.43859649122807015,
+   "class_4_f1": 0.4901960784313725,
+   "accuracy": 0.42424242424242425,
+   "macro_f1": 0.3428913439339252,
+   "mae": 0.7676767676767676,
+   "confusion_matrix": [
+    [
+     0,
+     3,
+     0,
+     3,
+     1
+    ],
+    [
+     2,
+     11,
+     7,
+     2,
+     2
+    ],
+    [
+     1,
+     10,
+     17,
+     11,
+     6
+    ],
+    [
+     0,
+     5,
+     18,
+     31,
+     11
+    ],
+    [
+     0,
+     1,
+     9,
+     22,
+     25
+    ]
+   ]
+  },
+  {
+   "step": "step_19_N",
+   "task": "five_class",
+   "label_strategy": "Soft Label",
+   "modality": "MR",
+   "input_region": "background",
+   "fold": 5,
+   "training_seed": 2026,
+   "train_count": 799,
+   "evaluation_count": 197,
+   "train_class_counts": {
+    "0": 29,
+    "1": 99,
+    "2": 180,
+    "3": 261,
+    "4": 230
+   },
+   "evaluation_class_counts": {
+    "0": 7,
+    "1": 24,
+    "2": 44,
+    "3": 65,
+    "4": 57
+   },
+   "parameter_count": 23518277,
+   "class_0_precision": 0.0,
+   "class_0_recall": 0.0,
+   "class_0_f1": 0.0,
+   "class_1_precision": 0.5238095238095238,
+   "class_1_recall": 0.4583333333333333,
+   "class_1_f1": 0.4888888888888889,
+   "class_2_precision": 0.3448275862068966,
+   "class_2_recall": 0.45454545454545453,
+   "class_2_f1": 0.39215686274509803,
+   "class_3_precision": 0.4358974358974359,
+   "class_3_recall": 0.5230769230769231,
+   "class_3_f1": 0.4755244755244755,
+   "class_4_precision": 0.625,
+   "class_4_recall": 0.43859649122807015,
+   "class_4_f1": 0.5154639175257731,
+   "accuracy": 0.45685279187817257,
+   "macro_f1": 0.37440682893684707,
+   "mae": 0.6395939086294417,
+   "confusion_matrix": [
+    [
+     0,
+     4,
+     3,
+     0,
+     0
+    ],
+    [
+     0,
+     11,
+     9,
+     4,
+     0
+    ],
+    [
+     0,
+     5,
+     20,
+     15,
+     4
+    ],
+    [
+     0,
+     1,
+     19,
+     34,
+     11
+    ],
+    [
+     0,
+     0,
+     7,
+     25,
+     25
+    ]
+   ]
+  }
+ ],
+ "seed_summaries": [
+  {
+   "training_seed": 42,
+   "fold_count": 5,
+   "metrics": {
+    "accuracy": {
+     "mean": 0.45290249742011157,
+     "std": 0.02806859154784487
+    },
+    "macro_f1": {
+     "mean": 0.37572950050695153,
+     "std": 0.03230444590153952
+    },
+    "mae": {
+     "mean": 0.6785625912972646,
+     "std": 0.0662455713230612
+    },
+    "class_0_precision": {
+     "mean": 0.05,
+     "std": 0.1
+    },
+    "class_0_recall": {
+     "mean": 0.02857142857142857,
+     "std": 0.05714285714285714
+    },
+    "class_0_f1": {
+     "mean": 0.03636363636363636,
+     "std": 0.07272727272727272
+    },
+    "class_1_precision": {
+     "mean": 0.48481981981981975,
+     "std": 0.0391134195554294
+    },
+    "class_1_recall": {
+     "mean": 0.52,
+     "std": 0.10281050529979902
+    },
+    "class_1_f1": {
+     "mean": 0.49589456963709344,
+     "std": 0.05192769092601846
+    },
+    "class_2_precision": {
+     "mean": 0.35444832019724865,
+     "std": 0.05211356570658125
+    },
+    "class_2_recall": {
+     "mean": 0.3925252525252525,
+     "std": 0.05532403549247962
+    },
+    "class_2_f1": {
+     "mean": 0.3699753450377938,
+     "std": 0.04499007008981284
+    },
+    "class_3_precision": {
+     "mean": 0.46114297060990517,
+     "std": 0.05329533076389375
+    },
+    "class_3_recall": {
+     "mean": 0.4382284382284382,
+     "std": 0.13598485035784155
+    },
+    "class_3_f1": {
+     "mean": 0.4404378297891977,
+     "std": 0.08260795466912112
+    },
+    "class_4_precision": {
+     "mean": 0.5457299638381969,
+     "std": 0.05806854596005422
+    },
+    "class_4_recall": {
+     "mean": 0.5402298850574712,
+     "std": 0.06531222269025314
+    },
+    "class_4_f1": {
+     "mean": 0.5359761217070365,
+     "std": 0.009216254918728734
+    }
+   }
+  },
+  {
+   "training_seed": 3407,
+   "fold_count": 5,
+   "metrics": {
+    "accuracy": {
+     "mean": 0.49309477053105405,
+     "std": 0.03256938273501387
+    },
+    "macro_f1": {
+     "mean": 0.40554177201824587,
+     "std": 0.026083071189723958
+    },
+    "mae": {
+     "mean": 0.6284101221667201,
+     "std": 0.07716464080392499
+    },
+    "class_0_precision": {
+     "mean": 0.0,
+     "std": 0.0
+    },
+    "class_0_recall": {
+     "mean": 0.0,
+     "std": 0.0
+    },
+    "class_0_f1": {
+     "mean": 0.0,
+     "std": 0.0
+    },
+    "class_1_precision": {
+     "mean": 0.5411498272648343,
+     "std": 0.08778626337897154
+    },
+    "class_1_recall": {
+     "mean": 0.5286666666666666,
+     "std": 0.027434771124736346
+    },
+    "class_1_f1": {
+     "mean": 0.532940770511103,
+     "std": 0.058343502078916774
+    },
+    "class_2_precision": {
+     "mean": 0.41335331335331327,
+     "std": 0.0492952249031381
+    },
+    "class_2_recall": {
+     "mean": 0.4686868686868687,
+     "std": 0.08028111002517845
+    },
+    "class_2_f1": {
+     "mean": 0.437000383747991,
+     "std": 0.053944623140083504
+    },
+    "class_3_precision": {
+     "mean": 0.47023753783800715,
+     "std": 0.028493185056682576
+    },
+    "class_3_recall": {
+     "mean": 0.5154778554778554,
+     "std": 0.04231128177058381
+    },
+    "class_3_f1": {
+     "mean": 0.4909999568568041,
+     "std": 0.028877323526552267
+    },
+    "class_4_precision": {
+     "mean": 0.6159697684953389,
+     "std": 0.06776592026466349
+    },
+    "class_4_recall": {
+     "mean": 0.5332728372655777,
+     "std": 0.0696960911286383
+    },
+    "class_4_f1": {
+     "mean": 0.5667677489753313,
+     "std": 0.04326958147142341
+    }
+   }
+  },
+  {
+   "training_seed": 2026,
+   "fold_count": 5,
+   "metrics": {
+    "accuracy": {
+     "mean": 0.455735586335717,
+     "std": 0.020070294139464047
+    },
+    "macro_f1": {
+     "mean": 0.38391597250140636,
+     "std": 0.03166929600549411
+    },
+    "mae": {
+     "mean": 0.6767611654617494,
+     "std": 0.05083592171825714
+    },
+    "class_0_precision": {
+     "mean": 0.1,
+     "std": 0.20000000000000004
+    },
+    "class_0_recall": {
+     "mean": 0.05714285714285714,
+     "std": 0.11428571428571428
+    },
+    "class_0_f1": {
+     "mean": 0.07272727272727272,
+     "std": 0.14545454545454545
+    },
+    "class_1_precision": {
+     "mean": 0.45590062111801244,
+     "std": 0.08293790161065115
+    },
+    "class_1_recall": {
+     "mean": 0.4793333333333333,
+     "std": 0.055383511385008216
+    },
+    "class_1_f1": {
+     "mean": 0.46488247252398196,
+     "std": 0.062274130886665634
+    },
+    "class_2_precision": {
+     "mean": 0.37131956620559775,
+     "std": 0.03004083453901873
+    },
+    "class_2_recall": {
+     "mean": 0.41535353535353536,
+     "std": 0.06335322613818581
+    },
+    "class_2_f1": {
+     "mean": 0.3890373983432175,
+     "std": 0.0344995458648077
+    },
+    "class_3_precision": {
+     "mean": 0.44667770481755353,
+     "std": 0.04126407483663349
+    },
+    "class_3_recall": {
+     "mean": 0.47860139860139866,
+     "std": 0.04131346376933882
+    },
+    "class_3_f1": {
+     "mean": 0.46089569986231826,
+     "std": 0.03304225033170351
+    },
+    "class_4_precision": {
+     "mean": 0.5748465423465424,
+     "std": 0.040756536077133136
+    },
+    "class_4_recall": {
+     "mean": 0.5015728977616455,
+     "std": 0.05733495472656115
+    },
+    "class_4_f1": {
+     "mean": 0.5320370190502414,
+     "std": 0.0265075229914195
+    }
+   }
+  }
+ ],
+ "final_summaries": [
+  {
+   "training_seed_count": 3,
+   "scheme": "step_19_N",
+   "label_strategy": "Soft Label",
+   "metrics": {
+    "accuracy": {
+     "mean": 0.4672442847622942,
+     "std": 0.018315609172899004
+    },
+    "macro_f1": {
+     "mean": 0.3883957483422012,
+     "std": 0.012576278645492614
+    },
+    "mae": {
+     "mean": 0.661244626308578,
+     "std": 0.023229145205129396
+    },
+    "class_0_precision": {
+     "mean": 0.05000000000000001,
+     "std": 0.040824829046386304
+    },
+    "class_0_recall": {
+     "mean": 0.02857142857142857,
+     "std": 0.023328473740792173
+    },
+    "class_0_f1": {
+     "mean": 0.03636363636363636,
+     "std": 0.02969078476100822
+    },
+    "class_1_precision": {
+     "mean": 0.4939567560675555,
+     "std": 0.035397452734739945
+    },
+    "class_1_recall": {
+     "mean": 0.5093333333333333,
+     "std": 0.021506243710107054
+    },
+    "class_1_f1": {
+     "mean": 0.4979059375573928,
+     "std": 0.027821061349381192
+    },
+    "class_2_precision": {
+     "mean": 0.37970706658538655,
+     "std": 0.024768423131677465
+    },
+    "class_2_recall": {
+     "mean": 0.4255218855218856,
+     "std": 0.031913366613870744
+    },
+    "class_2_f1": {
+     "mean": 0.39867104237633405,
+     "std": 0.028198041025852143
+    },
+    "class_3_precision": {
+     "mean": 0.45935273775515534,
+     "std": 0.009701207252831424
+    },
+    "class_3_recall": {
+     "mean": 0.4774358974358974,
+     "std": 0.0315477089613887
+    },
+    "class_3_f1": {
+     "mean": 0.46411116216944004,
+     "std": 0.020766745400384465
+    },
+    "class_4_precision": {
+     "mean": 0.5788487582266928,
+     "std": 0.028814589343269165
+    },
+    "class_4_recall": {
+     "mean": 0.525025206694898,
+     "std": 0.016824748125310592
+    },
+    "class_4_f1": {
+     "mean": 0.544926963244203,
+     "std": 0.015527267917011566
+    }
+   }
+  }
+ ]
+}

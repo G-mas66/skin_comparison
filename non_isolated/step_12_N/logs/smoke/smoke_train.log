@@ -1,0 +1,3 @@
+run: seed=42 fold=1 variant=mask label=Hard Label
+train samples=96 eval samples=96 epochs=1
+epoch 01/1 mean_loss=1.5949 lr=0.0001 elapsed=1.6s

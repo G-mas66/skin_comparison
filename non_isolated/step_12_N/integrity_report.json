@@ -1,0 +1,158 @@
+{
+  "passed": true,
+  "errors": [],
+  "patient_isolation": false,
+  "patient_overlap_check": "not_required_for_patient_isolation_false",
+  "fold_stats": [
+    {
+      "fold": 1,
+      "train_count": 794,
+      "evaluation_count": 202,
+      "train_class_counts": {
+        "0": 28,
+        "1": 98,
+        "2": 179,
+        "3": 260,
+        "4": 229
+      },
+      "evaluation_class_counts": {
+        "0": 8,
+        "1": 25,
+        "2": 45,
+        "3": 66,
+        "4": 58
+      },
+      "sample_overlap": 0
+    },
+    {
+      "fold": 2,
+      "train_count": 796,
+      "evaluation_count": 200,
+      "train_class_counts": {
+        "0": 29,
+        "1": 98,
+        "2": 179,
+        "3": 261,
+        "4": 229
+      },
+      "evaluation_class_counts": {
+        "0": 7,
+        "1": 25,
+        "2": 45,
+        "3": 65,
+        "4": 58
+      },
+      "sample_overlap": 0
+    },
+    {
+      "fold": 3,
+      "train_count": 797,
+      "evaluation_count": 199,
+      "train_class_counts": {
+        "0": 29,
+        "1": 98,
+        "2": 179,
+        "3": 261,
+        "4": 230
+      },
+      "evaluation_class_counts": {
+        "0": 7,
+        "1": 25,
+        "2": 45,
+        "3": 65,
+        "4": 57
+      },
+      "sample_overlap": 0
+    },
+    {
+      "fold": 4,
+      "train_count": 798,
+      "evaluation_count": 198,
+      "train_class_counts": {
+        "0": 29,
+        "1": 99,
+        "2": 179,
+        "3": 261,
+        "4": 230
+      },
+      "evaluation_class_counts": {
+        "0": 7,
+        "1": 24,
+        "2": 45,
+        "3": 65,
+        "4": 57
+      },
+      "sample_overlap": 0
+    },
+    {
+      "fold": 5,
+      "train_count": 799,
+      "evaluation_count": 197,
+      "train_class_counts": {
+        "0": 29,
+        "1": 99,
+        "2": 180,
+        "3": 261,
+        "4": 230
+      },
+      "evaluation_class_counts": {
+        "0": 7,
+        "1": 24,
+        "2": 44,
+        "3": 65,
+        "4": 57
+      },
+      "sample_overlap": 0
+    }
+  ],
+  "roi_sample_count": 996,
+  "roi_fold_stats": [
+    {
+      "fold": 1,
+      "train_polygon_count_mean": 5.6158690176322414,
+      "eval_polygon_count_mean": 5.648514851485149,
+      "train_area_ratio_median": 0.1121961805555555,
+      "eval_area_ratio_median": 0.10614013671875,
+      "train_area_ratio_min": 0.0004679361979166,
+      "train_area_ratio_max": 0.2359958224826389
+    },
+    {
+      "fold": 2,
+      "train_polygon_count_mean": 5.584170854271357,
+      "eval_polygon_count_mean": 5.775,
+      "train_area_ratio_median": 0.11011420355902775,
+      "eval_area_ratio_median": 0.1137593587239583,
+      "train_area_ratio_min": 0.0004679361979166,
+      "train_area_ratio_max": 0.2359958224826389
+    },
+    {
+      "fold": 3,
+      "train_polygon_count_mean": 5.614805520702635,
+      "eval_polygon_count_mean": 5.653266331658291,
+      "train_area_ratio_median": 0.1108940972222222,
+      "eval_area_ratio_median": 0.1109483506944444,
+      "train_area_ratio_min": 0.0005289713541666,
+      "train_area_ratio_max": 0.2359958224826389
+    },
+    {
+      "fold": 4,
+      "train_polygon_count_mean": 5.634085213032582,
+      "eval_polygon_count_mean": 5.575757575757576,
+      "train_area_ratio_median": 0.11008707682291666,
+      "eval_area_ratio_median": 0.11521063910590276,
+      "train_area_ratio_min": 0.0004679361979166,
+      "train_area_ratio_max": 0.2359958224826389
+    },
+    {
+      "fold": 5,
+      "train_polygon_count_mean": 5.663329161451815,
+      "eval_polygon_count_mean": 5.456852791878172,
+      "train_area_ratio_median": 0.1114095052083333,
+      "eval_area_ratio_median": 0.1094902886284722,
+      "train_area_ratio_min": 0.0004679361979166,
+      "train_area_ratio_max": 0.2353990342881944
+    }
+  ],
+  "task": "five_class",
+  "num_classes": 5
+}

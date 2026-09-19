@@ -1,0 +1,28 @@
+eval samples=96
+{
+ "class_0_precision": 0.0,
+ "class_0_recall": 0.0,
+ "class_0_f1": 0.0,
+ "class_1_precision": 0.13333333333333333,
+ "class_1_recall": 0.6,
+ "class_1_f1": 0.2181818181818182,
+ "class_2_precision": 0.0,
+ "class_2_recall": 0.0,
+ "class_2_f1": 0.0,
+ "class_3_precision": 0.3888888888888889,
+ "class_3_recall": 0.4,
+ "class_3_f1": 0.39436619718309857,
+ "class_4_precision": 0.2727272727272727,
+ "class_4_recall": 0.13636363636363635,
+ "class_4_f1": 0.1818181818181818,
+ "accuracy": 0.23958333333333334,
+ "macro_f1": 0.1588732394366197,
+ "mae": 1.1666666666666667,
+ "support": [
+  4,
+  10,
+  25,
+  35,
+  22
+ ]
+}
